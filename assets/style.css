@@ -4,7 +4,7 @@
 :root {
   --title: #0e061c;
   --footer-background: #210e41;
-  --paragraphe: #3c3940;
+  --paragraph: #3c3940;
   --cta: #491e8c;
   --deep-lavender: #7e61ae;
   --lavender: #bdafd6;
@@ -77,7 +77,7 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--paragraphe);
+  color: var(--paragraph);
 }
 
 .Links {
@@ -91,7 +91,7 @@ h4 {
   color: var(--cta);
 }
 
-.Paragraphe {
+.Paragraph {
   font-family: OpenSans;
   font-size: 17px;
   font-weight: normal;
@@ -99,5 +99,5 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--paragraphe);
+  color: var(--paragraph);
 }
