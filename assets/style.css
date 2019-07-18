@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-
 :root {
-  --title: #0e061c;
-  --footer-background: #210e41;
-  --paragraph: #3c3940;
-  --cta: #491e8c;
-  --deep-lavender: #7e61ae;
-  --lavender: #bdafd6;
-  --light-background: #f2f0f7;
-  --white-background: #ffffff;
+  --Purple-1: #0e061c;
+  --Purple-2: #210e41;
+  --Purple-3: #491e8c;
+  --Lavender-1: #7e61ae;
+  --lavender-2: #bdafd6;
+  --Grey-1: #3c3940;
+  --Grey-2: #f2f0f7;
+  --White: #ffffff;
+  --Wallets-Sale: #2e1359;
+  --Wallets-Partners: #7e44d8;
+  --Wallets-Founders: #c2a3ff;
+  --Wallets-Reserve: #dfcdf7;
 }
 
-.Main-number {
+.Number1 {
   font-family: OpenSans;
   font-size: 60px;
   font-weight: bold;
@@ -20,8 +23,7 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  text-align: center;
-  color: var(--cta);
+  color: var(--Purple-3);
 }
 
 h1 {
@@ -32,7 +34,7 @@ h1 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--title);
+  color: var(--Purple-1);
 }
 
 h2 {
@@ -43,33 +45,43 @@ h2 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  text-align: center;
-  color: var(--title);
+  color: var(--Purple-1);
+}
+
+.Number2 {
+  font-family: OpenSans;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--Purple-3);
 }
 
 h3 {
   font-family: OpenSans;
   font-size: 26px;
-  font-weight: 600;
+  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--title);
+  color: var(--Purple-1);
 }
 
 h4 {
   font-family: OpenSans;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--title);
+  color: var(--Purple-1);
 }
 
-.H1-subtitle {
+.H1subtitle {
   font-family: OpenSans;
   font-size: 20px;
   font-weight: normal;
@@ -77,21 +89,33 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--paragraph);
+  color: var(--Grey-1);
 }
 
-.Links {
+.ButtonPurple {
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--cta);
+  color: var(--Purple-3);
 }
 
-.Paragraph {
+.ButtonWhite {
+  font-family: OpenSans;
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--White);
+}
+
+.Paragraphe {
   font-family: OpenSans;
   font-size: 17px;
   font-weight: normal;
@@ -99,5 +123,5 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--paragraph);
+  color: var(--Grey-1);
 }
