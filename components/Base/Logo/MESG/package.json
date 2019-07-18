@@ -1,0 +1,7 @@
+{
+  "name": "@mesg-components/atd-logo",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
