@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+
+:root {
+  --title: #0e061c;
+  --footer-background: #210e41;
+  --paragraphe: #3c3940;
+  --cta: #491e8c;
+  --deep-lavender: #7e61ae;
+  --lavender: #bdafd6;
+  --light-background: #f2f0f7;
+  --white-background: #ffffff;
+}
+
+.Main-number {
+  font-family: OpenSans;
+  font-size: 60px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--cta);
+}
+
+h1 {
+  font-family: OpenSans;
+  font-size: 38px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--title);
+}
+
+h2 {
+  font-family: OpenSans;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--title);
+}
+
+h3 {
+  font-family: OpenSans;
+  font-size: 26px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--title);
+}
+
+h4 {
+  font-family: OpenSans;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--title);
+}
+
+.H1-subtitle {
+  font-family: OpenSans;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--paragraphe);
+}
+
+.Links {
+  font-family: OpenSans;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--cta);
+}
+
+.Paragraphe {
+  font-family: OpenSans;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--paragraphe);
+}
