@@ -6,8 +6,7 @@ storiesOf('MesgCard', module)
     components: { MesgCard },
     template: `
       <MesgCard />
-    `,
-    data: () => ({ card: 'card' })
+    `
   }))
   .add('outline', () => ({
     components: { MesgCard },
