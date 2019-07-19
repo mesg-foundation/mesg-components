@@ -19,7 +19,7 @@
     "vuetify": "^1.5.16"
   },
   "scripts": {
-    "storybook": "start-storybook -s ./assets/ -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
 }
