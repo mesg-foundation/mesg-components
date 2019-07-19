@@ -1,5 +1,5 @@
 {
-  "name": "@mesg-components/atd-card",
+  "name": "@mesg-components/mesg-card",
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
