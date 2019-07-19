@@ -26,7 +26,3 @@ storiesOf('Button', module)
     components: { Button },
     template: `<Button outline>TEST</Button>`
   }))
-  .add('Tag a with icon', () => ({
-    components: { Button },
-    template: `<a href='https://github.com/mesg-foundation' target="_blank" ><i class="fab fa-github"></i> Github MESG Foundation</a>`
-  }))
