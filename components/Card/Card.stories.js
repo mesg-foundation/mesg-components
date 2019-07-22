@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Card from './Card.vue'
 
+import '../../assets/style.css'
+
 storiesOf('Card', module)
   .add('default', () => ({
     components: { Card },

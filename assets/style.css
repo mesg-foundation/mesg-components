@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css');
 
 :root {
   --Purple-1: #0e061c;
   --Purple-2: #210e41;
   --Purple-3: #491e8c;
+  --Purple-Shadow: #3B1873;
   --Lavender-1: #7e61ae;
   --lavender-2: #bdafd6;
   --Grey-1: #3c3940;
@@ -13,6 +15,10 @@
   --Wallets-Partners: #7e44d8;
   --Wallets-Founders: #c2a3ff;
   --Wallets-Reserve: #dfcdf7;
+
+  --mobile-only: 414px;
+  --mobile-breakpoint: 768px;
+  --tablet-breakpoint: 1024px;
 }
 
 .Number1 {
