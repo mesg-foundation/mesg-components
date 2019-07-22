@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Button from './Button.vue'
 
+import '../../assets/style.css'
+
 storiesOf('Button', module)
   .add('Default', () => ({
     components: { Button },

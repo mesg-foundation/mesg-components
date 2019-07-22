@@ -61,8 +61,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../../assets/style.css';
-
 a,
 button {
   border-radius: 3px;

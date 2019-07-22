@@ -26,8 +26,6 @@ export default {
 
 
 <style scoped>
-@import '../../assets/style.css';
-
 .card {
   border-radius: 6px;
   background-color: var(--white);
