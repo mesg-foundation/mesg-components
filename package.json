@@ -16,7 +16,11 @@
   "dependencies": {
     "material-design-icons-iconfont": "^5.0.1",
     "vue": "^2.6.10",
-    "vuetify": "^1.5.16"
+    "vuetify": "^1.5.16",
+    "chart.js": "^2.8.0",
+    "highcharts": "^7.1.2",
+    "tinycolor2": "^1.4.1",
+    "vue-chartjs": "^3.4.2"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
