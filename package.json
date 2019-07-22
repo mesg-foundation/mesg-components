@@ -20,6 +20,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "package": "lerna add $FIRST --scope=$SECOND",
+    "package:dev": "lerna add $FIRST --scope=$SECOND --dev"
   }
 }
