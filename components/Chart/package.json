@@ -1,0 +1,12 @@
+{
+  "name": "@mesg-components/chart",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chart.js": "^2.8.0",
+    "highcharts": "^7.1.2",
+    "vue-chartjs": "^3.4.2"
+  }
+}
