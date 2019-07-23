@@ -1,37 +1,45 @@
 <template>
   <div>
-    <v-data-table :headers="headers" :items="items" hide-actions item-key="link" :expand="expand">
-      <template v-slot:items="props">
-        <tr @click="props.expanded = !props.expanded">
+    <table>
+      <thead>
+        <tr>
+          <th v-for="(head,i) in headers" :key="i">
+            <div :style="align(head.align)">{{ head.text}}</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, rowIndex) in items" :key="rowIndex">
           <td v-for="(header,i) in headers" :key="i">
-            <a v-if="header.link" :href="props.item[header.value]" target="_blank">
-              <img :src="src(header.icon)" :srcset="srcset(header.icon)" />
-            </a>
-            <div v-else-if="header.collapse" class="collapse">
-              <img :src="src(header.icon)" />
+            <div :style="align(header.align)">
+              <a v-if="header.link" :href="row[header.value]" target="_blank">
+                <img :src="src(header.icon)" :srcset="srcset(header.icon)" />
+              </a>
+              <div v-else-if="header.collapse" class="collapse">
+                <img :src="src(header.icon)" :srcset="srcset(header.icon)" />
+              </div>
+              <div
+                v-else-if="header.type=='number'"
+              >{{ row[header.value] | number(header.decimalDigit) }}</div>
+              <div
+                v-else-if="header.type=='percentage'"
+              >{{ row[header.value] | number(header.decimalDigit) }}%</div>
+              <div v-else>{{ row[header.value] }}</div>
             </div>
-            <div v-else-if="header.type=='number'">{{ props.item[header.value] | number('0,0.00') }}</div>
-            <div v-else-if="header.type=='percentage'" >{{ props.item[header.value] | number('0,0.00') }}%</div>          
-            <div v-else>{{ props.item[header.value] }}</div>
           </td>
         </tr>
-      </template>
-
-      <template v-slot:expand="props">
-        <v-card flat>
-          <v-card-text>Peek-a-boo!</v-card-text>
-        </v-card>
-      </template>
-    </v-data-table>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
 export default {
-  name: "mytable",
+  name: "mesgTable",
   data() {
     return {
-      expand: false
+      expand: false,
+      decimalDigit: 4
     };
   },
   props: {
@@ -44,7 +52,13 @@ export default {
       required: true
     }
   },
-  computed: {},
+  filters: {
+    number(value, decimalDigit) {
+      return value.toLocaleString(undefined, {
+        maximumFractionDigits: decimalDigit
+      })      
+    }
+  },
   methods: {
     src(name) {
       return require(`../../assets/images/${name}.png`);
@@ -53,6 +67,9 @@ export default {
       const img2x = require(`../../assets/images/${name}@2x.png`);
       const img3x = require(`../../assets/images/${name}@3x.png`);
       return `${img2x}, ${img3x}`;
+    },
+    align(style) {
+      return `text-align: ${style}`;
     }
   }
 };
@@ -64,9 +81,28 @@ img {
   margin-bottom: 20px;
 }
 
-.collapse {
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+tbody {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tbody > tr:hover {
   cursor: pointer;
-  text-align: center;
-  margin: 20px;
+  background-color: lavender;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 </style>
