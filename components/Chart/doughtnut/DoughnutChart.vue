@@ -17,36 +17,40 @@ export default {
     tooltips: { type: Boolean, default: false },
     'animate-rotate': { type: Boolean, default: false },
     responsive: { type: Boolean, default: false },
-    maintainAspectRatio: { type: Boolean, default: false }
+    maintainAspectRatio: { type: Boolean, default: false },
+    legend: { type: Boolean, default: false }
   },
   computed: {
     options() {
       return {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: this.responsive,
+        maintainAspectRatio: this.maintainAspectRatio,
         animation: {
           animateRotate: this.animateRotate
         },
         tooltips: {
-          enabled: !this.tooltips
+          enabled: this.tooltips
         },
         elements: {
           center: {
-            text: '7%'
+            text: `MESG Token released from yesterday \\n traded volume`,
+            textNumber: '7%'
           }
         },
-        centercolor: '#7e61ae'
+        legend: {
+          display: this.legend
+        },
+        centercolor: '#7e61ae',
+        cutoutPercentage: 85
       }
     },
     labels() {
-      return []
+      return ['Wallets Sale', 'test']
     },
     datasets() {
       return [
         {
-          backgroundColor: Array.isArray(this.chartColor)
-            ? [tinycolor('#491e8c').toString(), 'red', 'rgb(255, 75, 9)', '#000']
-            : tinycolor('#491e8c').toString(),
+          backgroundColor: this.chartColor,
           data: this.items
         }
       ]
