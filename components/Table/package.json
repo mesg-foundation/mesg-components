@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@mesg-components/tableRow": "^0.1.0"
   }
 }
