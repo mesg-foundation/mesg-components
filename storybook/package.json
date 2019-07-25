@@ -20,6 +20,7 @@
   "dependencies": {
     "@mesg-components/button": "file:../components/Button",
     "@mesg-components/card": "file:../components/Card",
-    "@mesg-components/chart": "file:../components/Chart"
+    "@mesg-components/chart": "file:../components/Chart",
+    "vue": "^2.6.10"
   }
 }
