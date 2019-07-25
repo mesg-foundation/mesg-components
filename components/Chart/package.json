@@ -3,5 +3,9 @@
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "highcharts": "^7.1.2",
+    "tinycolor2": "^1.4.1"
   }
 }

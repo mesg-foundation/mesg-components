@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import PieChart from './PieChart'
+import PieChart from '@mesg-components/chart/Pie/PieChart'
 
-import '../../../assets/style.css'
+import '../style.css'
 
 const items = [
   { name: 'Sale', y: 2.5, color: '#2e1359' },
