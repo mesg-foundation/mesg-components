@@ -1,5 +1,5 @@
 {
-  "name": "@mesg-components/tableRow",
+  "name": "@mesg-components/table-row",
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
