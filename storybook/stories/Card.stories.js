@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import Card from './Card.vue'
+import Card from '@mesg-components/card/Card'
 
-import '../../assets/style.css'
+import '../style.css'
 
 storiesOf('Card', module)
   .add('default', () => ({
