@@ -14,9 +14,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "material-design-icons-iconfont": "^5.0.1",
     "vue": "^2.6.10",
-    "vuetify": "^1.5.16",
     "highcharts": "^7.1.2",
     "tinycolor2": "^1.4.1"
   },
