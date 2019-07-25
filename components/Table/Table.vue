@@ -5,7 +5,7 @@
         <tr>
           <slot name="columns">
             <th v-for="(head,i) in headers" :key="i">{{ head.text}}</th>
-            <th v-show="showExpand">Expand</th>
+            <th v-show="showExpand"></th>
           </slot>
         </tr>
       </thead>
@@ -15,8 +15,8 @@
             <slot :row="item">
               <!-- default content -->
               <td v-for="(header,i) in headers" :key="i">{{ item[header.value]}}</td>
-              <td v-show="showExpand">
-                <img :src="src(item.id)" />
+              <td v-show="showExpand">                
+                <i class="fas" :class="src(item.id)"></i>
               </td>
             </slot>
           </tr>
@@ -63,9 +63,9 @@ export default {
       let expanded = this.expanded.find(e => e.id === id && e.isExpand);
 
       if (expanded) {
-        return require(`../../assets/images/angle-up-purple.png`);
+        return 'fa-chevron-up'
       } else {
-        return require(`../../assets/images/angle-down-purple.png`);
+        return 'fa-chevron-down'
       }
     },      
     expandDetail(id) {
@@ -88,6 +88,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css')
 img {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -101,12 +102,18 @@ table {
 
 tbody {
   border: 1px solid #ddd;
+  
 }
 
 th {
   text-align: left;
   padding: 10px 0px 10px 20px;
 }
+
+tr{
+  height: 80px;
+}
+
 td {
   text-align: left;
   padding-left: 20px;
@@ -114,7 +121,7 @@ td {
 }
 
 tbody > tr:hover {
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .item-background {
