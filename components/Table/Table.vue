@@ -88,7 +88,8 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css')
+@import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css');
+
 img {
   margin-top: 10px;
   margin-bottom: 10px;
