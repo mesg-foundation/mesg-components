@@ -3,38 +3,29 @@
     <table>
       <thead>
         <tr>
-          <th v-for="(head,i) in headers" :key="i">
-            <div :style="align(head.align)">{{ head.text}}</div>
-          </th>
+          <slot name="columns">
+            <th v-for="(head,i) in headers" :key="i">{{ head.text}}</th>
+            <th v-show="showExpand">Expand</th>
+          </slot>
         </tr>
       </thead>
       <tbody>
-        <template v-for="row in items">
-          <tr :key="row.link" @click="expandDetail(row.id)">
-            <td v-for="(header,i) in headers" :key="i">
-              <div :style="align(header.align)">
-                <a v-if="header.link" :href="row[header.value]" target="_blank">
-                  <img :src="link(header.icon)" />
-                </a>
-                <div v-else-if="header.collapse" class="collapse">
-                  <img :src="src(row.id)" />
-                </div>
-                <div
-                  v-else-if="header.type=='number'"
-                >{{ row[header.value] | number(header.decimalDigit) }}</div>
-                <div
-                  v-else-if="header.type=='percentage'"
-                >{{ row[header.value] | number(header.decimalDigit) }}%</div>
-                <div v-else>{{ row[header.value] }}</div>
-              </div>
-            </td>
+        <template v-for="item in items">
+          <tr :key="item.link" @click="expandDetail(item.id)">
+            <slot :row="item">
+              <!-- default content -->
+              <td v-for="(header,i) in headers" :key="i">{{ item[header.value]}}</td>
+              <td v-show="showExpand">
+                <img :src="src(item.id)" />
+              </td>
+            </slot>
           </tr>
-          <tr v-if="toggle.includes(row.id)" :key="row.id">
-            <td :colspan="headers.length">
-              <TableRow
-                :distributions="row.distributions"
-                :title="`Distribution of the MESG Token released`"
-              />
+          <tr v-show="showExpand" v-if="toggle.includes(item.id)" :key="item.id">
+            <td :colspan="columnSpan">
+              <slot name="expandItem" :distributions="item.distributions"> 
+                <!-- default content -->
+                <div class="item-background"> Hello world </div>
+              </slot>
             </td>
           </tr>
         </template>
@@ -44,21 +35,15 @@
 </template>
 
 <script>
-import TableRow from "@mesg-components/tableRow/TableRow";
 export default {
-  name: "mesgTable",
-  components: {
-    TableRow
+  name: "Table",
+  components: {    
   },
   props: {
-    headers: {
-      type: Array,
-      required: true
-    },
-    items: {
-      type: Array,
-      required: true
-    }
+    headers: Array,
+    items: Array,
+    showExpand: Boolean,
+    subTitle:String
   },
   data() {
     return {
@@ -68,11 +53,9 @@ export default {
       toggle: []
     };
   },
-  filters: {
-    number(value, decimalDigit) {
-      return value.toLocaleString(undefined, {
-        maximumFractionDigits: decimalDigit
-      });
+  computed:{
+    columnSpan() {
+      return this.showExpand ? this.headers.length + 1 : this.headers.length;
     }
   },
   methods: {
@@ -84,13 +67,7 @@ export default {
       } else {
         return require(`../../assets/images/angle-down-purple.png`);
       }
-    },
-    link(name) {
-      return require(`../../assets/images/${name}.png`);
-    },
-    align(style) {
-      return `text-align: ${style}`;
-    },
+    },      
     expandDetail(id) {
       const index = this.toggle.indexOf(id);
       if (index > -1) {
@@ -127,6 +104,7 @@ tbody {
 }
 
 th {
+  text-align: left;
   padding: 10px 0px 10px 20px;
 }
 td {
@@ -137,5 +115,13 @@ td {
 
 tbody > tr:hover {
   cursor: pointer;
+}
+
+.item-background {
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  background-color: var(--Grey-2);
 }
 </style>
