@@ -1,39 +1,39 @@
 <template>
   <div class="item-background">
-    <p class="container-header">{{ title }} </p>
+    <p class="container-header">{{ title }}</p>
     <ul class="container flex">
-      <li class="item flex-item" v-for="dist in distributions" :key="dist.name">
-        <div class="circle margin-20" :class="dist.name"></div>
-        <div class="margin-20 bold">{{dist.name | capitalize}}</div>
-        <div class="margin-20">
-          <label class="label">{{dist| label(dist.amount) | capitalize}}:</label>
-          <label class="value">{{dist.amount}}</label>
-        </div>
-        <div class="margin-20">
-          <label class="label">{{dist| label(dist.percentage) | capitalize}}:</label>
-          <label class="value">{{dist.percentage}}</label>
-        </div>
+      <li class="item flex-item" v-for="(distribute,i) in distributions" :key="i">
+        <slot :item="distribute">          
+          <div class="circle margin-20" :class="distribute.name"></div>
+          <div class="margin-20 bold">{{distribute.name | capitalize}}</div>
+          <div class="margin-20">
+            <label class="label">{{distribute | label(distribute.amount) | capitalize}}:</label>
+            <label class="value">{{distribute.amount}}</label>
+          </div>
+          <div class="margin-20">
+            <label class="label">{{distribute | label(distribute.percentage) | capitalize}}:</label>
+            <label class="value">{{distribute.percentage}}</label>
+          </div>
+        </slot>
       </li>
     </ul>
-  </div>                
+  </div>
 </template>
 
 <script>
 export default {
-  name:'distribution',
-  data(){
-    return {
-
-    }
+  name: "distribution",
+  data() {
+    return {};
   },
-  props:{
-    title:String,
-    distributions:{
-      type:Array,
+  props: {
+    title: String,
+    distributions: {
+      type: Array,
       required: true
     }
   },
-  filters:{    
+  filters: {
     capitalize(content) {
       if (typeof content !== "string") return "";
       return content.charAt(0).toUpperCase() + content.slice(1);
@@ -42,7 +42,7 @@ export default {
       return Object.keys(object).find(key => object[key] === value);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -99,8 +99,8 @@ export default {
   margin: 20px;
 }
 
-.bold {  
-  font-weight: 600;  
+.bold {
+  font-weight: 600;
   color: var(--Purple-1);
 }
 
