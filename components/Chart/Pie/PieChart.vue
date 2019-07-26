@@ -4,7 +4,6 @@
 
 <script>
 import Highcharts from 'highcharts'
-import Color from 'tinycolor2'
 import chart from '../chart.mixin'
 export default {
   name: 'PieChart',

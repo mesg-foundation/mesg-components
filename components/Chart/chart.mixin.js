@@ -1,5 +1,3 @@
-import Color from 'tinycolor2'
-
 export default {
   props: {
     items: { type: Array | Object },
