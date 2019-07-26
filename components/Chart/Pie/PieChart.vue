@@ -9,9 +9,7 @@ import chart from '../chart.mixin'
 export default {
   name: 'PieChart',
   mixins: [chart],
-  props: {
-    innerSize: { type: String }
-  },
+  props: { innerSize: { type: String } },
   data() {
     return {
       chart: undefined
