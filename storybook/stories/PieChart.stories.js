@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import PieChart from '@mesg-components/chart/Pie'
+import PieChart from '@mesg-components/chart/Pie/PieChart'
 
 import '../style.css'
 
@@ -14,20 +14,44 @@ storiesOf('PieChart', module)
   .add('With data', () => ({
     components: { PieChart },
     template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
-    data: () => ({ items, title: '6%', subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume', optionsTitle: {verticalAlign:'middle', y: -10}, optionsSub: {verticalAlign:'middle'} })
+    data: () => ({
+      items,
+      title: '6%',
+      subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume',
+      optionsTitle: { verticalAlign: 'middle', y: -10 },
+      optionsSub: { verticalAlign: 'middle' }
+    })
   }))
   .add('With credits', () => ({
     components: { PieChart },
     template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" credit inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
-    data: () => ({ items, title: '6%', subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume' , optionsTitle: {verticalAlign:'middle', y: -10}, optionsSub: {verticalAlign:'middle'}})
+    data: () => ({
+      items,
+      title: '6%',
+      subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume',
+      optionsTitle: { verticalAlign: 'middle', y: -10 },
+      optionsSub: { verticalAlign: 'middle' }
+    })
   }))
   .add('Without legend', () => ({
     components: { PieChart },
     template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-legend inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
-    data: () => ({ items, title: '6%', subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume' , optionsTitle: {verticalAlign:'middle', y: -10}, optionsSub: {verticalAlign:'middle'} })
+    data: () => ({
+      items,
+      title: '6%',
+      subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume',
+      optionsTitle: { verticalAlign: 'middle', y: -10 },
+      optionsSub: { verticalAlign: 'middle' }
+    })
   }))
   .add('Without tooltip', () => ({
     components: { PieChart },
     template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-tooltip inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
-    data: () => ({ items, title: '6%', subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume' , optionsTitle: {verticalAlign:'middle', y: -10}, optionsSub: {verticalAlign:'middle'}})
+    data: () => ({
+      items,
+      title: '6%',
+      subTitle: 'MESG Tokens released from <br/> yesterday’s trading volume',
+      optionsTitle: { verticalAlign: 'middle', y: -10 },
+      optionsSub: { verticalAlign: 'middle' }
+    })
   }))
