@@ -5,71 +5,62 @@
 <script>
 import Highcharts from 'highcharts'
 import Color from 'tinycolor2'
+import chart from '../chart.mixin'
 export default {
   name: 'PieChart',
+  mixins: [chart],
   props: {
-    items: { type: Array, required: true },
-    noTooltip: { type: Boolean, default: false },
-    noCredit: { type: Boolean, default: false },
-    noLegend: { type: Boolean, default: false },
-    title: { type: String },
-    titleColor: { type: String },
-    subTitle: { type: String },
-    subColor: { type: String }
+    innerSize: { type: String }
   },
   data() {
     return {
       chart: undefined
     }
   },
+  methods: {
+    onResize(e) {
+      const { clientWidth, clientHeight } = this.$el
+      this.chart.setSize(clientWidth, clientHeight, false)
+    }
+  },
   mounted() {
-    const highchartsOptions = {
-      chart: {
-        type: 'pie',
-        renderTo: 'piechart'
-      },
-      credits: {
-        enabled: !this.noCredit,
-        href: 'https://mesg.com/',
-        text: 'mesg.com'
-      },
-      tooltip: {
-        headerFormat: '',
-        pointFormat: '<span style="color:{point.color}">●</span> <b> {point.name}</b>: {point.y}%',
-        enabled: !this.noTooltip
-      },
-      title: {
-        text: this.title,
-        style: {
-          color: Color(this.titleColor).toString(),
-          fontSize: '36px'
-        },
-        verticalAlign: 'middle',
-        y: -25
-      },
-      subtitle: {
-        text: this.subTitle,
-        style: {
-          color: Color(this.subColor).toString(),
-          fontSize: '12px'
-        },
-        verticalAlign: 'middle',
-        y: 10
-      },
+    this.chart = new Highcharts.chart({
       plotOptions: {
         pie: {
-          innerSize: '85%',
-          allowPointSelect: true,
+          innerSize: `${this.innerSize}%`,
+          allowPointSelect: false,
           cursor: 'pointer',
           dataLabels: {
             enabled: false
           },
+          center: ['50%', '50%'],
           showInLegend: !this.noLegend
         }
       },
-      series: [{ data: this.items }]
-    }
-    this.chart = new Highcharts.chart(highchartsOptions)
+      chart: this.chartType('pie', 'piechart'),
+      title: this.titleOption(this.title, { color: this.titleColor, fontSize: this.titleSize }, this.optionsTitle),
+      subtitle: this.subTitleOption(this.subTitle, { color: this.subColor, fontSize: this.subSize }, this.optionsSub),
+      series: this.seriesData(this.items, this.tooltipDescription),
+      tooltip: this.tooltipOption(!this.noTooltip),
+      credits: this.creditsOption(this.credit),
+      legend: this.legendOption(!this.noLegend, {
+        layout: 'horizontal'
+      }),
+      responsive: {
+        rules: [
+          {
+            condition: {
+              maxWidth: 400
+            },
+            chartOptions: {
+              legend: this.legendOption(!this.noLegend, { align: 'center', verticalAlign: 'bottom', layout: 'vertical' })
+            }
+          }
+        ]
+      }
+    })
+
+    window.onresize = this.onResize.bind(this)
   }
 }
 </script>
