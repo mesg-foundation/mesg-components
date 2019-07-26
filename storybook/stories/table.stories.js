@@ -118,74 +118,6 @@ storiesOf('Table', module)
       ]
     })
   }))
-  .add('Expand', () => ({
-    components: { Table },
-    template: `
-      <Table showExpand
-        :headers="headers"
-        :items="items"              
-      >
-      <template slot="expandItem">
-        <div class="item-background"> Default content </div>
-      </template>
-      </Table>`,
-    data: () => ({
-      headers: [
-        { text: 'Date', align: 'left', value: 'date', type: 'date' },
-        { text: 'Trade Volume', align: 'left', value: 'tradeVolume', type: 'number', decimalDigit: 4 },
-        { text: 'Token Release', align: 'left', value: 'tokenRelease', type: 'number', decimalDigit: 4 },
-        { text: 'Percentage', align: 'left', value: 'percentage', type: 'percentage' },
-        { text: 'Link', align: 'center', value: 'link', link: true, icon: 'etherscan' }
-      ],
-      items: [
-        {
-          id: 1,
-          date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-          tradeVolume: 1234.08989,
-          tokenRelease: 251924.3499899889,
-          percentage: '7',
-          link: 'link1',
-          collapse: '',
-          distributions: [
-            { name: 'sale', amount: '1234.48', percentage: 2 },
-            { name: 'partner', amount: '7339366998.48', percentage: 1 },
-            { name: 'founder', amount: '146796.24', percentage: 4 },
-            { name: 'reserve', amount: '0.00', percentage: 0 }
-          ]
-        },
-        {
-          id: 2,
-          date: 'Sat, 06 Jul 2019 07:00:12 GMT',
-          tradeVolume: 5678.087655,
-          tokenRelease: 351924.349876,
-          percentage: '6',
-          link: 'link2',
-          collapse: '',
-          distributions: [
-            { name: 'sale', amount: '5678.48', percentage: 2 },
-            { name: 'partner', amount: '7339366998.48', percentage: 1 },
-            { name: 'founder', amount: '146796.24', percentage: 2 },
-            { name: 'reserve', amount: '0.00', percentage: 0 }
-          ]
-        },
-        {
-          id: 3,
-          date: 'Sun, 07 Jul 2019 07:00:12 GMT',
-          tradeVolume: 9012.087655,
-          tokenRelease: 351924.349876,
-          percentage: '6',
-          link: 'link3',
-          collapse: '',
-          distributions: [
-            { name: 'sale', amount: '9876.48', percentage: 2 },
-            { name: 'partner', amount: '3333366998.48', percentage: 1 },
-            { name: 'founder', amount: '111796.24', percentage: 2 },
-            { name: 'reserve', amount: '0.00', percentage: 0 }
-          ]
-        }
-      ]
-    })
-  }))
   .add('Custom-header', () => ({
     components: { Table },
     template: `
@@ -197,9 +129,6 @@ storiesOf('Table', module)
           <th>Percentage(Custom)</th>
           <th>Link(Custom)</th>        
         </template>        
-        <template slot="expandItem">
-          <div class="item-background"> Default content </div>
-        </template>
       </Table>`,
     data: () => ({
       headers: [
@@ -246,8 +175,7 @@ storiesOf('Table', module)
           <th>Trade Volume</th>
           <th>Token Release</th>
           <th>Percentage</th>
-          <th>Link</th>    
-          <th></th>              
+          <th>Link</th>        
         </template>
         <template slot-scope="{ row }">
           <td>{{ row.date }}</td>
@@ -255,11 +183,7 @@ storiesOf('Table', module)
           <td>{{ row.tokenRelease }}</td>
           <td>{{ row.percentage }}</td>
           <td>{{ row.link }}</td>
-          <td> Expand & Collapse </td>
-        </template>
-        <template slot="expandItem"">
-          <div class="item-background"> Default content </div>
-        </template>
+        </template>       
       </Table>`,
     data: () => ({
       headers: [
