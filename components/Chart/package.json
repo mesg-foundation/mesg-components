@@ -5,7 +5,6 @@
     "access": "public"
   },
   "dependencies": {
-    "highcharts": "^7.1.2",
-    "tinycolor2": "^1.4.1"
+    "highcharts": "^7.1.2"
   }
 }
