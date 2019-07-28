@@ -1,13 +1,12 @@
-<template>
-  <div>
+<template>  
     <table>
       <thead>
         <tr>
-          <td
+          <th
             v-for="(header, i) in headers"
             :key="i"
             :style="textAlign(header.align)"
-          >{{header.text}}</td>
+          >{{header.text}}</th>
         </tr>
       </thead>
       <tbody>
@@ -19,8 +18,7 @@
           >{{ row[header.value]}}</td>
         </tr>
       </tbody>
-    </table>
-  </div>
+    </table>  
 </template>
 
 <script>
