@@ -1,24 +1,25 @@
-<template>  
-    <table>
-      <thead>
-        <tr>
-          <th
-            v-for="(header, i) in headers"
-            :key="i"
-            :style="textAlign(header.align)"
-          >{{header.text}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, j) in items" :key="j">
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">{{header.text}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template v-for="(item,j) in items">
+        <tr :key="j" @click="expandDetail(item.id)">
           <td
             v-for="(header,i) in headers"
             :key="i"
             :style="textAlign(header.align)"
-          >{{ row[header.value]}}</td>
+          >{{ item[header.value]}}</td>
         </tr>
-      </tbody>
-    </table>  
+        <tr v-show="showExpand" v-if="toggle.includes(item.id)" :key="item.id" class="expand">
+          <td :colspan="columnSpan">{{ item }}</td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -32,6 +33,18 @@ export default {
     items: {
       type: Array,
       required: true
+    },
+    showExpand: Boolean
+  },
+  data() {
+    return {
+      toggle: [],
+      expanded: []
+    };
+  },
+  computed: {
+    columnSpan() {
+      return this.showExpand ? this.headers.length + 1 : this.headers.length;
     }
   },
   methods: {
@@ -39,6 +52,21 @@ export default {
       return {
         "text-align": align || "left"
       };
+    },
+    expandDetail(id) {
+      const index = this.toggle.indexOf(id);
+      if (index > -1) {
+        this.toggle.splice(index, 1);
+      } else {
+        this.toggle.push(id);
+      }
+
+      const expanded = this.expanded.find(e => e.id === id);
+      if (expanded) {
+        expanded.isExpand = !expanded.isExpand;
+      } else {
+        this.expanded.push({ id, isExpand: true });
+      }
     }
   }
 };
@@ -80,5 +108,13 @@ tbody {
 
 tbody tr {
   border-bottom: solid 1px var(--lavender-2);
+}
+
+tbody tr:not(.expand):hover {
+  cursor: pointer;
+}
+
+.expand {
+  background-color: var(--Grey-2);
 }
 </style>
