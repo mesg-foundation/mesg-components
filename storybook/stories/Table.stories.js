@@ -16,7 +16,7 @@ const items = new Array(10).fill(null).map((x, i) => {
   const volume = Math.random() * 5000000
   return {
     id: i + 1,
-    date: new Date() - (i * 60 * 60 * 1000),
+    date: new Date() - (i * 24 * 60 * 60 * 1000),
     tradeVolume: volume,
     tokenRelease: volume * percentage,
     percentage: percentage,
