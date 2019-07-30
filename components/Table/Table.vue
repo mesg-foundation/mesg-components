@@ -1,24 +1,18 @@
-<template>  
-    <table>
-      <thead>
-        <tr>
-          <th
-            v-for="(header, i) in headers"
-            :key="i"
-            :style="textAlign(header.align)"
-          >{{header.text}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, j) in items" :key="j">
-          <td
-            v-for="(header,i) in headers"
-            :key="i"
-            :style="textAlign(header.align)"
-          >{{ row[header.value]}}</td>
-        </tr>
-      </tbody>
-    </table>  
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">{{header.text}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, j) in items" :key="j">
+        <td v-for="(header,i) in headers" :key="i" :style="textAlign(header.align)">
+          <slot :name="header.key" :item="item">{{ item[header.value] }}</slot>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>

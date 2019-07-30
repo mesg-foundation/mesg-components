@@ -3,106 +3,40 @@ import Table from '@mesg-components/table/Table'
 
 import '../style.css'
 
+const headers = [
+  { key: 'date', text: 'Date', align: 'left', value: 'date' },
+  { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume' },
+  { key: 'token', text: 'Token Release', align: 'center', value: 'tokenRelease' },
+  { key: 'percentage', text: 'Percentage', align: 'center', value: 'percentage' },
+  { key: 'link', text: 'Link', align: 'center', value: 'link' }
+]
+
+const items = new Array(10).fill(null).map((x, i) => {
+  const percentage = Math.random() * 10
+  const volume = Math.random() * 5000000
+  return {
+    id: i + 1,
+    date: new Date() - (i * 60 * 60 * 1000),
+    tradeVolume: volume,
+    tokenRelease: volume * percentage,
+    percentage: percentage,
+    txhash: '0x'
+  }
+})
 
 storiesOf('Table', module).add('default', () => ({
   components: { Table },
-  template: `<Table
-      :headers="headers"
-      :items="items"
-    ></Table>`,
+  template: `<Table :items="items" :headers="headers">
+    <template v-slot:date="{ item }">{{ new Date(item.date).toString() }}</template>
+    <template v-slot:volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
+    <template v-slot:token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
+    <template v-slot:percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
+    <template v-slot:link="{ item }">
+      <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
+    </template>
+  </Table>`,
   data: () => ({
-    headers: [
-      {
-        text: 'Date',
-        align: 'left',
-        value: 'date'
-      },
-      { text: 'Traded Volume', align:'center', value: 'tradeVolume' },
-      { text: 'Token Release', align:'center', value: 'tokenRelease' },
-      { text: 'Percentage', align:'center', value: 'percentage' },
-      { text: 'Link', align:'center', value: 'link' }
-    ],
-    items: [
-      {
-        id: 1,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 2,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 3,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 4,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 5,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 6,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 7,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 8,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 9,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      },
-      {
-        id: 10,
-        date: 'Fri, 05 Jul 2019 07:00:12 GMT',
-        tradeVolume:'3,598,919.08',
-        tokenRelease: '251,924.34',
-        percentage: 6.0,
-        link: 24
-      }
-    ]
+    headers,
+    items
   })
 }))
