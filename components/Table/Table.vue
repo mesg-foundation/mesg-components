@@ -2,15 +2,26 @@
   <table>
     <thead>
       <tr>
-        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">{{header.text}}</th>
+        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">
+          <slot :name="`header_${header.key}`" :header="header"> 
+            {{header.text}} 
+            </slot>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, j) in items" :key="j">
-        <td v-for="(header,i) in headers" :key="i" :style="textAlign(header.align)">
-          <slot :name="header.key" :item="item">{{ item[header.value] }}</slot>
-        </td>
-      </tr>
+      <template v-for="item in items">
+        <tr :key="item.length" @click="expandDetail(item.id)">
+          <td v-for="(header,i) in headers" :key="i" :style="textAlign(header.align)">
+            <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
+          </td>
+        </tr>
+        <tr v-if="showExpand && toggle.includes(item.id)" :key="item.id">
+          <td :colspan="columnSpan">            
+            <slot name="expand" :detail="item"/>
+          </td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
@@ -26,6 +37,18 @@ export default {
     items: {
       type: Array,
       required: true
+    },
+    showExpand: Boolean
+  },
+  data() {
+    return {
+      toggle: [],
+      expanded: []
+    };
+  },
+  computed: {
+    columnSpan() {
+      return this.showExpand ? this.headers.length + 1 : this.headers.length;
     }
   },
   methods: {
@@ -33,6 +56,21 @@ export default {
       return {
         "text-align": align || "left"
       };
+    },
+    expandDetail(id) {      
+      const index = this.toggle.indexOf(id);
+      if (index > -1) {
+        this.toggle.splice(index, 1);
+      } else {
+        this.toggle.push(id);
+      }
+
+      const expanded = this.expanded.find(e => e.id === id);
+      if (expanded) {
+        expanded.isExpand = !expanded.isExpand;
+      } else {
+        this.expanded.push({ id, isExpand: true });
+      }
     }
   }
 };

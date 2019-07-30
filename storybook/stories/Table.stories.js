@@ -4,11 +4,11 @@ import Table from '@mesg-components/table/Table'
 import '../style.css'
 
 const headers = [
-  { key: 'date', text: 'Date', align: 'left', value: 'date' },
-  { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume' },
-  { key: 'token', text: 'Token Release', align: 'center', value: 'tokenRelease' },
-  { key: 'percentage', text: 'Percentage', align: 'center', value: 'percentage' },
-  { key: 'link', text: 'Link', align: 'center', value: 'link' }
+  { key: 'date', text: 'Date', align: 'left', value: 'date'},
+  { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume'},
+  { key: 'token', text: 'Token Release', align: 'center', value: 'tokenRelease'},
+  { key: 'percentage', text: 'Percentage', align: 'center', value: 'percentage'},
+  { key: 'link', text: 'Link', align: 'center', value: 'link'}
 ]
 
 const items = new Array(10).fill(null).map((x, i) => {
@@ -16,7 +16,7 @@ const items = new Array(10).fill(null).map((x, i) => {
   const volume = Math.random() * 5000000
   return {
     id: i + 1,
-    date: new Date() - (i * 24 * 60 * 60 * 1000),
+    date: new Date() - i * 24 * 60 * 60 * 1000,
     tradeVolume: volume,
     tokenRelease: volume * percentage,
     percentage: percentage,
@@ -24,19 +24,64 @@ const items = new Array(10).fill(null).map((x, i) => {
   }
 })
 
-storiesOf('Table', module).add('default', () => ({
-  components: { Table },
-  template: `<Table :items="items" :headers="headers">
-    <template v-slot:date="{ item }">{{ new Date(item.date).toString() }}</template>
-    <template v-slot:volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
-    <template v-slot:token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
-    <template v-slot:percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
-    <template v-slot:link="{ item }">
+storiesOf('Table', module)
+  .add('default', () => ({
+    components: { Table },
+    template: `<Table :items="items" :headers="headers">  
+    <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
+    <template v-slot:item_trade="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
+    <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
+    <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
+    <template v-slot:item_link="{ item }">
       <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
     </template>
   </Table>`,
-  data: () => ({
-    headers,
-    items
-  })
-}))
+    data: () => ({
+      headers,
+      items
+    })
+  }))
+  .add('expand', () => ({
+    components: { Table },
+    template: `<Table :items="items" :headers="headers" showExpand>
+
+    <template v-slot:header_link="{ header }">
+      <h4> {{header.text}}</h4>
+    </template>
+
+    <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
+    <template v-slot:item_volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
+    <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
+    <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
+    <template v-slot:item_link="{ item }">
+      <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
+    </template>
+
+    <template v-slot:expand="{ detail }">                  
+      <ul>
+      <li>    
+          <div>
+            <label>Traded Volume:</label>
+            <label>{{ detail.tradeVolume }}</label>
+          </div>    
+        </li>
+        <li>    
+          <div>
+            <label>Token Release:</label>
+            <label>{{ detail.tokenRelease }}</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <label>Percentage:</label>
+            <label>{{ detail.percentage }}</label>
+          </div>
+        </li>
+      </ul>      
+    </template>
+  </Table>`,
+    data: () => ({
+      headers,
+      items
+    })
+  }))
