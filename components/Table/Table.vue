@@ -9,12 +9,12 @@
     </thead>
     <tbody>
       <template v-for="(item,j) in items">
-        <tr :key="item.date" @click="toggleItem(j)" :class="{expandable}">
+        <tr :key="`item${j}`" @click="toggleItem(j)" :class="{expandable}">
           <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
             <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
           </td>
         </tr>
-        <tr v-if="expandable && toggle.includes(j)" :key="j">
+        <tr v-if="expandable && toggle.includes(j)" :key="`expand${j}`">
           <td :colspan="headers.length">
             <slot name="expand" :item="item" />
           </td>
