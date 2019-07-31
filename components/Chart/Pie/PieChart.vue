@@ -8,7 +8,7 @@ import chart from '../chart.mixin'
 export default {
   name: 'PieChart',
   mixins: [chart],
-  props: { innerSize: { type: String } },
+  props: { innerSize: { type: String }, animation: { type: Boolean, default: false }, tooltipDescription: { type: String, default: undefined } },
   data() {
     return {
       chart: undefined
@@ -30,6 +30,7 @@ export default {
           dataLabels: {
             enabled: false
           },
+          animation: this.animation,
           center: ['50%', '50%'],
           showInLegend: !this.noLegend
         }
@@ -37,7 +38,7 @@ export default {
       chart: this.chartType('pie', 'piechart'),
       title: this.titleOption(this.title, { color: this.titleColor, fontSize: this.titleSize }, this.optionsTitle),
       subtitle: this.subTitleOption(this.subTitle, { color: this.subColor, fontSize: this.subSize }, this.optionsSub),
-      series: this.seriesData(this.items, this.tooltipDescription),
+      series: [{ name: this.tooltipDescription, data: this.items }],
       tooltip: this.tooltipOption(!this.noTooltip),
       credits: this.creditsOption(this.credit),
       legend: this.legendOption(!this.noLegend, {
