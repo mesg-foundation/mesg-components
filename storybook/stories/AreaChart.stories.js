@@ -46,3 +46,8 @@ storiesOf('AreaChart', module)
     template: `<AreaChart :categories="categories" :items="items" area-type="percent" no-x-label no-y-label no-legend/>`,
     data: () => ({ categories, items })
   }))
+  .add('Without tooltip', () => ({
+    components: { AreaChart },
+    template: `<AreaChart :categories="categories" :items="items" area-type="normal" no-tooltip/>`,
+    data: () => ({ categories, items })
+  }))
