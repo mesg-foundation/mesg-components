@@ -43,7 +43,7 @@ storiesOf('Table', module)
   }))
   .add('expand', () => ({
     components: { Table },
-    template: `<Table :items="items" :headers="headers" showExpand>
+    template: `<Table :items="items" :headers="headers" expandable>
 
     <template v-slot:header_link="{ header }">
       <h4> {{header.text}}</h4>
@@ -57,24 +57,24 @@ storiesOf('Table', module)
       <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
     </template>
 
-    <template v-slot:expand="{ detail }">                  
+    <template v-slot:expand="{ item }">                  
       <ul>
       <li>    
           <div>
             <label>Traded Volume:</label>
-            <label>{{ detail.tradeVolume }}</label>
+            <label>{{ item.tradeVolume }}</label>
           </div>    
         </li>
         <li>    
           <div>
             <label>Token Release:</label>
-            <label>{{ detail.tokenRelease }}</label>
+            <label>{{ item.tokenRelease }}</label>
           </div>
         </li>
         <li>
           <div>
             <label>Percentage:</label>
-            <label>{{ detail.percentage }}</label>
+            <label>{{ item.percentage }}</label>
           </div>
         </li>
       </ul>      
