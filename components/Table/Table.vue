@@ -9,7 +9,7 @@
     </thead>
     <tbody>
       <template v-for="(item,j) in items">
-        <tr :key="item.date" @click="toggleItem(j)" @mouseover="mouseOver(j)" @mouseleave="mouseLeave(j)" :ref='"item-"+j'>
+        <tr :key="item.date" @click="toggleItem(j)" :class="{expandable}">
           <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
             <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
           </td>
@@ -46,20 +46,7 @@ export default {
       toggle: []      
     };
   },
-  methods: {    
-    mouseOver(rowIndex){
-      if(!this.expandable) return
-
-      let ref = this.$refs[`item-${rowIndex}`][0]      
-      ref.style.background="var(--Grey-2)"
-      ref.style.cursor = "pointer"
-    },
-    mouseLeave(rowIndex){
-      if(!this.expandable) return
-      
-      let ref = this.$refs[`item-${rowIndex}`][0]      
-      ref.style.backgroundColor=""      
-    },
+  methods: {        
     textAlign(align) {
       return {
         "text-align": align || "left"
@@ -113,5 +100,13 @@ tbody {
 
 tbody tr {
   border-bottom: solid 1px var(--lavender-2);
+}
+
+.expandable {
+  cursor: pointer;
+}
+
+.expandable:hover {
+  background-color: var(--Grey-2);
 }
 </style>
