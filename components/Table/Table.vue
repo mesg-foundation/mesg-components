@@ -2,15 +2,24 @@
   <table>
     <thead>
       <tr>
-        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">{{header.text}}</th>
+        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">
+          <slot :name="`header_${header.key}`" :header="header">{{header.text}}</slot>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, j) in items" :key="j">
-        <td v-for="(header,i) in headers" :key="i" :style="textAlign(header.align)">
-          <slot :name="header.key" :item="item">{{ item[header.value] }}</slot>
-        </td>
-      </tr>
+      <template v-for="(item,j) in items">
+        <tr :key="`item${j}`" @click="toggleItem(j)" :class="{expandable}">
+          <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
+            <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
+          </td>
+        </tr>
+        <tr v-if="expandable && toggle.includes(j)" :key="`expand${j}`">
+          <td :colspan="headers.length">
+            <slot name="expand" :item="item" />
+          </td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
@@ -26,13 +35,30 @@ export default {
     items: {
       type: Array,
       required: true
+    },
+    expandable: {
+      type: Boolean,
+      default: false
     }
   },
-  methods: {
+  data() {
+    return {
+      toggle: []      
+    };
+  },
+  methods: {        
     textAlign(align) {
       return {
         "text-align": align || "left"
       };
+    },
+    toggleItem(id) {
+      const index = this.toggle.indexOf(id);
+      if (index > -1) {
+        this.toggle.splice(index, 1);
+      } else {
+        this.toggle.push(id);
+      }
     }
   }
 };
@@ -74,5 +100,13 @@ tbody {
 
 tbody tr {
   border-bottom: solid 1px var(--lavender-2);
+}
+
+.expandable {
+  cursor: pointer;
+}
+
+.expandable:hover {
+  background-color: var(--Grey-2);
 }
 </style>
