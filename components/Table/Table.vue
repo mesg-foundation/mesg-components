@@ -3,22 +3,20 @@
     <thead>
       <tr>
         <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">
-          <slot :name="`header_${header.key}`" :header="header"> 
-            {{header.text}} 
-            </slot>
+          <slot :name="`header_${header.key}`" :header="header">{{header.text}}</slot>
         </th>
       </tr>
     </thead>
     <tbody>
-      <template v-for="item in items">
-        <tr :key="item.length" @click="expandDetail(item.id)">
-          <td v-for="(header,i) in headers" :key="i" :style="textAlign(header.align)">
+      <template v-for="(item,j) in items">
+        <tr :key="j" @click="toggleItem(j)" :style="hover">
+          <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
             <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
           </td>
         </tr>
-        <tr v-if="showExpand && toggle.includes(item.id)" :key="item.id">
-          <td :colspan="columnSpan">            
-            <slot name="expand" :detail="item"/>
+        <tr v-if="expandable && toggle.includes(j)" :key="item.key" :style="hover">
+          <td :colspan="headers.length">
+            <slot name="expand" :item="item" />
           </td>
         </tr>
       </template>
@@ -38,17 +36,19 @@ export default {
       type: Array,
       required: true
     },
-    showExpand: Boolean
+    expandable: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
-      toggle: [],
-      expanded: []
+      toggle: []
     };
   },
   computed: {
-    columnSpan() {
-      return this.showExpand ? this.headers.length + 1 : this.headers.length;
+    hover() {
+      return this.expandable ? { cursor: "pointer" } : { cursor: "default" }
     }
   },
   methods: {
@@ -57,19 +57,12 @@ export default {
         "text-align": align || "left"
       };
     },
-    expandDetail(id) {      
+    toggleItem(id) {
       const index = this.toggle.indexOf(id);
       if (index > -1) {
         this.toggle.splice(index, 1);
       } else {
         this.toggle.push(id);
-      }
-
-      const expanded = this.expanded.find(e => e.id === id);
-      if (expanded) {
-        expanded.isExpand = !expanded.isExpand;
-      } else {
-        this.expanded.push({ id, isExpand: true });
       }
     }
   }
