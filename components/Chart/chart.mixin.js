@@ -14,6 +14,13 @@ export default {
     optionsSub: { type: Object }
   },
   methods: {
+    debounce(func, wait) {
+      let timeout
+      return (...args) => {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => func.apply(this, args), wait)
+      }
+    },
     chartType(type, renderTo, options) {
       return {
         type,
