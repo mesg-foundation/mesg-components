@@ -9,12 +9,12 @@
     </thead>
     <tbody>
       <template v-for="(item,j) in items">
-        <tr :key="j" @click="toggleItem(j)" :style="hover">
+        <tr :key="item.date" @click="toggleItem(j)" @mouseover="mouseOver(j)" @mouseleave="mouseLeave(j)" :ref='"item-"+j'>
           <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
             <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
           </td>
         </tr>
-        <tr v-if="expandable && toggle.includes(j)" :key="item.key" :style="hover">
+        <tr v-if="expandable && toggle.includes(j)" :key="j">
           <td :colspan="headers.length">
             <slot name="expand" :item="item" />
           </td>
@@ -43,15 +43,23 @@ export default {
   },
   data() {
     return {
-      toggle: []
+      toggle: []      
     };
   },
-  computed: {
-    hover() {
-      return this.expandable ? { cursor: "pointer" } : { cursor: "default" }
-    }
-  },
-  methods: {
+  methods: {    
+    mouseOver(rowIndex){
+      if(!this.expandable) return
+
+      let ref = this.$refs[`item-${rowIndex}`][0]      
+      ref.style.background="var(--Grey-2)"
+      ref.style.cursor = "pointer"
+    },
+    mouseLeave(rowIndex){
+      if(!this.expandable) return
+      
+      let ref = this.$refs[`item-${rowIndex}`][0]      
+      ref.style.backgroundColor=""      
+    },
     textAlign(align) {
       return {
         "text-align": align || "left"
