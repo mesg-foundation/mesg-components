@@ -11,8 +11,7 @@ export default {
     subTitle: { type: String },
     subColor: { type: String },
     subSize: { type: Number },
-    optionsSub: { type: Object },
-    dataName: { type: String }
+    optionsSub: { type: Object }
   },
   methods: {
     chartType(type, renderTo, options) {
@@ -53,10 +52,6 @@ export default {
         enabled: val,
         ...options
       }
-    },
-    seriesData(data, name = undefined) {
-      // default name = 'Series'
-      return [{ name, data }]
     }
   }
 }
