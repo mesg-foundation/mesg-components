@@ -11,10 +11,16 @@ export default {
     subTitle: { type: String },
     subColor: { type: String },
     subSize: { type: Number },
-    optionsSub: { type: Object },
-    dataName: { type: String }
+    optionsSub: { type: Object }
   },
   methods: {
+    debounce(func, wait) {
+      let timeout
+      return (...args) => {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => func.apply(this, args), wait)
+      }
+    },
     chartType(type, renderTo, options) {
       return {
         type,
@@ -53,10 +59,6 @@ export default {
         enabled: val,
         ...options
       }
-    },
-    seriesData(data, name = undefined) {
-      // default name = 'Series'
-      return [{ name, data }]
     }
   }
 }
