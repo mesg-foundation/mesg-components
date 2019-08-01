@@ -13,7 +13,7 @@ const items = [
 storiesOf('PieChart', module)
   .add('With data', () => ({
     components: { PieChart },
-    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
+    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle"  :options-title="optionsTitle" :options-sub="optionsSub"/>`,
     data: () => ({
       items,
       title: '6%',
@@ -24,7 +24,7 @@ storiesOf('PieChart', module)
   }))
   .add('With credits', () => ({
     components: { PieChart },
-    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" credit inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
+    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" credit  :options-title="optionsTitle" :options-sub="optionsSub"/>`,
     data: () => ({
       items,
       title: '6%',
@@ -35,7 +35,7 @@ storiesOf('PieChart', module)
   }))
   .add('Without legend', () => ({
     components: { PieChart },
-    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-legend inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
+    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-legend  :options-title="optionsTitle" :options-sub="optionsSub"/>`,
     data: () => ({
       items,
       title: '6%',
@@ -46,7 +46,7 @@ storiesOf('PieChart', module)
   }))
   .add('Without tooltip', () => ({
     components: { PieChart },
-    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-tooltip inner-size='70' :options-title="optionsTitle" :options-sub="optionsSub"/>`,
+    template: `<PieChart :items="items" :title="title" title-color="#491e8c" sub-color="#3c3940" :sub-title="subTitle" no-tooltip  :options-title="optionsTitle" :options-sub="optionsSub"/>`,
     data: () => ({
       items,
       title: '6%',
