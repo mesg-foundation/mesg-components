@@ -8,7 +8,11 @@ import chart from '../chart.mixin'
 export default {
   name: 'PieChart',
   mixins: [chart],
-  props: { innerSize: { type: String }, animation: { type: Boolean, default: false }, tooltipDescription: { type: String, default: undefined } },
+  props: {
+    innerSize: { type: String | Number, default: 70 },
+    animation: { type: Boolean, default: false },
+    tooltipDescription: { type: String, default: undefined }
+  },
   data() {
     return {
       chart: undefined
