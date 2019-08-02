@@ -19,6 +19,8 @@
   --mobile-only: 414px;
   --mobile-breakpoint: 768px;
   --tablet-breakpoint: 1024px;
+  --white:#fff;
+  --text-color:#3c3940;
 }
 
 .Number1 {
