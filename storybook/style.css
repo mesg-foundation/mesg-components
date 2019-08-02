@@ -15,6 +15,10 @@
   --Wallets-Partners: #7e44d8;
   --Wallets-Founders: #c2a3ff;
   --Wallets-Reserve: #dfcdf7;
+  --Error: #f44336;
+  --Success: #4bb543;
+  --Info: #1e88e5;
+  --Black: #000000;
 
   --mobile-only: 414px;
   --mobile-breakpoint: 768px;
