@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Snackbar from '@mesg-components/snackbar/Snackbar'
 
+import '../style.css'
+
 storiesOf('Snackbar', module)
   .add('default', () => ({
     components: { Snackbar },
@@ -61,13 +63,6 @@ storiesOf('Snackbar', module)
   .add('error', () => ({
     components: { Snackbar },
     template: `<Snackbar error text="Hello, I'm a snackbar" v-model="snackbar" />`,
-    data: () => ({
-      snackbar: true
-    })
-  }))
-  .add('snackbar custom color', () => ({
-    components: { Snackbar },
-    template: `<Snackbar bottom right text="Hello, I'm a snackbar" color="#b3afd6" v-model="snackbar" />`,
     data: () => ({
       snackbar: true
     })

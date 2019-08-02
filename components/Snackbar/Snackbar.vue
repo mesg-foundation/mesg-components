@@ -1,5 +1,5 @@
 <template>
-  <div class="snackbar" :class="{top,center,right,bottom,left,error,info,success,disableDisplay}" :style="backgroundColor">
+  <div class="snackbar" :class="{top,center,right,bottom,left,error,info,success,disableDisplay}">
     <slot>
       <span>{{this.text}}</span>
       <button class="btnDefault" @click="disableDisplay = true">CLOSE</button>
@@ -18,7 +18,6 @@ export default {
     right: { type: Boolean, default: false },
     timeout: { type: Number, default: 6000 },
     text: { type: String, default: undefined },
-    color: { type: String },
     success: { type: Boolean, default: false },
     info: { type: Boolean, default: false },
     error: { type: Boolean, default: false }
@@ -35,11 +34,6 @@ export default {
         this.disableDisplay = this.$attrs.value
       }, this.timeout)
     }
-  },
-  computed: {
-    backgroundColor() {
-      return `background: ${this.color}`
-    }
   }
 }
 </script>
@@ -48,18 +42,16 @@ export default {
 .snackbar {
   position: absolute;
   z-index: 9999999;
-  color: #fff;
+  color: var(--White);
   padding: 10px 15px;
   border-radius: 3px;
-  background: #000;
+  background: var(--Black);
   font-size: 14px;
 }
 .disableDisplay {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.2s, opacity 0.2s linear;
-  /* display: none; */
-  /* transition: all 0.75s ease; */
 }
 .top {
   top: 0px;
@@ -86,19 +78,19 @@ export default {
   margin-bottom: 10px;
 }
 .error {
-  background: #f44336 !important;
+  background: var(--Error) !important;
 }
 .success {
-  background: #4bb543 !important;
+  background: var(--Success) !important;
 }
 .info {
-  background: #1e88e5 !important;
+  background: var(--Info) !important;
 }
 
 .error button,
 .info button,
 .success button {
-  color: #fff;
+  color: var(--White);
 }
 
 span {
