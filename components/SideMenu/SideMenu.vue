@@ -26,8 +26,7 @@ export default {
 <style scoped>
 .sidebar {
   position:-webkit-fixed; 
-  position:fixed; 
-  top:40px;
+  position:fixed;   
 }
 
 nav {
@@ -35,8 +34,7 @@ nav {
   flex-flow: column wrap;
 }
 
-.sidebar a {
-  padding-top: 20px;
+.sidebar a {  
   padding-bottom: 20px;
   font-size: 17px;
   font-weight: 700;
