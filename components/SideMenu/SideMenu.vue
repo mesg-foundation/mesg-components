@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "Sider",
+  name: "SideMenu",
   props: {
     items: {
       type: Array,
@@ -24,6 +24,12 @@ export default {
 </script>
 
 <style scoped>
+.sidebar {
+  position:-webkit-fixed; 
+  position:fixed; 
+  top:40px;
+}
+
 nav {
   display: flex;
   flex-flow: column wrap;
