@@ -21,6 +21,7 @@
     "@mesg-components/button": "file:../components/Button",
     "@mesg-components/card": "file:../components/Card",
     "@mesg-components/chart": "file:../components/Chart",
+    "@mesg-components/snackbar": "file:../components/Snackbar",
     "@mesg-components/table": "file:../components/Table",
     "vue": "^2.6.10"
   }
