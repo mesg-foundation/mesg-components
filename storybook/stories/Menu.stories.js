@@ -13,9 +13,8 @@ const items = [
     menus: [
       {
         key: 'products',
-        text: 'Products',
-        href: '#',
-        child: [
+        text: 'Products',       
+        childs: [
           {
             key: 'sdk',
             text: 'MESG SDK',
@@ -40,37 +39,76 @@ const items = [
       },
       {
         key: 'developers',
-        text: 'Developers',
-        href: '#'
+        text: 'Developers',        
+        childs: [
+          {
+            key: 'dev-sdk',
+            text: 'MESG SDK',
+            href: '#'
+          },
+          {
+            key: 'dev-marketplace',
+            text: 'MESG Marketplace',
+            href: '#'
+          },
+          {
+            key: 'dev-showcase',
+            text: 'Showcase',
+            href: '#'
+          },
+          {
+            key: 'faq',
+            text: 'FAQ',
+            href: '#'
+          }
+        ]
       },
       {
         key: 'foundation',
-        text: 'Foundation',
-        href: '#'
+        text: 'Foundation'
       },
       {
         key: 'enterprise',
-        text: 'Enterprise',
-        href: '#'
+        text: 'Enterprise'
       }
     ]
   }
 ]
 
-storiesOf('Menu', module).add('default', () => ({
+storiesOf('Menu', module)
+.add('default', () => ({
   components: { Menu },
   template: `
-  <Menu :items="items" >
+  <Menu :items="items"/>`,
+  data: () => ({
+    items
+  })
+}))
+.add('custom', () => ({
+  components: { Menu },
+  template: `
+  <Menu :items="items">
     <template v-slot:banner="{ item }">        
       <a href="/" class="nuxt-link-exact-active nuxt-link-active">
         <img src="https://mesg.com/_nuxt/img/ce5e092.svg" alt="MESG">
-      </a>  
+      </a>
     </template>
     <template v-slot:enterprise="{ item }">
-      <a href="item.href" class="enterprise btn--primary">      
-      My Enterprise
+      <span>      
+        My Enterprise
+      </span>
+    </template>
+    <template v-slot:sdk="{ item }">      
+      <a href="item.href"> 
+        <img src="https://mesg.com/_nuxt/img/decdb61.svg" alt="SDK"></a>
       </a>
-    </template>    
+    </template>
+    
+    <template v-slot:dev-sdk="{item}">
+        <span>
+          <h4> {{ item.text }} </h4>
+        </span>
+    </template>
   </Menu>`,
   data: () => ({
     items
