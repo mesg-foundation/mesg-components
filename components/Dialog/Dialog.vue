@@ -1,14 +1,7 @@
 <template>
-  <div class="overlay">
-    <div class="dialog">
-      <slot v-if="header">
-        <h2>Here i am</h2>
-      </slot>
-      <div>
-        <slot>Thank to pop me out of that button, but now i'm done so you can close this window.</slot>
-      </div>
-      <div class="content">______________</div>
-      <div class="content">tetetetet</div>
+  <div class="overlay" :class="{openDialog}">
+    <div class="dialog" :class="{fullscreen}" :style="{maxHeight ,maxWidth, minWidth}">
+      <slot />
     </div>
   </div>
 </template>
@@ -17,9 +10,18 @@
 export default {
   name: 'Dialog',
   props: {
-    header: { type: Boolean, default: true },
-    headerText: { type: String, default: undefined },
-    text: { type: Boolean, default: undefined }
+    maxHeight: { type: String, default: 'auto' },
+    maxWidth: { type: String, default: 'auto' },
+    minWidth: { type: String, default: undefined },
+    fullscreen: { type: Boolean, default: false }
+  },
+  data() {
+    return {
+      openDialog: false
+    }
+  },
+  mounted() {
+    this.openDialog = this.$attrs.value
   }
 }
 </script>
@@ -32,15 +34,25 @@ export default {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 300px;
-  height: 150px;
   position: relative;
   transition: all 1s ease-in-out;
 }
 
-.dialog h2 {
+.fullscreen {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  padding-top: 30px;
+  justify-content: unset;
+}
+
+.dialog h1,
+.dialog h2,
+.dialog h3,
+.dialog h4 {
   margin: 0;
-  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .overlay {
@@ -52,9 +64,13 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
   transition: opacity 500ms;
   visibility: visible;
+  opacity: 0;
+}
+
+.openDialog {
   opacity: 1;
 }
 </style>
