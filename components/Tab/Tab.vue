@@ -1,8 +1,14 @@
 <template>
-  <div class="container">
-    <a v-for="(item,i) in items" href="#" :key="i" @click="toggleItem(i)" :class="{active: toggle.includes(i)}">
-      <slot :name="item.key" :item="item">{{ item.text }}</slot>
-    </a>
+  <div class="tabs">
+    <template v-for="(item,i) in items">
+      <input type="radio" name="tabs" :id="`tab${i}`" :key="`chk${i}`" :checked="i===0" />
+      <label :for="`tab${i}`" :key="`label${i}`">
+        <slot :name="`tab-${item.key}`" :item="item">{{ item.text }}</slot>
+      </label>
+      <section class="tab" :key="`tab${i}`">
+        <slot :name="`section-${item.key}`" :item="item" />
+      </section>
+    </template>
   </div>
 </template>
 
@@ -14,68 +20,53 @@ export default {
       type: Array,
       require: true
     }
-  },
-  data() {
-    return {
-      toggle: [],
-      isActive: {
-        type: Boolean,
-        default: false
-      }
-    };
-  },
-  methods: {
-    toggleItem(key) {
-      const index = this.toggle.indexOf(key);
-      if (index > -1) {
-        this.toggle = [];
-      } else {
-        this.toggle = [];
-        this.toggle.push(key);
-      }
-    }
   }
 };
 </script>
 
 <style scoped>
-.container {
-  display: inline-flex;
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs label {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background ease 0.2s;
+  min-width: 60px;
   text-align: center;
-  border-radius: 6px;
-  border: solid 1px var(--Purple-3);
-  background-color: var(--White);
-  font-family: "Open Sans";
-  font-size: 17px;
+}
+
+.tabs label:hover {
+  background: var(--lavender-2);
+}
+
+input:checked + label {
   color: var(--Purple-3);
+  border: 1px solid #abc;
+  border: 1px solid var(--Lavender-1);
+  border-top: 2px solid var(--Purple-3);
+  margin: 0 0 -1px;
+  display: inline-block;
+  border-bottom: 1px solid #fff;
+  z-index: 1;
 }
 
-a {
-  padding: 16px 32px;
-  text-decoration: none;
+.tabs .tab {
+  order: 99;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  border-top: 1px solid var(--Lavender-1);
 }
-
-a:first-child:hover {
-  color: var(--Black);
-  /* cursor: pointer; */
-  background: var(--lavender-2);
-  border-radius: 6px 0px 0px 6px;
+.tabs input[type="radio"] {
+  display: none;
 }
-
-a:last-child:hover {
-  color: var(--Black);  
-  background: var(--lavender-2);
-  border-radius: 0px 6px 6px 0px;
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
 }
-
-a:not(:last-child):hover,
-a:not(:first-child):hover {
-  color: var(--Black);  
-  background: var(--lavender-2);
-}
-
-.active {
-  background: var(--Purple-3) !important;
-  color: var(--White) !important;
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
 }
 </style>
