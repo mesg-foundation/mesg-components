@@ -2,17 +2,27 @@ import { storiesOf } from '@storybook/vue'
 import LinearProgressbar from '@mesg-components/progressbar/Linear/LinearProgressbar'
 
 storiesOf('Linear Progressbar', module)
-  .add('default with  value 50', () => ({
+  .add('info-35%', () => ({
     components: { LinearProgressbar },
-    template: `<LinearProgressbar :value="value" />`,
-    data: () => ({ value: 50 })
+    template: `<LinearProgressbar :value="value" info />`,
+    data: () => ({ value: 35 })
+  }))
+  .add('danger-55%', () => ({
+    components: { LinearProgressbar },
+    template: `<LinearProgressbar :value="value" danger />`,
+    data: () => ({ value: 55 })
+  }))
+  .add('warning-75%', () => ({
+    components: { LinearProgressbar },
+    template: `<LinearProgressbar :value="value" warning/>`,
+    data: () => ({ value: 75 })
+  }))
+  .add('success-100%', () => ({
+    components: { LinearProgressbar },
+    template: `<LinearProgressbar :value="value" success/>`,
+    data: () => ({ value: 100 })
   }))
   .add('with animation', () => ({
     components: { LinearProgressbar },
-    template: `<LinearProgressbar indeterminate />`
-  }))
-  .add('custom height with value 70', () => ({
-    components: { LinearProgressbar },
-    template: `<LinearProgressbar height="30px" :value="value"/>`,
-    data: () => ({ value: 70 })
+    template: `<LinearProgressbar indeterminate danger />`
   }))
