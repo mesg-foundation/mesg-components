@@ -15,13 +15,10 @@ export default {
     minWidth: { type: String, default: undefined },
     fullscreen: { type: Boolean, default: false }
   },
-  data() {
-    return {
-      openDialog: false
+  computed: {
+    openDialog() {
+      return this.$attrs.value
     }
-  },
-  mounted() {
-    this.openDialog = this.$attrs.value
   }
 }
 </script>
