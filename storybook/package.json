@@ -24,6 +24,7 @@
     "@mesg-components/progressbar": "file:../components/Progressbar",
     "@mesg-components/side-menu": "file:../components/SideMenu",
     "@mesg-components/snackbar": "file:../components/Snackbar",
+    "@mesg-components/tab": "file:../components/Tab",
     "@mesg-components/table": "file:../components/Table",
     "vue": "^2.6.10"
   }
