@@ -1,13 +1,12 @@
 <template>
-  <div class="circular" :style="{width,height}"></div>
+  <div class="circular" :style="{width: size,height : size}"></div>
 </template>
 
 <script>
 export default {
   name: 'CircularProgressbar',
   props: {
-    width: { type: String, default: '50px' },
-    height: { type: String, default: '50px' }
+    size: { type: String, default: '50px' }
   }
 }
 </script>
