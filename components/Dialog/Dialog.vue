@@ -1,19 +1,27 @@
 <template>
   <div class="overlay" :class="{openDialog}">
-    <div class="dialog" :class="{fullscreen}" :style="{maxHeight ,maxWidth, minWidth}">
-      <slot />
+    <div class="dialog" :style="{maxWidth,maxHeight,minWidth}">
+      <Card>
+        <div class="inside-card">
+          <slot></slot>
+        </div>
+      </Card>
     </div>
   </div>
 </template>
 
 <script>
+import Card from '@mesg-components/card/Card'
+
 export default {
   name: 'Dialog',
+  components: {
+    Card
+  },
   props: {
     maxHeight: { type: String, default: 'auto' },
     maxWidth: { type: String, default: 'auto' },
-    minWidth: { type: String, default: undefined },
-    fullscreen: { type: Boolean, default: false }
+    minWidth: { type: String, default: undefined }
   },
   computed: {
     openDialog() {
@@ -25,22 +33,14 @@ export default {
 
 <style  scoped>
 .dialog {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
   background: #fff;
   border-radius: 5px;
   position: relative;
   transition: all 1s ease-in-out;
 }
 
-.fullscreen {
-  width: 100%;
-  height: 100%;
-  margin-top: 50px;
-  padding-top: 30px;
-  justify-content: unset;
+.inside-card {
+  margin: 20px;
 }
 
 .dialog h1,
