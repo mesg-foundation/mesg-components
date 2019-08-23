@@ -1,5 +1,5 @@
 <template>
-  <div id="areachart"></div>
+  <div></div>
 </template>
 
 <script>
@@ -14,7 +14,9 @@ export default {
     yTitle: { type: String },
     noYLabel: { type: Boolean, default: false },
     xTitle: { type: String },
-    noXLabel: { type: Boolean, default: false }
+    noXLabel: { type: Boolean, default: false },
+    optionLegend: { type: Object },
+    optionsTooltip: { type: Object }
   },
   mixins: [chart],
   data() {
@@ -30,15 +32,18 @@ export default {
   },
   mounted() {
     this.chart = new Hightchart.chart({
-      chart: this.chartType('area', 'areachart'),
+      chart: this.chartType('area', this.$el),
       title: this.titleOption(this.title, { color: this.titleColor, fontSize: this.titleSize }, this.optionsTitle),
       subtitle: this.subTitleOption(this.subTitle, { color: this.subColor, fontSize: this.subSize }, this.optionsSub),
       credits: this.creditsOption(this.credit),
-      legend: this.legendOption(!this.noLegend, {
-        align: 'right',
-        verticalAlign: 'middle',
-        layout: 'vertical'
-      }),
+      legend: this.legendOption(
+        !this.noLegend,
+        this.optionLegend || {
+          align: 'right',
+          verticalAlign: 'middle',
+          layout: 'vertical'
+        }
+      ),
       xAxis: {
         categories: this.categories,
         title: {
@@ -58,10 +63,7 @@ export default {
           enabled: !this.noYLabel
         }
       },
-      tooltip: {
-        enabled: !this.noTooltip,
-        split: true
-      },
+      tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { split: true }),
       plotOptions: {
         area: {
           stacking: this.areaType,
