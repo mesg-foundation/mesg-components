@@ -1,5 +1,5 @@
 <template>
-  <div id="piechart"></div>
+  <div></div>
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default {
   props: {
     innerSize: { type: String | Number, default: 70 },
     animation: { type: Boolean, default: false },
-    tooltipDescription: { type: String, default: undefined }
+    tooltipDescription: { type: String, default: undefined },
+    optionsTooltip: { type: Object }
   },
   data() {
     return {
@@ -39,11 +40,11 @@ export default {
           showInLegend: !this.noLegend
         }
       },
-      chart: this.chartType('pie', 'piechart'),
+      chart: this.chartType('pie', this.$el),
       title: this.titleOption(this.title, { color: this.titleColor, fontSize: this.titleSize }, this.optionsTitle),
       subtitle: this.subTitleOption(this.subTitle, { color: this.subColor, fontSize: this.subSize }, this.optionsSub),
       series: [{ name: this.tooltipDescription, data: this.items }],
-      tooltip: this.tooltipOption(!this.noTooltip),
+      tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || {}),
       credits: this.creditsOption(this.credit),
       legend: this.legendOption(!this.noLegend, {
         layout: 'horizontal'
