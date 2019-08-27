@@ -10,6 +10,8 @@ const items = [
   { name: 'Reserve', color: '#dfcdf7', data: new Array(20).fill(null).map(() => Math.random() * 0) }
 ]
 
+const oneItem = [{ name: 'Partners & Bounties', color: '#7e44d8', data: new Array(20).fill(null).map(() => Math.random() * 1000000) }]
+
 storiesOf('AreaChart', module)
   .add('Normal type', () => ({
     components: { AreaChart },
@@ -50,4 +52,21 @@ storiesOf('AreaChart', module)
     components: { AreaChart },
     template: `<AreaChart :categories="categories" :items="items" area-type="normal" no-tooltip/>`,
     data: () => ({ categories, items })
+  }))
+  .add('Area Gradient color', () => ({
+    components: { AreaChart },
+    template: `<AreaChart :categories="categories" :items="oneItem" :fill-color-option="fillColorOption" area-type="normal" no-tooltip no-legend/>`,
+    data: () => ({
+      categories,
+      oneItem,
+      fillColorOption: {
+        linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+        stops: [[0, '#7e44d8'], [1, 'rgba(126,68,216, 0)']]
+      }
+    })
+  }))
+  .add('Area background transparent ', () => ({
+    components: { AreaChart },
+    template: `<AreaChart :categories="categories" :items="items" area-type="normal" :chart-style-option="chartStyleOption" />`,
+    data: () => ({ categories, items, chartStyleOption: { backgroundColor: 'transparent' } })
   }))
