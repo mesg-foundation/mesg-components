@@ -6,7 +6,12 @@
 import Highcharts from 'highcharts/highstock'
 import chart from '../chart.mixin'
 export default {
-  props: {},
+  props: {
+    rangeSelectorOption: { type: Object },
+    yAxisOption: { type: Object | Array },
+    optionLegend: { type: Object },
+    optionsTooltip: { type: Object }
+  },
   mixins: [chart],
   data() {
     return {
@@ -15,58 +20,11 @@ export default {
   },
   mounted() {
     this.chart = new Highcharts.stockChart(this.$el, {
-      rangeSelector: {
-        selected: 3,
-        buttons: [
-          {
-            type: 'month',
-            count: 1,
-            text: '1m'
-          },
-          {
-            type: 'month',
-            count: 3,
-            text: '3m'
-          },
-          {
-            type: 'month',
-            count: 6,
-            text: '6m'
-          },
-          {
-            type: 'ytd',
-            text: 'YTD'
-          },
-          ,
-          {
-            type: 'year',
-            count: 1,
-            text: '1y'
-          },
-          {
-            type: 'all',
-            text: 'All'
-          }
-        ]
-      },
-      yAxis: {
-        plotLines: [
-          {
-            value: 0,
-            width: 2,
-            color: 'silver'
-          }
-        ]
-      },
-      plotOptions: {
-        series: {
-          compare: 'value'
-        }
-      },
-      tooltip: {
-        valueDecimals: 2,
-        split: true
-      },
+      rangeSelector: this.rangeSelectorOption,
+      yAxis: this.yAxisOption,
+      legend: this.legendOption(!this.noLegend, this.optionLegend || {}),
+      tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { valueDecimals: 2, split: true }),
+      credits: this.creditsOption(this.credit),
       series: this.items
     })
   }
