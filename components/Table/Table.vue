@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "Table",
+  name: 'Table',
   props: {
     headers: {
       type: Array,
@@ -43,43 +43,46 @@ export default {
   },
   data() {
     return {
-      toggle: []      
-    };
+      toggle: []
+    }
   },
-  methods: {        
+  methods: {
     textAlign(align) {
       return {
-        "text-align": align || "left"
-      };
+        'text-align': align || 'left'
+      }
     },
     toggleItem(id) {
-      const index = this.toggle.indexOf(id);
+      const index = this.toggle.indexOf(id)
       if (index > -1) {
-        this.toggle.splice(index, 1);
+        this.toggle.splice(index, 1)
       } else {
-        this.toggle.push(id);
+        this.toggle.push(id)
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
 table {
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border-spacing: 0px;
-
   border-collapse: collapse;
   border-spacing: 0 1em;
 }
 
 td {
-  padding: 29px 0px 29px 20px;
+  padding: 10px 20px;
 }
 
 tr {
-  height: 80px;
+  height: auto;
+}
+
+th {
+  padding: 20px 20px;
 }
 
 thead tr {
@@ -92,10 +95,7 @@ thead tr {
 }
 
 tbody {
-  padding-left: 10px;
-  padding-right: 10px;
   box-shadow: 0 0 0 1px var(--lavender-2);
-  border-radius: 5px;
 }
 
 tbody tr {
