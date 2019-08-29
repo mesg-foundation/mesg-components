@@ -10,7 +10,10 @@ export default {
     rangeSelectorOption: { type: Object },
     yAxisOption: { type: Object | Array },
     optionLegend: { type: Object },
-    optionsTooltip: { type: Object }
+    optionsTooltip: { type: Object },
+    optionsPlot: { type: Object },
+    chartOption: { type: Object },
+    noNavigator: { type: Boolean, default: false }
   },
   mixins: [chart],
   data() {
@@ -20,11 +23,14 @@ export default {
   },
   mounted() {
     this.chart = new Highcharts.stockChart(this.$el, {
+      chart: this.chartOption || {},
       rangeSelector: this.rangeSelectorOption,
       yAxis: this.yAxisOption,
       legend: this.legendOption(!this.noLegend, this.optionLegend || {}),
       tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { valueDecimals: 2, split: true }),
       credits: this.creditsOption(this.credit),
+      navigator: { enabled: !this.noNavigator },
+      plotOptions: this.optionsPlot || {},
       series: this.items
     })
   }
