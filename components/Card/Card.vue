@@ -27,7 +27,7 @@ export default {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .card.bordered {
-  border: solid 1px var(--very-light-purple);
+  border: solid 1px var(--primary-very-light);
   border-bottom-width: 6px;
   border-bottom-color: var(--primary);
   box-shadow: none;
@@ -41,7 +41,7 @@ export default {
 }
 .card.bordered.thin {
   border: solid 2px transparent;
-  box-shadow: 0 0 0 1px var(--very-light-purple) inset;
+  box-shadow: 0 0 0 1px var(--primary-very-light) inset;
 }
 .card.bordered.thin:hover {
   transition: 0.2s ease;

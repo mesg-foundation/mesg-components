@@ -2,12 +2,12 @@
 @import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css');
 
 :root {
-  --very-dark-purple: #0e061c;
-  --dark-purple: #210e41;
+  --primary-very-dark: #0e061c;
+  --primary-dark: #210e41;
   --primary: #491e8c;
   --secondary: #3B1873;
-  --light-purple: #7e61ae;
-  --very-light-purple: #bdafd6;
+  --primary-light: #7e61ae;
+  --primary-very-light: #bdafd6;
   --dark-grey: #3c3940;
   --light-grey: #f2f0f7;
   --White: #ffffff;
@@ -44,7 +44,7 @@ h1 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--very-dark-purple);
+  color: var(--primary-very-dark);
 }
 
 h2 {
@@ -55,7 +55,7 @@ h2 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--very-dark-purple);
+  color: var(--primary-very-dark);
 }
 
 .Number2 {
@@ -77,7 +77,7 @@ h3 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--very-dark-purple);
+  color: var(--primary-very-dark);
 }
 
 h4 {
@@ -88,7 +88,7 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--very-dark-purple);
+  color: var(--primary-very-dark);
 }
 
 .H1subtitle {

@@ -91,15 +91,15 @@ thead tr {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--very-dark-purple);
+  color: var(--primary-very-dark);
 }
 
 tbody {
-  box-shadow: 0 0 0 1px var(--very-light-purple);
+  box-shadow: 0 0 0 1px var(--primary-very-light);
 }
 
 tbody tr {
-  border-bottom: solid 1px var(--very-light-purple);
+  border-bottom: solid 1px var(--primary-very-light);
 }
 
 .expandable {

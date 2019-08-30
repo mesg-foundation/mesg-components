@@ -39,13 +39,13 @@ export default {
 }
 
 .tabs label:hover {
-  background: var(--very-light-purple);
+  background: var(--primary-very-light);
 }
 
 input:checked + label {
   color: var(--primary);
   border: 1px solid #abc;
-  border: 1px solid var(--light-purple);
+  border: 1px solid var(--primary-light);
   border-top: 2px solid var(--primary);
   margin: 0 0 -1px;
   display: inline-block;
@@ -58,7 +58,7 @@ input:checked + label {
   width: 100%;
   display: none;
   padding: 1rem;
-  border-top: 1px solid var(--light-purple);
+  border-top: 1px solid var(--primary-light);
 }
 .tabs input[type='radio'] {
   display: none;
