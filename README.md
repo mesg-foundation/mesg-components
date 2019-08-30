@@ -17,14 +17,14 @@ $ npm run build-storybook
 
 ```css
 :root {
-  --primary: #491e8c; /*Purple-3*/
-  --secondary: #3b1873; /*Purple-Shadow*/
-  --dark-purple: #210e41; /*Purple-2*/
-  --very-dark-purple: #0e061c; /*Purple-1*/
-  --light-purple: #7e61ae; /*Lavender-1*/
-  --very-light-purple: #bdafd6; /*lavender-2*/
-  --light-grey: #f2f0f7; /*Grey-2*/
-  --dark-grey: #3c3940; /*Grey-1*/
+  --primary: #491e8c;
+  --secondary: #3b1873;
+  --dark-purple: #210e41;
+  --very-dark-purple: #0e061c;
+  --light-purple: #7e61ae;
+  --very-light-purple: #bdafd6;
+  --light-grey: #f2f0f7;
+  --dark-grey: #3c3940;
   --Black: #000000;
   --White: #ffffff;
 
