@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{ bordered, thin, shadow: !noShadow }">
+  <div class="card" :class="{ bordered, thin, shadow: !noShadow }" :style="{borderBottomColor: borderColor}">
     <slot />
   </div>
 </template>
@@ -8,18 +8,10 @@
 export default {
   name: 'Card',
   props: {
-    bordered: {
-      type: Boolean,
-      default: false
-    },
-    thin: {
-      type: Boolean,
-      default: false
-    },
-    noShadow: {
-      type: Boolean,
-      default: false
-    }
+    bordered: { type: Boolean, default: false },
+    thin: { type: Boolean, default: false },
+    noShadow: { type: Boolean, default: false },
+    borderColor: { type: String, default: undefined }
   }
 }
 </script>
