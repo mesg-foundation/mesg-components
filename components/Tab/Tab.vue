@@ -14,14 +14,14 @@
 
 <script>
 export default {
-  name: "Tab",
+  name: 'Tab',
   props: {
     items: {
       type: Array,
       require: true
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -39,14 +39,14 @@ export default {
 }
 
 .tabs label:hover {
-  background: var(--lavender-2);
+  background: var(--very-light-purple);
 }
 
 input:checked + label {
-  color: var(--Purple-3);
+  color: var(--primary);
   border: 1px solid #abc;
-  border: 1px solid var(--Lavender-1);
-  border-top: 2px solid var(--Purple-3);
+  border: 1px solid var(--light-purple);
+  border-top: 2px solid var(--primary);
   margin: 0 0 -1px;
   display: inline-block;
   border-bottom: 1px solid #fff;
@@ -58,15 +58,15 @@ input:checked + label {
   width: 100%;
   display: none;
   padding: 1rem;
-  border-top: 1px solid var(--Lavender-1);
+  border-top: 1px solid var(--light-purple);
 }
-.tabs input[type="radio"] {
+.tabs input[type='radio'] {
   display: none;
 }
-.tabs input[type="radio"]:checked + label {
+.tabs input[type='radio']:checked + label {
   background: #fff;
 }
-.tabs input[type="radio"]:checked + label + .tab {
+.tabs input[type='radio']:checked + label + .tab {
   display: block;
 }
 </style>

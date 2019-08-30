@@ -88,21 +88,21 @@ i {
 
 .btn--primary {
   color: var(--White);
-  background-color: var(--Purple-3);
+  background-color: var(--primary);
 }
 .btn--primary:hover {
-  background-color: var(--Purple-Shadow);
+  background-color: var(--secondary);
   transition: 0.2s ease;
 }
 
 .btn--secondary {
   position: relative;
-  color: var(--Purple-3);
+  color: var(--primary);
   text-align: left;
   border-radius: 0;
   padding-left: 0;
   padding-right: 0;
-  border-bottom: solid 1px var(--Purple-3);
+  border-bottom: solid 1px var(--primary);
 }
 .btn--secondary::before {
   content: '';
@@ -111,7 +111,7 @@ i {
   left: 0;
   right: 0;
   height: 1px;
-  background-color: var(--Purple-3);
+  background-color: var(--primary);
   transform-origin: bottom right;
   transform: scaleX(0);
   transition: transform 0.5s ease;
@@ -122,22 +122,22 @@ i {
 }
 
 .btn--white {
-  color: var(--Purple-3);
+  color: var(--primary);
   background-color: var(--White);
 }
 .btn--white:hover {
   transition: 0.2s ease;
-  background-color: var(--Grey-2);
+  background-color: var(--light-grey);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 }
 
 .btn--outline {
-  color: var(--Purple-3);
-  border: solid 1px var(--Purple-3);
+  color: var(--primary);
+  border: solid 1px var(--primary);
 }
 .btn--outline:hover {
   transition: 0.2s ease;
-  box-shadow: 0 0 0 1px var(--Purple-3) inset;
+  box-shadow: 0 0 0 1px var(--primary) inset;
 }
 
 @media only screen and (max-width: var(--mobile-breakpoint)) {

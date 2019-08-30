@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "LinearProgressbar",
+  name: 'LinearProgressbar',
   props: {
     value: {
       type: Number,
@@ -30,10 +30,10 @@ export default {
   },
   computed: {
     getValue() {
-      return this.indeterminate ? 100 : this.value;
+      return this.indeterminate ? 100 : this.value
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -67,7 +67,7 @@ progress::-webkit-progress-value {
 }
 
 .indeterminate {
-  background-image: repeating-linear-gradient(-45deg, var(--Purple-Shadow));
+  background-image: repeating-linear-gradient(-45deg, var(--secondary));
   animation: move 2s linear infinite;
 }
 
