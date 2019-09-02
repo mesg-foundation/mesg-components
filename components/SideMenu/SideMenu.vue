@@ -13,20 +13,20 @@
 
 <script>
 export default {
-  name: "SideMenu",
+  name: 'SideMenu',
   props: {
     items: {
       type: Array,
       required: true
     }
   }
-};
+}
 </script>
 
 <style scoped>
 .sidebar {
-  position:-webkit-fixed; 
-  position:fixed;   
+  position: -webkit-fixed;
+  position: fixed;
 }
 
 nav {
@@ -34,7 +34,7 @@ nav {
   flex-flow: column wrap;
 }
 
-.sidebar a {  
+.sidebar a {
   padding-bottom: 20px;
   font-size: 17px;
   font-weight: 700;
@@ -45,10 +45,10 @@ nav {
 }
 
 a {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 17px;
   font-weight: 700;
-  color: var(--Purple-3);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -65,7 +65,7 @@ i {
 .chevron::before {
   border-style: solid;
   border-width: 0.12em 0.12em 0 0;
-  content: "";
+  content: '';
   display: inline-block;
   height: 0.45em;
   left: 0.15em;

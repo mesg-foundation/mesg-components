@@ -2,23 +2,19 @@
 @import url('https://pro.fontawesome.com/releases/v5.8.2/css/all.css');
 
 :root {
-  --Purple-1: #0e061c;
-  --Purple-2: #210e41;
-  --Purple-3: #491e8c;
-  --Purple-Shadow: #3B1873;
-  --Lavender-1: #7e61ae;
-  --lavender-2: #bdafd6;
-  --Grey-1: #3c3940;
-  --Grey-2: #f2f0f7;
+  --primary-dark: #0e061c;
+  --primary: #491e8c;
+  --secondary: #3B1873;
+  --primary-light: #7e61ae;
+  --primary-very-light: #bdafd6;
+  --dark-grey: #3c3940;
+  --light-grey: #f2f0f7;
   --White: #ffffff;
-  --Wallets-Sale: #2e1359;
-  --Wallets-Partners: #7e44d8;
-  --Wallets-Founders: #c2a3ff;
-  --Wallets-Reserve: #dfcdf7;
+  --Black: #000000;
+
   --Error: #f44336;
   --Success: #4bb543;
   --Info: #1e88e5;
-  --Black: #000000;
 
   --mobile-only: 414px;
   --mobile-breakpoint: 768px;
@@ -33,7 +29,7 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-3);
+  color: var(--primary);
 }
 
 h1 {
@@ -44,7 +40,7 @@ h1 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-1);
+  color: var(--primary-dark);
 }
 
 h2 {
@@ -55,7 +51,7 @@ h2 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-1);
+  color: var(--primary-dark);
 }
 
 .Number2 {
@@ -66,7 +62,7 @@ h2 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-3);
+  color: var(--primary);
 }
 
 h3 {
@@ -77,7 +73,7 @@ h3 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-1);
+  color: var(--primary-dark);
 }
 
 h4 {
@@ -88,7 +84,7 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-1);
+  color: var(--primary-dark);
 }
 
 .H1subtitle {
@@ -99,7 +95,7 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Grey-1);
+  color: var(--dark-grey);
 }
 
 .ButtonPurple {
@@ -110,7 +106,7 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Purple-3);
+  color: var(--primary);
 }
 
 .ButtonWhite {
@@ -133,5 +129,5 @@ h4 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--Grey-1);
+  color: var(--dark-grey);
 }
