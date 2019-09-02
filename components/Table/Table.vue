@@ -91,7 +91,7 @@ thead tr {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--primary-very-dark);
+  color: var(--primary-dark);
 }
 
 tbody {

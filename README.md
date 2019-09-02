@@ -18,9 +18,8 @@ $ npm run build-storybook
 ```css
 :root {
   --primary: #491e8c;
-  --primary-dark: #210e41;
+  --primary-dark: #0e061c;
   --primary-light: #7e61ae;
-  --primary-very-dark: #0e061c;
   --primary-very-light: #bdafd6;
   --light-grey: #f2f0f7;
   --secondary: #3b1873;
