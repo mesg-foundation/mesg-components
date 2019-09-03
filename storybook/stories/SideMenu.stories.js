@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import Sider from '@mesg-components/side-menu/SideMenu'
+import Sider from '@mesg-components/side-menu'
 
 import '../style.css'
 

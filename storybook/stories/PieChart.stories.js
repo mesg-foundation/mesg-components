@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import PieChart from '@mesg-components/chart/Pie/PieChart'
+import PieChart from '@mesg-components/chart/Pie'
 
 import '../style.css'
 

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import LinearProgressbar from '@mesg-components/progressbar/Linear/LinearProgressbar'
+import LinearProgressbar from '@mesg-components/progressbar/Linear'
 
 storiesOf('Linear Progressbar', module)
   .add('info-35%', () => ({

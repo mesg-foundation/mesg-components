@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import Card from '@mesg-components/card/Card'
+import Card from '@mesg-components/card'
 
 import '../style.css'
 
