@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import CircularProgressbar from '@mesg-components/progressbar/Circular/CircularProgressbar'
+import CircularProgressbar from '@mesg-components/progressbar/Circular'
 
 storiesOf('CircularProgressbar', module)
   .add('default', () => ({

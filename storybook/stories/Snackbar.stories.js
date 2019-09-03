@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import Snackbar from '@mesg-components/snackbar/Snackbar'
+import Snackbar from '@mesg-components/snackbar'
 
 import '../style.css'
 

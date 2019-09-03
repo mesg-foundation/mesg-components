@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import Button from '@mesg-components/button/Button'
+import Button from '@mesg-components/button'
 
 import '../style.css'
 

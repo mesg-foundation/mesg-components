@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import AreaChart from '@mesg-components/chart/Area/AreaChart'
+import AreaChart from '@mesg-components/chart/Area'
 
 const categories = new Array(20).fill(null).map((_, i) => new Date(new Date() - i * 24 * 60 * 60 * 1000).toDateString())
 

@@ -1,14 +1,14 @@
 import { storiesOf } from '@storybook/vue'
-import Table from '@mesg-components/table/Table'
+import Table from '@mesg-components/table'
 
 import '../style.css'
 
 const headers = [
-  { key: 'date', text: 'Date', align: 'left', value: 'date'},
-  { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume'},
-  { key: 'token', text: 'Token Release', align: 'center', value: 'tokenRelease'},
-  { key: 'percentage', text: 'Percentage', align: 'center', value: 'percentage'},
-  { key: 'link', text: 'Link', align: 'center', value: 'link'}
+  { key: 'date', text: 'Date', align: 'left', value: 'date' },
+  { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume' },
+  { key: 'token', text: 'Token Release', align: 'center', value: 'tokenRelease' },
+  { key: 'percentage', text: 'Percentage', align: 'center', value: 'percentage' },
+  { key: 'link', text: 'Link', align: 'center', value: 'link' }
 ]
 
 const items = new Array(10).fill(null).map((x, i) => {
