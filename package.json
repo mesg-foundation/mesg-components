@@ -6,6 +6,10 @@
   },
   "scripts": {
     "package": "lerna add $FIRST --scope=$SECOND",
-    "package:dev": "lerna add $FIRST --scope=$SECOND --dev"
+    "package:dev": "lerna add $FIRST --scope=$SECOND --dev",
+    "lerna": "lerna"
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4"
   }
 }
