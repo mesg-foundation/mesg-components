@@ -18,7 +18,9 @@ export default {
     optionLegend: { type: Object },
     optionsTooltip: { type: Object },
     chartStyleOption: { type: Object },
-    fillColorOption: { type: Object }
+    fillColorOption: { type: Object },
+    xAxisOptions: { type: Object },
+    yAxisOptions: { type: Object }
   },
   mixins: [chart],
   data() {
@@ -51,19 +53,19 @@ export default {
         title: {
           text: this.xTitle
         },
-        min: 0,
         labels: {
           enabled: !this.noXLabel
-        }
+        },
+        ...this.xAxisOptions
       },
       yAxis: {
-        tickmarkPlacement: 'on',
         title: {
           text: this.yTitle
         },
         labels: {
           enabled: !this.noYLabel
-        }
+        },
+        ...this.yAxisOptions
       },
       tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { split: true }),
       plotOptions: {
