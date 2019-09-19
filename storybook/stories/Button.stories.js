@@ -6,19 +6,23 @@ import '../style.css'
 storiesOf('Button', module)
   .add('Default', () => ({
     components: { Button },
-    template: `<Button>TEST</Button>`
+    template: `<Button>Test</Button>`
   }))
   .add('Primary type submit', () => ({
     components: { Button },
-    template: `<Button primary submit>TEST</Button>`
+    template: `<Button primary submit>Test</Button>`
+  }))
+  .add('Small type submit', () => ({
+    components: { Button },
+    template: `<Button primary small submit>Test</Button>`
   }))
   .add('Secondary with href with externalLink', () => ({
     components: { Button },
-    template: `<Button secondary href="http://www.google.com" target="_blank">www.google.com</Button>`
+    template: `<Button secondary href="http://www.google.com" target="_blank">google.com</Button>`
   }))
   .add('Secondary with href with internalLink', () => ({
     components: { Button },
-    template: `<Button secondary href="/" >internalLink</Button>`
+    template: `<Button secondary href="/" >Internal Link</Button>`
   }))
   .add('White', () => ({
     components: { Button },

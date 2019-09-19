@@ -2,33 +2,30 @@
   <button v-if="submit" type="submit" :class="classes">
     <i v-if="icon" :class="icon"></i>
     <slot></slot>
-    <i v-if="posticon" :class="posticon"></i>
   </button>
   <a v-else-if="href" :href="href" :class="classes">
     <i v-if="icon" :class="icon"></i>
     <slot></slot>
-    <i v-if="posticon" :class="posticon"></i>
   </a>
   <nuxt-link v-else-if="to" :to="to" :class="classes">
     <i v-if="icon" :class="icon"></i>
     <slot></slot>
-    <i v-if="posticon" :class="posticon"></i>
   </nuxt-link>
   <a v-else @click="$emit('click')" :class="classes">
     <i v-if="icon" :class="icon"></i>
     <slot></slot>
-    <i v-if="posticon" :class="posticon"></i>
   </a>
 </template>
 
 <script>
 export default {
-  name: 'Button',
+  name: "Button",
   props: {
     href: String,
     to: [Object, String],
     submit: Boolean,
     primary: Boolean,
+    small: Boolean,
     secondary: Boolean,
     white: Boolean,
     outline: Boolean,
@@ -37,34 +34,35 @@ export default {
   computed: {
     classes() {
       return {
-        'btn--primary': this.primary,
-        'btn--secondary': this.secondary,
-        'btn--white': this.white,
-        'btn--outline': this.outline
-      }
+        "btn--primary": this.primary,
+        "btn--small": this.small,
+        "btn--secondary": this.secondary,
+        "btn--white": this.white,
+        "btn--outline": this.outline
+      };
     },
     isExternalLink() {
-      const link = this.href || this.to
-      return link.startsWith('http')
+      const link = this.href || this.to;
+      return link.startsWith("http");
     },
-    posticon() {
+    icon() {
       if (!this.secondary) {
-        return null
+        return null;
       }
       if (this.isExternalLink) {
-        return 'far fa-external-link'
+        return "far fa-external-link";
       }
-      return 'fa fa-arrow-right'
+      return "fa fa-arrow-right";
     }
   }
-}
+};
 </script>
 
 <style scoped>
 a,
 button {
   border-radius: 3px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -83,7 +81,7 @@ i {
   font-size: 1em;
   font-weight: bold;
   text-align: center;
-  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .btn--primary {
@@ -95,6 +93,12 @@ i {
   transition: 0.2s ease;
 }
 
+.btn--small {
+  padding: 0.45em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 .btn--secondary {
   position: relative;
   color: var(--primary);
@@ -102,15 +106,14 @@ i {
   border-radius: 0;
   padding-left: 0;
   padding-right: 0;
-  border-bottom: solid 1px var(--primary);
 }
 .btn--secondary::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   background-color: var(--primary);
   transform-origin: bottom right;
   transform: scaleX(0);
@@ -153,7 +156,8 @@ i {
   }
   .btn--primary,
   .btn--outline,
-  .btn--white {
+  .btn--white,
+  .btn--small {
     width: 100%;
   }
 }
