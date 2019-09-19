@@ -32,3 +32,7 @@ storiesOf('Button', module)
     components: { Button },
     template: `<Button outline>TEST</Button>`
   }))
+  .add('With icon', () => ({
+    components: { Button },
+    template: `<Button secondary>TEST</Button>`
+  }))

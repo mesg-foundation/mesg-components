@@ -1,18 +1,22 @@
 <template>
   <button v-if="submit" type="submit" :class="classes">
     <i v-if="icon" :class="icon"></i>
+    <i v-if="autoicon" :class="autoicon"></i>
     <slot></slot>
   </button>
   <a v-else-if="href" :href="href" :class="classes">
     <i v-if="icon" :class="icon"></i>
+    <i v-if="autoicon" :class="autoicon"></i>
     <slot></slot>
   </a>
   <nuxt-link v-else-if="to" :to="to" :class="classes">
     <i v-if="icon" :class="icon"></i>
+    <i v-if="autoicon" :class="autoicon"></i>
     <slot></slot>
   </nuxt-link>
   <a v-else @click="$emit('click')" :class="classes">
     <i v-if="icon" :class="icon"></i>
+    <i v-if="autoicon" :class="autoicon"></i>
     <slot></slot>
   </a>
 </template>
@@ -42,10 +46,10 @@ export default {
       };
     },
     isExternalLink() {
-      const link = this.href || this.to;
+      const link = this.href || this.to || "";
       return link.startsWith("http");
     },
-    icon() {
+    autoicon() {
       if (!this.secondary) {
         return null;
       }
