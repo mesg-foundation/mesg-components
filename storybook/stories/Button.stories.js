@@ -14,7 +14,7 @@ storiesOf('Button', module)
   }))
   .add('Small type submit', () => ({
     components: { Button },
-    template: `<Button primary small submit>Test</Button>`
+    template: `<Button primary small submit>TEST</Button>`
   }))
   .add('Secondary with href with externalLink', () => ({
     components: { Button },
