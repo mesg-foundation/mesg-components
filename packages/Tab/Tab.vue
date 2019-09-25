@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables.scss';
+@import '@mesg-components/theme/index.scss';
 
 .tabs {
   display: flex;
