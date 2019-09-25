@@ -36,18 +36,20 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@mesg-components/theme/_variables.scss';
+
 progress {
   width: 100%;
   border: 0;
-  background-color: white;
-  border: 1px solid #e8e8ec;
+  background-color: $White;
+  border: 1px solid $light-grey;
   text-align: center;
   overflow: hidden;
 }
 
 progress::-webkit-progress-bar {
-  background: #fff;
+  background: $White;
 }
 progress::-webkit-progress-value {
   background: #28a745;
@@ -67,7 +69,7 @@ progress::-webkit-progress-value {
 }
 
 .indeterminate {
-  background-image: repeating-linear-gradient(-45deg, var(--secondary));
+  background-image: repeating-linear-gradient(-45deg, $secondary);
   animation: move 2s linear infinite;
 }
 

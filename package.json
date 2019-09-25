@@ -7,8 +7,8 @@
     "vue": "^2.6.10"
   },
   "scripts": {
-    "package": "lerna add $FIRST --scope=$SECOND",
-    "package:dev": "lerna add $FIRST --scope=$SECOND --dev",
+    "package": "lerna add $SOURCE --scope=$TARGET",
+    "package:dev": "lerna add $SOURCE --scope=$TARGET --dev",
     "lerna": "lerna"
   },
   "devDependencies": {

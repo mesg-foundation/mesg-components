@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     href: String,
     to: [Object, String],
@@ -34,38 +34,39 @@ export default {
   computed: {
     classes() {
       return {
-        "btn--primary": this.primary,
-        "btn--small": this.small,
-        "btn--secondary": this.secondary,
-        "btn--white": this.white,
-        "btn--outline": this.outline
-      };
+        'btn--primary': this.primary,
+        'btn--small': this.small,
+        'btn--secondary': this.secondary,
+        'btn--white': this.white,
+        'btn--outline': this.outline
+      }
     },
     isExternalLink() {
-      const link = this.href || this.to || "";
-      return link.startsWith("http");
+      const link = this.href || this.to || ''
+      return link.startsWith('http')
     },
     finalicon() {
       if (this.icon) {
-        return this.icon;
+        return this.icon
       }
       if (!this.secondary) {
-        return null;
+        return null
       }
       if (this.isExternalLink) {
-        return "far fa-external-link";
+        return 'far fa-external-link'
       }
-      return "fa fa-arrow-right";
+      return 'fa fa-arrow-right'
     }
   }
-};
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@mesg-components/theme/_variables.scss';
 a,
 button {
   border-radius: 3px;
-  font-family: "Open Sans", sans-serif;
+  font-family: $OpenSans;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -88,11 +89,11 @@ i {
 }
 
 .btn--primary {
-  color: var(--White);
-  background-color: var(--primary);
+  color: $White;
+  background-color: $primary;
 }
 .btn--primary:hover {
-  background-color: var(--secondary);
+  background-color: $secondary;
   transition: 0.2s ease;
 }
 
@@ -104,20 +105,20 @@ i {
 
 .btn--secondary {
   position: relative;
-  color: var(--primary);
+  color: $primary;
   text-align: left;
   border-radius: 0;
   padding-left: 0;
   padding-right: 0;
 }
 .btn--secondary::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--primary);
+  background-color: $primary;
   transform-origin: bottom right;
   transform: scaleX(0);
   transition: transform 0.5s ease;
@@ -128,30 +129,30 @@ i {
 }
 
 .btn--white {
-  color: var(--primary);
-  background-color: var(--White);
+  color: $primary;
+  background-color: $White;
 }
 .btn--white:hover {
   transition: 0.2s ease;
-  background-color: var(--light-grey);
+  background-color: $light-grey;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 }
 
 .btn--outline {
-  color: var(--primary);
-  border: solid 1px var(--primary);
+  color: $primary;
+  border: solid 1px $primary;
 }
 .btn--outline:hover {
   transition: 0.2s ease;
-  box-shadow: 0 0 0 1px var(--primary) inset;
+  box-shadow: 0 0 0 1px $primary inset;
 }
 
-@media only screen and (max-width: var(--mobile-breakpoint)) {
+@media only screen and (max-width: $mobile-breakpoint) {
   a {
     font-size: 1em;
   }
 }
-@media only screen and (max-width: var(--mobile-only)) {
+@media only screen and (max-width: $mobile-only) {
   a,
   button {
     min-height: 50px;

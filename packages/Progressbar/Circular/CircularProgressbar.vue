@@ -11,9 +11,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@mesg-components/theme/_variables.scss';
+
 .circular {
-  border: 0.5rem solid var(--primary);
+  border: 0.5rem solid $primary;
   border-top-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   animation: 1s rotate linear infinite;

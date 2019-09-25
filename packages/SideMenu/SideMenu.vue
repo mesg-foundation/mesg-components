@@ -23,7 +23,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@mesg-components/theme/_variables.scss';
+
 .sidebar {
   position: -webkit-fixed;
   position: fixed;
@@ -45,10 +47,10 @@ nav {
 }
 
 a {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $OpenSans;
   font-size: 17px;
   font-weight: 700;
-  color: var(--primary);
+  color: $primary;
   text-decoration: none;
 }
 
