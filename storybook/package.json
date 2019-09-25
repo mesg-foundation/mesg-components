@@ -26,6 +26,10 @@
     "@mesg-components/snackbar": "file:../packages/Snackbar",
     "@mesg-components/tab": "file:../packages/Tab",
     "@mesg-components/table": "file:../packages/Table",
+    "css-loader": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
     "vue": "^2.6.10"
   }
 }

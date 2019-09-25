@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import Snackbar from '@mesg-components/snackbar'
 
-import '../style.css'
-
 storiesOf('Snackbar', module)
   .add('default', () => ({
     components: { Snackbar },

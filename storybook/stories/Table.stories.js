@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import Table from '@mesg-components/table'
 
-import '../style.css'
-
 const headers = [
   { key: 'date', text: 'Date', align: 'left', value: 'date' },
   { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume' },
