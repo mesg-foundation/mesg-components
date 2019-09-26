@@ -66,7 +66,7 @@ export default {
 a,
 button {
   border-radius: 3px;
-  font-family: $OpenSans;
+  font-family: $font;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;

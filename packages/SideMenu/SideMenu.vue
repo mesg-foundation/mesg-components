@@ -47,7 +47,6 @@ nav {
 }
 
 a {
-  font-family: $OpenSans;
   font-size: 17px;
   font-weight: 700;
   color: $primary;
