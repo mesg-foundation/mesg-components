@@ -69,7 +69,7 @@ export default {
 
 table {
   width: 100%;
-  font-family: $OpenSans;
+  font-family: $font;
   border-spacing: 0px;
   border-collapse: collapse;
   border-spacing: 0 1em;

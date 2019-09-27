@@ -4,7 +4,9 @@
       <div class="container">
         <nav flex row space-between wrap mobile-column-reverse>
           <div flex column third>
-            <div>TEST</div>
+            <a href="/">
+              <img :src="banner" alt />
+            </a>
             <p class="copyright">{{copyRightText}}</p>
             <div class="policy link-secondary" mb2>Privacy & Cookie Policy</div>
             <div flex space-between wrap>
@@ -59,6 +61,15 @@ export default {
     banner: { type: String },
     copyRightText: { type: String, default: '© 2019 MESG Foundation, All rights reserved.' },
     links: { type: Array }
+  },
+  mounted() {
+    this.imgUrl()
+  },
+  methods: {
+    imgUrl() {
+      // const imgUrl = require.context('/assets/', true, /\.png$|\.svg$/)
+      return `../../storybook/assets/img/base-logo-mesg.svg`
+    }
   }
 }
 </script>
