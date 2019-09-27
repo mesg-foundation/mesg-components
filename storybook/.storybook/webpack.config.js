@@ -1,5 +1,7 @@
 const path = require('path')
 
+import '@mesg-components/theme/index.scss'
+
 module.exports = {
   module: {
     rules: [
