@@ -1,56 +1,47 @@
 <template>
   <section id="footer">
-    <div>
-      <div class="container">
-        <nav flex row space-between wrap mobile-column-reverse>
-          <div flex column third>
-            <a href="/">
-              <img :src="banner" alt />
-            </a>
-            <p class="copyright">{{copyRightText}}</p>
-            <div class="policy link-secondary" mb2>Privacy & Cookie Policy</div>
-            <div flex space-between wrap>
-              <i class="fab fa-medium"></i>
-              <i class="fab fa-github"></i>
-              <i class="fas fa-comments"></i>
-              <i class="fab fa-discord"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-telegram-plane"></i>
-              <i class="fab fa-linkedin-in"></i>
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-reddit-alien"></i>
+    <slot>
+      <div>
+        <div class="container">
+          <nav flex row space-between wrap mobile-column-reverse>
+            <div v-if="banner" flex column third>
+              <a v-if="banner.image" href="/">
+                <img :src="banner.textOrImgUrl" alt />
+              </a>
+              <div v-else>
+                <h2>{{banner.textOrImgUrl}}</h2>
+              </div>
+              <p class="copyright">{{copyRightText}}</p>
+              <a href="/" class="policy link-secondary" mb2>{{policyText}}</a>
+              <div v-if="!noIcons" flex space-between wrap>
+                <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
+                  <i :class="icon.icon"></i>
+                </a>
+              </div>
             </div>
-          </div>
-          <ul flex row mobile-column class="menu">
-            <li flex column quarter>
-              <a href="#" class="category" mb1>Products</a>
-              <a href="/" class="link-secondary" mb1>MESG Orchestrator</a>
-              <a href="/" class="link-secondary" mb1>MESG SDK</a>
-              <a href="/" class="link-secondary" mb1>MESG Marketplace</a>
-              <a href="/" class="link-secondary last">Showcase</a>
-            </li>
-            <li flex column quarter>
-              <a href="#" class="category" mb1>Products</a>
-              <a href="/" class="link-secondary" mb1>MESG Orchestrator</a>
-              <a href="/" class="link-secondary" mb1>MESG SDK</a>
-              <a href="/" class="link-secondary" mb1>MESG Marketplace</a>
-              <a href="/" class="link-secondary last">Showcase</a>
-            </li>
-            <li flex column quarter>
-              <a href="#" class="category" mb1>Products</a>
-              <a href="/" class="link-secondary" mb1>MESG Orchestrator</a>
-              <a href="/" class="link-secondary" mb1>MESG SDK</a>
-              <a href="/" class="link-secondary" mb1>MESG Marketplace</a>
-              <a href="/" class="link-secondary last">Showcase</a>
-            </li>
-            <li flex column quarter>
-              <a href="/" class="link-secondary last">MESG Marketplace</a>
-              <a href="/" class="link-secondary">Showcase</a>
-            </li>
-          </ul>
-        </nav>
+            <ul flex row mobile-column class="menu">
+              <li flex column quarter v-for="(link, i) in links" :key="i">
+                <a
+                  v-for="(detail,j) in link"
+                  :key="j"
+                  v-if="detail.external"
+                  :href="detail.to"
+                  :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j) }"
+                  :mb1="setMb(link,i)"
+                  target="_blank"
+                >{{detail.title}}</a>
+                <nuxt-link
+                  v-else
+                  :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j)}"
+                  :to="detail.to"
+                  :mb1="setMb(link,i)"
+                >{{detail.title}}</nuxt-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </div>
+    </slot>
   </section>
 </template>
 
@@ -58,17 +49,22 @@
 export default {
   name: 'Footer',
   props: {
-    banner: { type: String },
-    copyRightText: { type: String, default: '© 2019 MESG Foundation, All rights reserved.' },
-    links: { type: Array }
-  },
-  mounted() {
-    this.imgUrl()
+    banner: { type: Object },
+    copyRightText: { type: String },
+    policyText: { type: String },
+    links: { type: Array },
+    noIcons: { type: Boolean, default: false },
+    icons: { type: Array }
   },
   methods: {
-    imgUrl() {
-      // const imgUrl = require.context('/assets/', true, /\.png$|\.svg$/)
-      return `../../storybook/assets/img/base-logo-mesg.svg`
+    setMb(link, i) {
+      const value = link.length - 1 === i ? false : true
+      console.log(i, link.length - 1 === i ? false : true)
+      return value
+    },
+    setLast(links, i) {
+      const value = links.length - 1 === i ? true : false
+      return value
     }
   }
 }
@@ -78,19 +74,19 @@ export default {
 @import '@mesg-components/theme/index.scss';
 
 #footer {
-  padding: calc(#{$margin} * 3);
+  padding: calc(var(--margin) * 3);
   width: 100%;
-  background-color: $light-grey;
+  background-color: var(--light-grey);
 }
 .outline {
-  border: solid 1px $primary-light;
-  background-color: $primary-very-dark;
+  border: solid 1px var(--primary-light);
+  background-color: var(--primary-very-dark);
 }
 .purple {
-  color: $primary-light;
+  color: var(--primary-light);
 }
 .white {
-  color: $White;
+  color: var(--White);
 }
 .copyright {
   font-size: 12px;
@@ -99,7 +95,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $dark-grey;
+  color: var(--dark-grey);
 }
 .policy {
   font-size: 12px !important;
@@ -108,7 +104,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $dark-grey;
+  color: var(--dark-grey);
 }
 .category {
   font-size: 17px;
@@ -117,7 +113,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $primary-dark;
+  color: var(--primary-dark);
   display: inline;
 }
 .icon {
@@ -126,7 +122,7 @@ export default {
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
-  color: $dark-grey;
+  color: var(--dark-grey);
 }
 .icon:hover {
   opacity: 0.7;
@@ -141,7 +137,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   padding: 0;
-  color: $dark-grey;
+  color: var(--dark-grey);
 }
 img {
   height: 40px;
@@ -152,7 +148,7 @@ img:hover {
 }
 @media only screen and (max-width: $tablet-breakpoint) {
   #footer {
-    padding: calc(#{$margin} * 2);
+    padding: calc(var(--margin) * 2);
     padding-top: 0;
   }
   .container {
@@ -165,11 +161,11 @@ img:hover {
     margin-bottom: 0;
   }
   .last {
-    padding-bottom: calc(#{$margin} * 2);
+    padding-bottom: calc(var(--margin) * 2);
   }
   img {
-    margin-top: calc(#{$margin} * 2);
-    margin-bottom: $margin;
+    margin-top: calc(var(--margin) * 2);
+    margin-bottom: var(--margin);
   }
 }
 </style>
