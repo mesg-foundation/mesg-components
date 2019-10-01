@@ -107,6 +107,11 @@ li {
   color: var(--dark-grey);
 }
 
+img {
+  max-width: 100%;
+}
+
+
 .list::before {
   content: "";
   width: 7px;
