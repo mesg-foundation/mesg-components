@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group">
-    <button v-for="(item,i) in items" :key="i">
+    <button v-for="(item,i) in items" :key="i" v-on:click="handleClicked(item.method,i)" :class="{actived: actived === i}">
       <i v-if="item.prefix" :class="item.icon"></i>
       {{item.title}}
       <i v-if="item.suffix" :class="item.icon" class="suffix"></i>
@@ -15,6 +15,19 @@ export default {
   name: 'ButtonGroup',
   props: {
     items: { type: Array }
+  },
+  data() {
+    return {
+      actived: 0
+    }
+  },
+  methods: {
+    handleClicked(func, index) {
+      this.actived = index
+      if (func) {
+        func()
+      }
+    }
   }
 }
 </script>
@@ -73,6 +86,11 @@ button {
 .btn-group button:focus {
   background-color: var(--primary);
   color: var(--White);
+}
+
+.actived {
+  background-color: var(--primary);
+  color: var(--White) !important;
 }
 </style>
 
