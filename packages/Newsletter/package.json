@@ -1,0 +1,13 @@
+{
+  "name": "@mesg-components/news-letter",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@mesg-components/theme": "^1.0.0"
+  },
+  "dependencies": {
+    "@mesg-components/button": "^1.1.1"
+  }
+}
