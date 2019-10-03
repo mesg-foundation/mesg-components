@@ -59,7 +59,6 @@ export default {
   methods: {
     setMb(link, i) {
       const value = link.length - 1 === i ? false : true
-      console.log(i, link.length - 1 === i ? false : true)
       return value
     },
     setLast(links, i) {
