@@ -98,11 +98,17 @@ tbody tr {
   border-bottom: solid 1px var(--primary-very-light);
 }
 
+td.setTextExpand {
+  background-color: var(--light-grey);
+}
+
 .expandable {
   cursor: pointer;
 }
 
-.expandable:hover {
+.expandable:hover,
+.expandable:active,
+.expandable:focus {
   background-color: var(--light-grey);
 }
 
@@ -150,6 +156,7 @@ tbody tr {
   }
 
   td.setTextExpand {
+    background-color: var(--light-grey);
     padding: var(--margin);
     text-align: left !important;
   }
