@@ -70,3 +70,15 @@ storiesOf('AreaChart', module)
     template: `<AreaChart :categories="categories" :items="items" area-type="normal" :chart-style-option="chartStyleOption" />`,
     data: () => ({ categories, items, chartStyleOption: { backgroundColor: 'transparent' } })
   }))
+  .add('Remove marker on line', () => ({
+    components: { AreaChart },
+    template: `<AreaChart :categories="categories" :items="oneItem" :fill-color-option="fillColorOption" area-type="normal"  no-legend no-marker/>`,
+    data: () => ({
+      categories,
+      oneItem,
+      fillColorOption: {
+        linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+        stops: [[0, '#7e44d8'], [1, 'rgba(126,68,216, 0)']]
+      }
+    })
+  }))

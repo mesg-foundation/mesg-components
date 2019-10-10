@@ -101,10 +101,20 @@ const items2yAxis = [
 storiesOf('High Stock Chart', module)
   .add('default', () => ({
     components: { HighStock },
-    template: `<HighStock :items="items" :range-selector-option="rangeSelector" :y-axis-option="yAxis"/>`,
+    template: `<HighStock :items="items" :range-selector-option="rangeSelector" :y-axis-option="yAxis" range-selector/>`,
     data: () => ({ rangeSelector, yAxis, items })
   }))
   .add('2 yAxis', () => ({
+    components: { HighStock },
+    template: `<HighStock :items="items" :range-selector-option="rangeSelector" :y-axis-option="yAxis" range-selector/>`,
+    data: () => ({ rangeSelector, yAxis: yAxisOption, items: items2yAxis })
+  }))
+  .add('Without Navigator', () => ({
+    components: { HighStock },
+    template: `<HighStock :items="items" :range-selector-option="rangeSelector" :y-axis-option="yAxis" range-selector noNavigator/>`,
+    data: () => ({ rangeSelector, yAxis, items })
+  }))
+  .add('Without rangeSelector', () => ({
     components: { HighStock },
     template: `<HighStock :items="items" :range-selector-option="rangeSelector" :y-axis-option="yAxis"/>`,
     data: () => ({ rangeSelector, yAxis: yAxisOption, items: items2yAxis })
