@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/index.scss';
+@import '@mesg-components/theme/_variables';
 
 form {
   position: relative;

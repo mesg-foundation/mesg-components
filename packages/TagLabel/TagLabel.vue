@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/index.scss';
+@import '@mesg-components/theme/_variables';
 
 .label-icon {
   width: calc(100% - var(--margin) * 2);

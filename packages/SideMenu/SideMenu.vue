@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme';
+@import '@mesg-components/theme/_variables';
 
 .sidebar {
   position: -webkit-fixed;

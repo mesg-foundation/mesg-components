@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme';
+@import '@mesg-components/theme/_variables';
 
 .btn-group button {
   border: solid 2px var(--primary);
