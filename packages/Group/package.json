@@ -5,6 +5,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@mesg-components/theme": "^1.0.0"
+    "@mesg-components/theme": "file:../Theme"
   }
 }
