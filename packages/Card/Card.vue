@@ -18,7 +18,7 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/index.scss';
+@import '@mesg-components/theme/_variables';
 
 .card {
   border-radius: 6px;

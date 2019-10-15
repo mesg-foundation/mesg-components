@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/index.scss';
+@import '@mesg-components/theme/_variables';
 
 .circular {
   border: 0.5rem solid $primary;
