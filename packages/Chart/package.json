@@ -4,10 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@mesg-components/theme": "^1.0.0"
-  },
   "dependencies": {
+    "@mesg-components/theme": "file:../Theme",
     "highcharts": "^7.1.2"
   }
 }
