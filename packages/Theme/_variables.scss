@@ -1,0 +1,38 @@
+$primary: #491e8c !default;
+$primary-dark: #0e061c !default;
+$secondary: #3B1873 !default;
+$primary-light: #7e61ae !default;
+$primary-very-light: #bdafd6 !default;
+$primary-very-dark: #210e41 !default;
+$dark-grey: #3c3940 !default;
+$light-grey: #f2f0f7 !default;
+$light-orange: #ffebd1;
+$White: #ffffff !default;
+$Black: #000000 !default;
+
+$Error: #f44336 !default;
+$Success: #4bb543 !default;
+$Warning: #ffc107 !default;
+$Info: #1e88e5 !default;
+
+$margin: 20px !default;
+$width: 1020px !default;
+$small-width: 680px !default;
+
+$mobile-only: 414px !default;
+$mobile-breakpoint: 768px !default;
+$tablet-breakpoint: 1024px !default;
+
+@function pow($base, $exponent) {
+  $result: 1;
+
+  @if $exponent==0 {
+    @return $result;
+  }
+
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+
+  @return $result;
+}

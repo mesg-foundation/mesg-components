@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import Table from '@mesg-components/table'
 
-import '../style.css'
-
 const headers = [
   { key: 'date', text: 'Date', align: 'left', value: 'date' },
   { key: 'volume', text: 'Traded Volume', align: 'center', value: 'tradeVolume' },
@@ -27,15 +25,19 @@ const items = new Array(10).fill(null).map((x, i) => {
 storiesOf('Table', module)
   .add('default', () => ({
     components: { Table },
-    template: `<Table :items="items" :headers="headers">  
-    <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
-    <template v-slot:item_trade="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
-    <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
-    <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
-    <template v-slot:item_link="{ item }">
-      <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
-    </template>
-  </Table>`,
+    template: `
+    <div class="container">
+      <Table :items="items" :headers="headers">  
+        <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
+        <template v-slot:item_trade="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
+        <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
+        <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
+        <template v-slot:item_link="{ item }">
+          <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
+        </template>
+      </Table>
+    </div>
+  `,
     data: () => ({
       headers,
       items
@@ -43,43 +45,45 @@ storiesOf('Table', module)
   }))
   .add('expand', () => ({
     components: { Table },
-    template: `<Table :items="items" :headers="headers" expandable>
+    template: `
+    <div class="container">
+      <Table :items="items" :headers="headers" expandable>
+          <template v-slot:header_link="{ header }">
+            <h4> {{header.text}}</h4>
+          </template>
 
-    <template v-slot:header_link="{ header }">
-      <h4> {{header.text}}</h4>
-    </template>
+          <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
+          <template v-slot:item_volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
+          <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
+          <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
+          <template v-slot:item_link="{ item }">
+            <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
+          </template>
 
-    <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
-    <template v-slot:item_volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
-    <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
-    <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
-    <template v-slot:item_link="{ item }">
-      <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
-    </template>
-
-    <template v-slot:expand="{ item }">                  
-      <ul>
-      <li>    
-          <div>
-            <label>Traded Volume:</label>
-            <label>{{ item.tradeVolume }}</label>
-          </div>    
-        </li>
-        <li>    
-          <div>
-            <label>Token Release:</label>
-            <label>{{ item.tokenRelease }}</label>
-          </div>
-        </li>
-        <li>
-          <div>
-            <label>Percentage:</label>
-            <label>{{ item.percentage }}</label>
-          </div>
-        </li>
-      </ul>      
-    </template>
-  </Table>`,
+          <template v-slot:expand="{ item }">                  
+            <ul>
+            <li>    
+                <div>
+                  <label>Traded Volume:</label>
+                  <label>{{ item.tradeVolume }}</label>
+                </div>    
+              </li>
+              <li>    
+                <div>
+                  <label>Token Release:</label>
+                  <label>{{ item.tokenRelease }}</label>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label>Percentage:</label>
+                  <label>{{ item.percentage }}</label>
+                </div>
+              </li>
+            </ul>      
+          </template>
+      </Table>
+    </div>`,
     data: () => ({
       headers,
       items

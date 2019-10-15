@@ -1,0 +1,11 @@
+{
+  "name": "@mesg-components/news-letter",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mesg-components/theme": "file:../Theme",
+    "@mesg-components/button": "file:../Button"
+  }
+}
