@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Tab from '@mesg-components/tab'
 
+import '../style.css'
+
 const items = [
   { key: 'github', text: 'Github' },
   { key: 'gitlab', text: 'Gitlab' },

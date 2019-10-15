@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Sider from '@mesg-components/side-menu'
 
+import '../style.css'
+
 const items = [
   { key: 'general', text: 'General', href: '#general' },
   { key: 'gettingst', text: 'Getting Start', href: '#getting-started' },

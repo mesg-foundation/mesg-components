@@ -24,9 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
-
+<style scoped>
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -41,17 +39,17 @@ export default {
 }
 
 .tabs label:hover {
-  background: $primary-very-light;
+  background: var(--primary-very-light);
 }
 
 input:checked + label {
-  color: $primary;
+  color: var(--primary);
   border: 1px solid #abc;
-  border: 1px solid $primary-light;
-  border-top: 2px solid $primary;
+  border: 1px solid var(--primary-light);
+  border-top: 2px solid var(--primary);
   margin: 0 0 -1px;
   display: inline-block;
-  border-bottom: 1px solid $White;
+  border-bottom: 1px solid #fff;
   z-index: 1;
 }
 
@@ -60,13 +58,13 @@ input:checked + label {
   width: 100%;
   display: none;
   padding: 1rem;
-  border-top: 1px solid $primary-light;
+  border-top: 1px solid var(--primary-light);
 }
 .tabs input[type='radio'] {
   display: none;
 }
 .tabs input[type='radio']:checked + label {
-  background: $White;
+  background: #fff;
 }
 .tabs input[type='radio']:checked + label + .tab {
   display: block;

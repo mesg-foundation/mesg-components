@@ -48,9 +48,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
-
+<style>
 .high-stock input {
   background: var(--White);
 }
