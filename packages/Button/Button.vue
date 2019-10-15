@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: "Button",
   props: {
     href: String,
     to: [Object, String],
@@ -34,38 +34,38 @@ export default {
   computed: {
     classes() {
       return {
-        'btn--primary': this.primary,
-        'btn--small': this.small,
-        'btn--secondary': this.secondary,
-        'btn--white': this.white,
-        'btn--outline': this.outline
-      }
+        "btn--primary": this.primary,
+        "btn--small": this.small,
+        "btn--secondary": this.secondary,
+        "btn--white": this.white,
+        "btn--outline": this.outline
+      };
     },
     isExternalLink() {
-      const link = this.href || this.to || ''
-      return link.startsWith('http')
+      const link = this.href || this.to || "";
+      return link.startsWith("http");
     },
     finalicon() {
       if (this.icon) {
-        return this.icon
+        return this.icon;
       }
       if (!this.secondary) {
-        return null
+        return null;
       }
       if (this.isExternalLink) {
-        return 'far fa-external-link'
+        return "far fa-external-link";
       }
-      return 'fa fa-arrow-right'
+      return "fa fa-arrow-right";
     }
   }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+<style scoped>
 a,
 button {
   border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -111,7 +111,7 @@ i {
   padding-right: 0;
 }
 .btn--secondary::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -146,12 +146,12 @@ i {
   box-shadow: 0 0 0 1px var(--primary) inset;
 }
 
-@media only screen and (max-width: $mobile-breakpoint) {
+@media only screen and (max-width: var(--mobile-breakpoint)) {
   a {
     font-size: 1em;
   }
 }
-@media only screen and (max-width: $mobile-only) {
+@media only screen and (max-width: var(--mobile-only)) {
   a,
   button {
     min-height: 50px;

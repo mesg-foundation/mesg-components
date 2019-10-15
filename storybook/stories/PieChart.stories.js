@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import PieChart from '@mesg-components/chart/Pie'
 
+import '../style.css'
+
 const items = [
   { name: 'Sale', y: 2.5, color: '#2e1359' },
   { name: 'Partners & Bounties', y: 1.5, color: '#7e44d8' },
