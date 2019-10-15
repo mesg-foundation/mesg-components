@@ -42,14 +42,14 @@ export default {
 progress {
   width: 100%;
   border: 0;
-  background-color: $White;
+  background-color: $white;
   border: 1px solid $light-grey;
   text-align: center;
   overflow: hidden;
 }
 
 progress::-webkit-progress-bar {
-  background: $White;
+  background: $white;
 }
 progress::-webkit-progress-value {
   background: #28a745;

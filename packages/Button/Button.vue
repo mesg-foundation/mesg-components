@@ -89,7 +89,7 @@ i {
 }
 
 .btn--primary {
-  color: $White;
+  color: $white;
   background-color: $primary;
 }
 .btn--primary:hover {
@@ -130,7 +130,7 @@ i {
 
 .btn--white {
   color: $primary;
-  background-color: $White;
+  background-color: $white;
 }
 .btn--white:hover {
   transition: 0.2s ease;

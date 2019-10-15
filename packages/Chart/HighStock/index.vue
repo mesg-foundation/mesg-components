@@ -41,6 +41,6 @@ export default {
 @import '@mesg-components/theme';
 
 .highstock input {
-  background: $White;
+  background: $white;
 }
 </style>

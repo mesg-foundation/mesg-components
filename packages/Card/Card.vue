@@ -22,7 +22,7 @@ export default {
 
 .card {
   border-radius: 6px;
-  background-color: $White;
+  background-color: $white;
   overflow: hidden;
 }
 .card.shadow {

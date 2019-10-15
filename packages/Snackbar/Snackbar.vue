@@ -44,10 +44,10 @@ export default {
 .snackbar {
   position: absolute;
   z-index: 9999999;
-  color: $White;
+  color: $white;
   padding: 10px 15px;
   border-radius: 3px;
-  background: $Black;
+  background: $black;
   font-size: 14px;
 }
 .disableDisplay {
@@ -80,19 +80,19 @@ export default {
   margin-bottom: 10px;
 }
 .error {
-  background: $Error !important;
+  background: $error !important;
 }
 .success {
-  background: $Success !important;
+  background: $success !important;
 }
 .info {
-  background: $Info !important;
+  background: $info !important;
 }
 
 .error button,
 .info button,
 .success button {
-  color: $White;
+  color: $white;
 }
 
 span {
