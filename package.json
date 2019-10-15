@@ -5,8 +5,8 @@
   ],
   "dependencies": {},
   "scripts": {
-    "package": "lerna add $SOURCE --scope=$TARGET",
-    "package:dev": "lerna add $SOURCE --scope=$TARGET --dev",
+    "package": "lerna add $FIRST --scope=$SECOND",
+    "package:dev": "lerna add $FIRST --scope=$SECOND --dev",
     "lerna": "lerna"
   },
   "devDependencies": {

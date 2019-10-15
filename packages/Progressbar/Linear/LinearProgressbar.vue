@@ -69,7 +69,7 @@ progress::-webkit-progress-value {
 }
 
 .indeterminate {
-  background-image: repeating-linear-gradient(-45deg, $secondary);
+  background-image: repeating-linear-gradient(-45deg, var(--secondary));
   animation: move 2s linear infinite;
 }
 

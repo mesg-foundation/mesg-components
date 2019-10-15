@@ -13,7 +13,8 @@ export default {
     optionsTooltip: { type: Object },
     optionsPlot: { type: Object },
     chartOption: { type: Object },
-    noNavigator: { type: Boolean, default: false }
+    noNavigator: { type: Boolean, default: false },
+    rangeSelector: { type: Boolean, default: false }
   },
   mixins: [chart],
   data() {
@@ -24,7 +25,7 @@ export default {
   mounted() {
     this.chart = new Highcharts.stockChart(this.$el, {
       chart: this.chartOption || {},
-      rangeSelector: this.rangeSelectorOption,
+      rangeSelector: this.setRangeSelectorOptions,
       yAxis: this.yAxisOption,
       legend: this.legendOption(!this.noLegend, this.optionLegend || {}),
       tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { valueDecimals: 2, split: true }),
@@ -33,6 +34,16 @@ export default {
       plotOptions: this.optionsPlot || {},
       series: this.items
     })
+  },
+  computed: {
+    setRangeSelectorOptions() {
+      const rangeSelectorEnabled = this.rangeSelector
+      const selectorOptions = this.rangeSelectorOption || {}
+      return {
+        enabled: rangeSelectorEnabled,
+        ...selectorOptions
+      }
+    }
   }
 }
 </script>

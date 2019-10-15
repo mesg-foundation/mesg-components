@@ -107,6 +107,5 @@ span {
   font-size: 14px;
   padding: 7px 10px;
   font-weight: 500;
-  outline: none;
 }
 </style>
