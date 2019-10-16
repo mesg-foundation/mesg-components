@@ -4,31 +4,6 @@
 @import 'variables.scss';
 @import 'structure.scss';
 
-
-:root {
-  --primary:#{$primary};
-  --primary-dark: #{$primary-dark};
-  --primary-light: #{$primary-light};
-  --primary-very-light: #{$primary-very-light};
-  --primary-very-dark: #{$primary-very-dark};
-  --secondary: #{$secondary};
-  --dark-grey: #{$dark-grey};
-  --light-grey: #{$light-grey};
-  --light-orange: #{$light-orange};
-  --white: #{$white};
-  --black: #{$black};
-
-  --error: #{$error};
-  --success: #{$success};
-  --warning: #{$warning};
-  --Info: #{$info};
-
-  --margin: #{$margin};
-  --width: #{$width};
-  --small-width: #{$small-width};
-
-}
-
 /* Text styles */
 h1,
 h2,
