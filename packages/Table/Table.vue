@@ -93,15 +93,15 @@ thead tr {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 
 tbody {
-  box-shadow: 0 0 0 1px var(--primary-very-light);
+  box-shadow: 0 0 0 1px $primary-very-light;
 }
 
 tbody tr {
-  border-bottom: solid 1px var(--primary-very-light);
+  border-bottom: solid 1px $primary-very-light;
 }
 
 .expandable {
@@ -109,6 +109,6 @@ tbody tr {
 }
 
 .expandable:hover {
-  background-color: var(--light-grey);
+  background-color: $light-grey;
 }
 </style>

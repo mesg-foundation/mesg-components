@@ -50,7 +50,7 @@ a {
   font-family: 'Open Sans', sans-serif;
   font-size: 17px;
   font-weight: 700;
-  color: var(--primary);
+  color: $primary;
   text-decoration: none;
 }
 
