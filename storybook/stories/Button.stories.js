@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import Button from '@mesg-components/button'
 
-import '../style.css'
-
 storiesOf('Button', module)
   .add('Default', () => ({
     components: { Button },

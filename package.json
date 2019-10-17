@@ -3,9 +3,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
-    "vue": "^2.6.10"
-  },
+  "dependencies": {},
   "scripts": {
     "package": "lerna add $FIRST --scope=$SECOND",
     "package:dev": "lerna add $FIRST --scope=$SECOND --dev",

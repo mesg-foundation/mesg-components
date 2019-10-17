@@ -38,14 +38,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@mesg-components/theme/_variables';
+
 .snackbar {
   position: absolute;
   z-index: 9999999;
-  color: var(--White);
+  color: $white;
   padding: 10px 15px;
   border-radius: 3px;
-  background: var(--Black);
+  background: $black;
   font-size: 14px;
 }
 .disableDisplay {
@@ -78,19 +80,19 @@ export default {
   margin-bottom: 10px;
 }
 .error {
-  background: var(--Error) !important;
+  background: $error !important;
 }
 .success {
-  background: var(--Success) !important;
+  background: $success !important;
 }
 .info {
-  background: var(--Info) !important;
+  background: $info !important;
 }
 
 .error button,
 .info button,
 .success button {
-  color: var(--White);
+  color: $white;
 }
 
 span {

@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import Card from '@mesg-components/card'
 
-import '../style.css'
-
 storiesOf('Card', module)
   .add('default', () => ({
     components: { Card },
