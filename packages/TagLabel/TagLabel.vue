@@ -1,9 +1,12 @@
 <template>
-  <div flex row space-between align-center class="label-icon">
-    <div v-if="usecase" class="label default" :class="usecase.type" :style="{ backgroundColor: usecase.bgColor }" flex column align-center>
-      <p :style="{ color: `${usecase.color}` }">{{ usecase.title }}</p>
+  <div>
+    <div v-if="icon" :class="{icon}">
+      <span :class="usecase.type" class="label default" :style="{ color: `${usecase.color}`,backgroundColor: usecase.bgColor  }">{{ usecase.title }}</span>
+      <i :class="usecase.icon"></i>
     </div>
-    <i v-if="usecase" :class="usecase.icon"></i>
+    <div v-else-if="usecase" class="label-tags">
+      <span class="label default" :class="usecase.type" align-center :style="{ color: `${usecase.color}`,backgroundColor: usecase.bgColor }">{{ usecase.title }}</span>
+    </div>
     <slot></slot>
   </div>
 </template>
@@ -12,6 +15,7 @@
 export default {
   name: 'TagLabel',
   props: {
+    icon: { type: Boolean, default: false },
     usecase: { type: Object }
   }
 }
@@ -20,9 +24,15 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-.label-icon {
-  width: calc(100% - #{$margin} * 2);
+.icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+}
+
+.label-tags {
+  display: flex;
 }
 
 .default {

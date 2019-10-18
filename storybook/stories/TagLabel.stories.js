@@ -28,10 +28,12 @@ const usecaseCustom = {
 
 storiesOf('Tag label', module)
   .add('default', () => ({
-    components: { TagLabel },
+    components: { TagLabel, Card },
     template: `
     <div class="container">
-      <TagLabel :usecase="usecase"/>
+      <Card style="width: 400px" >
+        <TagLabel :usecase="usecase" icon/>
+      </Card>
     </div>`,
     data: () => ({ usecase: defaultUseCase })
   }))
