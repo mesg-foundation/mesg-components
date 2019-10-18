@@ -18,26 +18,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/index.scss';
+@import '@mesg-components/theme/_variables';
 
 .label-icon {
-  width: calc(100% - var(--margin) * 2);
+  width: calc(100% - #{$margin} * 2);
   cursor: pointer;
 }
 
 .default {
-  background-color: var(--primary-very-light);
+  background-color: $primary-very-light;
 }
 
 .label {
   border-radius: 3px;
-  padding: calc(var(--margin) / 2);
+  padding: calc(#{$margin} / 2);
 }
 .partner {
-  background-color: var(--light-orange);
+  background-color: $light-orange;
 }
 .community {
-  background-color: var(--light-grey);
+  background-color: $light-grey;
 }
 
 i {

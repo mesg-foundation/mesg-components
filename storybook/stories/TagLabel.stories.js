@@ -59,12 +59,3 @@ storiesOf('Tag label', module)
     </div>`,
     data: () => ({ usecase: usecaseCustom })
   }))
-  .add('Custom Test', () => ({
-    components: { TagLabel },
-    template: `
-    <div class="container">
-      <TagLabel >
-        <h5>TEST with slot</h5>
-      </TagLabel>
-    </div>`
-  }))
