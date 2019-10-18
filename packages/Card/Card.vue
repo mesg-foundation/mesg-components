@@ -18,11 +18,11 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme';
+@import '@mesg-components/theme/_variables';
 
 .card {
   border-radius: 6px;
-  background-color: $White;
+  background-color: $white;
   overflow: hidden;
 }
 .card.shadow {
