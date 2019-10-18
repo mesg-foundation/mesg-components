@@ -1,25 +1,36 @@
 <template>
-  <div class="progressbar" :style="{ backgroundColor: `${backgroundColor}`}">
-    <div :style="{width: `${validateValue}%`, backgroundColor: `${color}`}" :class="{info,warning,danger,success,animate}" />
-  </div>
+  <progress :value="getValue" max="100" :class="{indeterminate, success, danger, warning, info}"></progress>
 </template>
 
 <script>
 export default {
   name: 'LinearProgressbar',
   props: {
-    value: { type: Number, default: 0 },
-    info: { type: Boolean, default: false },
-    warning: { type: Boolean, default: false },
-    danger: { type: Boolean, default: false },
-    success: { type: Boolean, default: false },
-    animate: { type: Boolean, default: false },
-    color: { type: String },
-    backgroundColor: { type: String }
+    value: {
+      type: Number,
+      default: 0
+    },
+    info: {
+      type: Boolean,
+      default: false
+    },
+    warning: {
+      type: Boolean,
+      default: false
+    },
+    danger: {
+      type: Boolean,
+      default: false
+    },
+    success: {
+      type: Boolean,
+      default: false
+    },
+    indeterminate: { type: Boolean, default: false }
   },
   computed: {
-    validateValue() {
-      return this.value > 100 ? 100 : this.value
+    getValue() {
+      return this.indeterminate ? 100 : this.value
     }
   }
 }
@@ -28,37 +39,41 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-.progressbar {
+progress {
   width: 100%;
-  margin-top: 5px;
-  border-radius: 5px;
-  background-color: rgba(189, 175, 214, 0.5);
-}
-.progressbar div {
-  border-radius: 5px;
-  height: 6px;
-  background-color: var(--secondary);
+  border: 0;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  text-align: center;
+  overflow: hidden;
 }
 
-.info {
-  background-color: var(--Info) !important;
+progress::-webkit-progress-bar {
+  background: $white;
 }
-.success {
-  background-color: var(--Success) !important;
-}
-.warning {
-  background-color: var(--Warning) !important;
-}
-.danger {
-  background-color: var(--Error) !important;
+progress::-webkit-progress-value {
+  background: #28a745;
 }
 
-.animate {
-  background-image: repeating-linear-gradient(-45deg, var(--secondary));
+.info::-webkit-progress-value {
+  background-color: #007bff;
+}
+.success::-webkit-progress-value {
+  background-color: #28a745;
+}
+.warning::-webkit-progress-value {
+  background-color: #ffc107;
+}
+.danger::-webkit-progress-value {
+  background-color: #dc3545;
+}
+
+.indeterminate {
+  background-image: repeating-linear-gradient(-45deg, $secondary);
   animation: move 2s linear infinite;
 }
 
-.animate:after {
+.indeterminate:after {
   color: transparent;
 }
 
