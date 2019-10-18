@@ -20,7 +20,10 @@ export default {
     chartStyleOption: { type: Object },
     fillColorOption: { type: Object },
     xAxisOptions: { type: Object },
-    yAxisOptions: { type: Object }
+    yAxisOptions: { type: Object },
+    noMarker: { type: Boolean, default: false },
+    markerOption: { type: Object },
+    areaPlotOptions: { type: Object }
   },
   mixins: [chart],
   data() {
@@ -96,7 +99,12 @@ export default {
       return {
         fillColor: this.fillColorOption || undefined,
         stacking: this.areaType,
-        showInLegend: !this.noLegend
+        showInLegend: !this.noLegend,
+        marker: {
+          enabled: !this.noMarker,
+          ...(this.markerOption || {})
+        },
+        ...(this.areaPlotOptions || {})
       }
     }
   }

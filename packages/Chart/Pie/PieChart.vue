@@ -63,7 +63,7 @@ export default {
       }
     })
 
-    window.onresize = this.onResize.bind(this)
+    window.onresize = this.debounce(this.onResize.bind(this), 30)
   }
 }
 </script>
