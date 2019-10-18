@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group">
-    <button v-for="(item,i) in items" :key="i">
+    <button v-for="(item,i) in items" :key="i" v-on:click="handleClicked(item.method,i)" :class="{actived: actived === i}">
       <i v-if="item.prefix" :class="item.icon"></i>
       {{item.title}}
       <i v-if="item.suffix" :class="item.icon" class="suffix"></i>
@@ -15,6 +15,19 @@ export default {
   name: 'ButtonGroup',
   props: {
     items: { type: Array }
+  },
+  data() {
+    return {
+      actived: 0
+    }
+  },
+  methods: {
+    handleClicked(func, index) {
+      this.actived = index
+      if (func) {
+        func()
+      }
+    }
   }
 }
 </script>
@@ -23,8 +36,8 @@ export default {
 @import '@mesg-components/theme';
 
 .btn-group button {
-  border: solid 2px var(--primary);
-  padding: calc(var(--margin) / 2) var(--margin);
+  border: solid 2px $primary;
+  padding: calc(#{$margin} / 2) $margin;
   cursor: pointer;
   float: left;
 }
@@ -45,7 +58,7 @@ button {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--primary);
+  color: $primary;
   outline: none;
 }
 
@@ -71,8 +84,13 @@ button {
 .btn-group button:hover,
 .btn-group button:active,
 .btn-group button:focus {
-  background-color: var(--primary);
-  color: var(--White);
+  background-color: $primary;
+  color: $white;
+}
+
+.actived {
+  background-color: $primary;
+  color: $white !important;
 }
 </style>
 
