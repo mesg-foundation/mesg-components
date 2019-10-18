@@ -32,7 +32,9 @@ storiesOf('Tag label', module)
     template: `
     <div class="container">
       <Card style="width: 400px" >
-        <TagLabel :usecase="usecase" icon/>
+        <div pt1 pb1 pl1 pr1 >
+          <TagLabel :usecase="usecase" icon/>
+        </div>
       </Card>
     </div>`,
     data: () => ({ usecase: defaultUseCase })
