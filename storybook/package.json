@@ -24,6 +24,7 @@
     "@mesg-components/footer": "file:../packages/Footer",
     "@mesg-components/group": "file:../packages/Group",
     "@mesg-components/header": "file:../packages/Header",
+    "@mesg-components/news-letter": "file:../packages/Newsletter",
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
     "@mesg-components/snackbar": "file:../packages/Snackbar",

@@ -66,7 +66,6 @@ export default {
 a,
 button {
   border-radius: 3px;
-  font-family: $font;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -89,11 +88,11 @@ i {
 }
 
 .btn--primary {
-  color: $White;
-  background-color: $primary;
+  color: var(--White);
+  background-color: var(--primary);
 }
 .btn--primary:hover {
-  background-color: $secondary;
+  background-color: var(--secondary);
   transition: 0.2s ease;
 }
 
@@ -105,7 +104,7 @@ i {
 
 .btn--secondary {
   position: relative;
-  color: $primary;
+  color: var(--primary);
   text-align: left;
   border-radius: 0;
   padding-left: 0;
@@ -118,7 +117,7 @@ i {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: $primary;
+  background-color: var(--primary);
   transform-origin: bottom right;
   transform: scaleX(0);
   transition: transform 0.5s ease;
@@ -129,22 +128,22 @@ i {
 }
 
 .btn--white {
-  color: $primary;
-  background-color: $White;
+  color: var(--primary);
+  background-color: var(--White);
 }
 .btn--white:hover {
   transition: 0.2s ease;
-  background-color: $light-grey;
+  background-color: var(--light-grey);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 }
 
 .btn--outline {
-  color: $primary;
-  border: solid 1px $primary;
+  color: var(--primary);
+  border: solid 1px var(--primary);
 }
 .btn--outline:hover {
   transition: 0.2s ease;
-  box-shadow: 0 0 0 1px $primary inset;
+  box-shadow: 0 0 0 1px var(--primary) inset;
 }
 
 @media only screen and (max-width: $mobile-breakpoint) {
