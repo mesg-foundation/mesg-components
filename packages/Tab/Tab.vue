@@ -51,7 +51,7 @@ input:checked + label {
   border-top: 2px solid $primary;
   margin: 0 0 -1px;
   display: inline-block;
-  border-bottom: 1px solid $White;
+  border-bottom: 1px solid $white;
   z-index: 1;
 }
 
@@ -66,7 +66,7 @@ input:checked + label {
   display: none;
 }
 .tabs input[type='radio']:checked + label {
-  background: $White;
+  background: $white;
 }
 .tabs input[type='radio']:checked + label + .tab {
   display: block;

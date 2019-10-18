@@ -73,19 +73,19 @@ export default {
 @import '@mesg-components/theme/_variables';
 
 #footer {
-  padding: calc(var(--margin) * 3);
+  padding: calc(#{$margin}* 3);
   width: 100%;
-  background-color: var(--light-grey);
+  background-color: $light-grey;
 }
 .outline {
-  border: solid 1px var(--primary-light);
-  background-color: var(--primary-very-dark);
+  border: solid 1px $primary-light;
+  background-color: $primary-very-dark;
 }
 .purple {
-  color: var(--primary-light);
+  color: $primary-light;
 }
 .white {
-  color: var(--White);
+  color: $white;
 }
 .copyright {
   font-size: 12px;
@@ -94,7 +94,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--dark-grey);
+  color: $dark-grey;
 }
 .policy {
   font-size: 12px !important;
@@ -103,7 +103,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--dark-grey);
+  color: $dark-grey;
 }
 .category {
   font-size: 17px;
@@ -112,7 +112,7 @@ export default {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--primary-dark);
+  color: $primary-dark;
   display: inline;
 }
 .icon {
@@ -121,7 +121,7 @@ export default {
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
-  color: var(--dark-grey);
+  color: $dark-grey;
 }
 .icon:hover {
   opacity: 0.7;
@@ -136,7 +136,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   padding: 0;
-  color: var(--dark-grey);
+  color: $dark-grey;
 }
 img {
   height: 40px;
@@ -147,7 +147,7 @@ img:hover {
 }
 @media only screen and (max-width: $tablet-breakpoint) {
   #footer {
-    padding: calc(var(--margin) * 2);
+    padding: calc(#{$margin} * 2);
     padding-top: 0;
   }
   .container {
@@ -160,11 +160,11 @@ img:hover {
     margin-bottom: 0;
   }
   .last {
-    padding-bottom: calc(var(--margin) * 2);
+    padding-bottom: calc(#{$margin} * 2);
   }
   img {
-    margin-top: calc(var(--margin) * 2);
-    margin-bottom: var(--margin);
+    margin-top: calc(#{$margin} * 2);
+    margin-bottom: $margin;
   }
 }
 </style>
