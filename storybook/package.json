@@ -2,21 +2,18 @@
   "name": "storybook",
   "private": true,
   "devDependencies": {
+    "@babel/core": "^7.5.4",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/vue": "^5.1.9",
-    "@babel/core": "^7.5.4",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "lerna": "^3.15.0",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10",
-    "css-loader": "^3.2.0",
-    "node-sass": "^4.12.0",
+    "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
-    "@storybook/cli": "^5.2.3",
-    "style-loader": "^1.0.0"
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "scripts": {
     "dev": "start-storybook -p 6006",
@@ -26,18 +23,17 @@
     "@mesg-components/button": "file:../packages/Button",
     "@mesg-components/card": "file:../packages/Card",
     "@mesg-components/chart": "file:../packages/Chart",
-    "@mesg-components/footer": "file:../packages/Footer",
-    "@mesg-components/group": "file:../packages/Group",
-    "@mesg-components/header": "file:../packages/Header",
     "@mesg-components/menu": "file:../packages/Menu",
-    "@mesg-components/news-letter": "file:../packages/Newsletter",
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
     "@mesg-components/snackbar": "file:../packages/Snackbar",
     "@mesg-components/tab": "file:../packages/Tab",
     "@mesg-components/table": "file:../packages/Table",
-    "@mesg-components/tag-label": "file:../packages/TagLabel",
     "@mesg-components/theme": "file:../packages/Theme",
+    "@storybook/cli": "^5.2.4",
+    "css-loader": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "style-loader": "^1.0.0",
     "vue": "^2.6.10"
   }
 }
