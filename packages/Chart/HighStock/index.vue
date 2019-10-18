@@ -1,5 +1,5 @@
 <template>
-  <div class="high-stock"></div>
+  <div class="highstock"></div>
 </template>
 
 <script>
@@ -49,9 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import '@mesg-components/theme';
 
-.high-stock input {
-  background: var(--White);
+.highstock input {
+  background: $white;
 }
 </style>
