@@ -67,7 +67,6 @@ export default {
 a,
 button {
   border-radius: 3px;
-  font-family: 'Open Sans', sans-serif;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
