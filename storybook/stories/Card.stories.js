@@ -22,11 +22,3 @@ storiesOf('Card', module)
     components: { Card },
     template: `<div class="container"><Card background no-shadow >TEST</Card></div>`
   }))
-  .add('with background custom color ', () => ({
-    components: { Card },
-    template: `<div class="container"><Card bgColor="yellow" no-shadow >TEST</Card></div>`
-  }))
-  .add('with background and text custom color ', () => ({
-    components: { Card },
-    template: `<div class="container"><Card bgColor="black" no-shadow text-color="#fff">TEST</Card></div>`
-  }))

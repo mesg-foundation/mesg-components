@@ -25,39 +25,39 @@ export default {
 
 .card {
   border-radius: 6px;
-  background-color: var(--White);
+  background-color: $white;
   overflow: hidden;
-  padding: var(--margin);
+  padding: $margin;
 }
 .card.shadow {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .background {
-  background-color: var(--light-grey);
+  background-color: $light-grey;
 }
 
 .card.bordered {
-  border: solid 1px var(--primary-very-light);
+  border: solid 1px $primary-very-light;
   border-bottom-width: 6px;
-  border-bottom-color: var(--primary);
+  border-bottom-color: $primary;
   box-shadow: none;
 }
 
 .card.bordered:hover {
   transition: 0.2s ease;
-  border: solid 1px var(--primary);
+  border: solid 1px $primary;
   border-bottom-width: 6px;
-  border-bottom-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary) inset;
+  border-bottom-color: $primary;
+  box-shadow: 0 0 0 1px $primary inset;
 }
 .card.bordered.thin {
   border: solid 2px transparent;
-  box-shadow: 0 0 0 1px var(--primary-very-light) inset;
+  box-shadow: 0 0 0 1px $primary-very-light inset;
 }
 .card.bordered.thin:hover {
   transition: 0.2s ease;
-  border-color: var(--primary);
+  border-color: $primary;
   box-shadow: none;
 }
 </style>
