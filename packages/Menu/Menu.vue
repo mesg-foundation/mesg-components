@@ -99,7 +99,7 @@ li > a:not(.btn--primary) {
     display: inline-block;
   }
   .actions a:not(.btn--primary) {
-    color: var(--primary-dark);
+    color: $primary-dark;
   }
   ul {
     list-style: none;
@@ -118,10 +118,10 @@ li > a:not(.btn--primary) {
     opacity: 0;
     z-index: 1;
     border-radius: 6px;
-    background-color: var(--White);
+    background-color: $white;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
     animation: appear-in 0.2s ease-in;
-    border-top: solid 6px var(--primary);
+    border-top: solid 6px $primary;
   }
   .sub-menu::before {
     content: '';
@@ -130,7 +130,7 @@ li > a:not(.btn--primary) {
     height: 0;
     bottom: 100%;
     left: 45%;
-    border-bottom: 15px solid var(--primary);
+    border-bottom: 15px solid $primary;
     border-right: 15px solid transparent;
     border-left: 15px solid transparent;
   }
@@ -141,7 +141,7 @@ li > a:not(.btn--primary) {
     text-align: left;
   }
   .sub-menu a:hover {
-    color: var(--primary);
+    color: $primary;
     opacity: 1;
     font-weight: 600;
     transition: 0.1s ease;
@@ -175,7 +175,7 @@ li > a:not(.btn--primary) {
     width: 95%;
     top: 80px;
     z-index: 1;
-    background-color: var(--white);
+    background-color: $white;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
   }
   .actions.open {
@@ -185,10 +185,10 @@ li > a:not(.btn--primary) {
   .sub-menu a {
     font-weight: normal;
     display: block;
-    color: var(--primary-dark);
+    color: $primary-dark;
   }
   .token {
-    color: var(--primary-dark);
+    color: $primary-dark;
   }
   .burger {
     text-align: right;
@@ -201,14 +201,14 @@ li > a:not(.btn--primary) {
     cursor: pointer;
   }
   .btn {
-    padding: calc(var(--margin) / 2);
+    padding: calc(#{$margin} / 2);
     padding-left: 0;
     padding-right: 0;
   }
   .title {
     width: 100%;
     font-weight: bold;
-    color: var(--light-primary);
+    color: $primary-light;
   }
   .sub-menu {
     width: 100%;
@@ -216,8 +216,8 @@ li > a:not(.btn--primary) {
     margin-top: 0 !important;
   }
   ul {
-    padding: calc(var(--margin) * 2);
-    border-top: solid 6px var(--primary);
+    padding: calc(#{$margin} * 2);
+    border-top: solid 6px $primary;
     list-style: none;
     border-radius: 6px;
   }
@@ -227,8 +227,8 @@ li > a:not(.btn--primary) {
     width: 0;
     height: 0;
     bottom: 100%;
-    right: var(--margin);
-    border-bottom: 10px solid var(--primary);
+    right: $margin;
+    border-bottom: 10px solid $primary;
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
   }
@@ -259,7 +259,7 @@ li > a:not(.btn--primary) {
 @media only screen and (max-width: $mobile-breakpoint) {
   ul {
     align-items: left !important;
-    padding-top: var(--margin);
+    padding-top: $margin;
   }
   li {
     margin-right: 0 !important;
@@ -268,11 +268,11 @@ li > a:not(.btn--primary) {
     line-height: 60px;
   }
   .btn {
-    padding-top: calc(var(--margin) - 15px);
-    padding-bottom: calc(var(--margin) - 15px);
+    padding-top: calc(#{$margin} - 15px);
+    padding-bottom: calc(#{$margin} - 15px);
   }
   .btn--primary {
-    margin-top: var(--margin);
+    margin-top: $margin;
   }
 }
 </style>
