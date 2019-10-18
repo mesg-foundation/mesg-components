@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import NewsLetter from '@mesg-components/news-letter'
 
 const buttonLabel = 'TEST'
-const inputPlaceholder = 'TEST Placeholder custom'
+const inputPlaceholder = 'custom'
 const dataToken = ''
 const apiUrl = ''
 
@@ -14,7 +14,7 @@ storiesOf('News Letter', module)
         <NewsLetter />
       </div>`
   }))
-  .add('custom text', () => ({
+  .add('custom', () => ({
     components: { NewsLetter },
     template: `
       <div class="container" style="width: 500px;">
