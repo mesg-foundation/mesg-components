@@ -21,7 +21,6 @@
     "@mesg-components/button": "file:../packages/Button",
     "@mesg-components/card": "file:../packages/Card",
     "@mesg-components/chart": "file:../packages/Chart",
-    "@mesg-components/footer": "file:../packages/Footer",
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
     "@mesg-components/snackbar": "file:../packages/Snackbar",
