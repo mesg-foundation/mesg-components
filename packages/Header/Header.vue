@@ -44,7 +44,7 @@ export default {
   position: absolute;
   width: 100%;
   height: calc(100% + 200px);
-  background-image: linear-gradient(to top, var(--light-grey), var(--White));
+  background-image: linear-gradient(to top, $light-grey, $white);
   transform: translateY(-35%) skewY(-8deg);
   z-index: -1;
 }
@@ -53,14 +53,14 @@ p {
 }
 img {
   height: auto;
-  max-height: calc(var(--width) / 2);
+  max-height: calc(#{$width} / 2);
 }
 @media only screen and (max-width: $mobile-breakpoint) {
   #header::before {
     height: calc(100% + 400px);
   }
   img {
-    margin-bottom: calc(var(--margin) * 2);
+    margin-bottom: calc(#{$margin} * 2);
   }
 }
 </style>
