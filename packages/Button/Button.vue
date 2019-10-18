@@ -62,10 +62,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme';
+@import '@mesg-components/theme/_variables';
+
 a,
 button {
   border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -88,8 +90,8 @@ i {
 }
 
 .btn--primary {
-  color: var(--White);
-  background-color: var(--primary);
+  color: $white;
+  background-color: $primary;
 }
 .btn--primary:hover {
   background-color: var(--secondary);
@@ -128,8 +130,8 @@ i {
 }
 
 .btn--white {
-  color: var(--primary);
-  background-color: var(--White);
+  color: $primary;
+  background-color: $white;
 }
 .btn--white:hover {
   transition: 0.2s ease;
