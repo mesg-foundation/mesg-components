@@ -11,7 +11,7 @@ storiesOf('News Letter', module)
     components: { NewsLetter },
     template: `
       <div class="container">
-        <NewsLetter />
+        <NewsLetter button-label="Sign up" inputPlaceholder="Your email address"/>
       </div>`
   }))
   .add('custom text', () => ({

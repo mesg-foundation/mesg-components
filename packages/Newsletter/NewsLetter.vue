@@ -15,8 +15,8 @@ export default {
   name: 'NewsLetter',
   components: { Button },
   props: {
-    buttonLabel: { type: String, default: 'Sign up' },
-    inputPlaceholder: { type: String, default: 'Your email address' },
+    buttonLabel: { type: String },
+    inputPlaceholder: { type: String },
     dataToken: { type: String },
     apiUrl: { type: String }
   },
@@ -64,20 +64,20 @@ form {
 input {
   max-height: 50px;
   font-size: 15px;
-  padding: 13px var(--margin);
-  border: solid 1px var(--primary-very-light);
+  padding: 13px $margin;
+  border: solid 1px $primary-very-light;
   border-radius: 3px;
-  background-color: var(--White);
-  color: var(--primary-very-dark);
+  background-color: $white;
+  color: $primary-very-dark;
 }
 
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 1px var(--primary-very-light) inset;
+  box-shadow: 0 0 0 1px $primary-very-light inset;
 }
 
 .email {
-  margin-right: var(--margin);
+  margin-right: $margin;
 }
 
 @media only screen and (max-width: $tablet-breakpoint) {
@@ -87,7 +87,7 @@ input:focus {
   .btn {
     width: 100%;
     max-width: 100%;
-    margin-top: var(--margin);
+    margin-top: $margin;
   }
 }
 </style>
