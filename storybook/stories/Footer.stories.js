@@ -47,11 +47,11 @@ const policyText = { title: 'Privacy & Cookie Policy', link: 'https://mesg.com/p
 storiesOf('Footer', module)
   .add('default with image banner', () => ({
     components: { Footer },
-    template: `<Footer :banner="banner" :copyRightText="copyRightText" :links="links" :policyText="policyText" :icons="icons" />`,
+    template: `<Footer :banner="banner" :copy-right="copyRightText" :links="links" :policy="policyText" :icons="icons" />`,
     data: () => ({ banner: imageBanner, copyRightText, policyText, links, icons })
   }))
   .add('default with text banner', () => ({
     components: { Footer },
-    template: `<Footer :banner="banner" :copyRightText="copyRightText" :links="links" :policyText="policyText" :icons="icons" />`,
+    template: `<Footer :banner="banner" :copy-right="copyRightText" :links="links" :policy="policyText" :icons="icons" />`,
     data: () => ({ banner, copyRightText, policyText, links, icons })
   }))

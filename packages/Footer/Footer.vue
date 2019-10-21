@@ -7,8 +7,8 @@
             <img v-if="isImage" :src="banner" alt=" " />
             <h2 v-else>{{banner}}</h2>
           </a>
-          <p v-if="copyRightText" class="copyright">{{copyRightText}}</p>
-          <a v-if="policyText" :href="policyText.link" class="policy link-secondary" mb1>{{policyText.title}}</a>
+          <p v-if="copyRight" class="copyright">{{copyRight}}</p>
+          <a v-if="policy" :href="policy.link" class="policy link-secondary" mb1>{{policy.title}}</a>
           <div v-if="icons.length" flex space-between wrap>
             <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
               <i :class="icon.icon"></i>
@@ -17,7 +17,7 @@
         </div>
         <ul flex row mobile-column class="menu">
           <li flex column quarter v-for="(link, i) in links" :key="i">
-            <div v-for="(detail,j) in link" :key="j" :mb1="!isLast(link,i)" :class="{last: isLast(link,j)}">
+            <div v-for="(detail,j) in link" :key="j" :mb1="!isLast(link,i)">
               <a v-if="isExternalLink(detail.to)" :href="detail.to" :class="{category:detail.category,'link-secondary': !detail.category}" target="_blank">{{detail.title}}</a>
               <nuxt-link v-else :to="detail.to" :class="{category:detail.category,'link-secondary': !detail.category }">{{detail.title}}</nuxt-link>
             </div>
@@ -33,8 +33,8 @@ export default {
   name: 'Footer',
   props: {
     banner: { type: String },
-    copyRightText: { type: String },
-    policyText: { type: Object },
+    copyRight: { type: String },
+    policy: { type: Object },
     links: { type: Array },
     icons: { type: Array, default: [] }
   },
@@ -156,9 +156,10 @@ img:hover {
     margin-bottom: 0;
   }
 
-  .last {
+  li > div:last-child {
     padding-bottom: calc(#{$margin} * 2);
   }
+
   img {
     margin-top: calc(#{$margin} * 2);
     margin-bottom: $margin;
