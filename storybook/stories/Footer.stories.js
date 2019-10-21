@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import Footer from '@mesg-components/footer'
 
+import imageBanner from '../assets/img/base-logo-mesg.svg'
+
 const links = [
   [
     { id: 'products', title: 'Products', category: true, external: true, to: '#' },
@@ -43,12 +45,13 @@ const copyRightText = '© 2019 MESG Foundation'
 const policyText = { title: 'Privacy & Cookie Policy', link: '/' }
 
 storiesOf('Footer', module)
-  .add('default with data', () => ({
+  .add('default with image banner', () => ({
+    components: { Footer },
+    template: `<Footer :banner="banner" :copyRightText="copyRightText" :links="links" :policyText="policyText" :icons="icons" />`,
+    data: () => ({ banner: imageBanner, copyRightText, policyText, links, icons })
+  }))
+  .add('default with text banner', () => ({
     components: { Footer },
     template: `<Footer :banner="banner" :copyRightText="copyRightText" :links="links" :policyText="policyText" :icons="icons" />`,
     data: () => ({ banner, copyRightText, policyText, links, icons })
-  }))
-  .add('Custom footer', () => ({
-    components: { Footer },
-    template: `<Footer>Custome footer</Footer>`
   }))
