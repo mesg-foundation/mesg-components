@@ -2,16 +2,14 @@
   <section id="footer">
     <div class="container">
       <nav flex row space-between wrap mobile-column-reverse>
-        <div v-if="banner" flex column third>
-          <a v-if="banner.image" href="/">
-            <img :src="banner.textOrImgUrl" alt />
+        <div flex column third>
+          <a href="/">
+            <img v-if="isImage" :src="banner" alt=" " />
+            <h2 v-else>{{banner}}</h2>
           </a>
-          <div v-else>
-            <h2>{{banner.textOrImgUrl}}</h2>
-          </div>
-          <p class="copyright">{{copyRightText}}</p>
-          <a href="/" class="policy link-secondary" mb2>{{policyText}}</a>
-          <div v-if="!noIcons" flex space-between wrap>
+          <p v-if="copyRightText" class="copyright">{{copyRightText}}</p>
+          <a v-if="policyText" :href="policyText.title" class="policy link-secondary" mb2>{{policyText.title}}</a>
+          <div v-if="icons.length" flex space-between wrap>
             <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
               <i :class="icon.icon"></i>
             </a>
@@ -45,21 +43,23 @@
 export default {
   name: 'Footer',
   props: {
-    banner: { type: Object },
+    banner: { type: String },
     copyRightText: { type: String },
-    policyText: { type: String },
+    policyText: { type: Object },
     links: { type: Array },
-    noIcons: { type: Boolean, default: false },
-    icons: { type: Array }
+    icons: { type: Array, default: [] }
   },
   methods: {
     setMb(link, i) {
-      const value = link.length - 1 === i ? false : true
-      return value
+      return link.length - 1 === i
     },
     setLast(links, i) {
-      const value = links.length - 1 === i ? true : false
-      return value
+      return links.length - 1 === i
+    }
+  },
+  computed: {
+    isImage() {
+      return /\.(?:svg|jpg|jpeg|gif|png)/i.test(this.banner)
     }
   }
 }
@@ -67,6 +67,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
+@import '@mesg-components/theme/_structure';
 
 #footer {
   padding: calc(#{$margin}* 3);

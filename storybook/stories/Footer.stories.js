@@ -38,9 +38,9 @@ const icons = [
   { to: 'https://www.reddit.com/r/MESG/', icon: 'fab fa-reddit-alien' }
 ]
 
-const banner = { textOrImgUrl: 'MESG Brand' }
+const banner = 'MESG Brand'
 const copyRightText = '© 2019 MESG Foundation'
-const policyText = 'Privacy & Cookie Policy'
+const policyText = { title: 'Privacy & Cookie Policy', link: '/' }
 
 storiesOf('Footer', module)
   .add('default with data', () => ({
