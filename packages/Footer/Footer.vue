@@ -1,47 +1,43 @@
 <template>
   <section id="footer">
-    <slot>
-      <div>
-        <div class="container">
-          <nav flex row space-between wrap mobile-column-reverse>
-            <div v-if="banner" flex column third>
-              <a v-if="banner.image" href="/">
-                <img :src="banner.textOrImgUrl" alt />
-              </a>
-              <div v-else>
-                <h2>{{banner.textOrImgUrl}}</h2>
-              </div>
-              <p class="copyright">{{copyRightText}}</p>
-              <a href="/" class="policy link-secondary" mb2>{{policyText}}</a>
-              <div v-if="!noIcons" flex space-between wrap>
-                <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
-                  <i :class="icon.icon"></i>
-                </a>
-              </div>
-            </div>
-            <ul flex row mobile-column class="menu">
-              <li flex column quarter v-for="(link, i) in links" :key="i">
-                <a
-                  v-for="(detail,j) in link"
-                  :key="j"
-                  v-if="detail.external"
-                  :href="detail.to"
-                  :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j) }"
-                  :mb1="setMb(link,i)"
-                  target="_blank"
-                >{{detail.title}}</a>
-                <nuxt-link
-                  v-else
-                  :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j)}"
-                  :to="detail.to"
-                  :mb1="setMb(link,i)"
-                >{{detail.title}}</nuxt-link>
-              </li>
-            </ul>
-          </nav>
+    <div class="container">
+      <nav flex row space-between wrap mobile-column-reverse>
+        <div v-if="banner" flex column third>
+          <a v-if="banner.image" href="/">
+            <img :src="banner.textOrImgUrl" alt />
+          </a>
+          <div v-else>
+            <h2>{{banner.textOrImgUrl}}</h2>
+          </div>
+          <p class="copyright">{{copyRightText}}</p>
+          <a href="/" class="policy link-secondary" mb2>{{policyText}}</a>
+          <div v-if="!noIcons" flex space-between wrap>
+            <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
+              <i :class="icon.icon"></i>
+            </a>
+          </div>
         </div>
-      </div>
-    </slot>
+        <ul flex row mobile-column class="menu">
+          <li flex column quarter v-for="(link, i) in links" :key="i">
+            <a
+              v-for="(detail,j) in link"
+              :key="j"
+              v-if="detail.external"
+              :href="detail.to"
+              :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j) }"
+              :mb1="setMb(link,i)"
+              target="_blank"
+            >{{detail.title}}</a>
+            <nuxt-link
+              v-else
+              :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j)}"
+              :to="detail.to"
+              :mb1="setMb(link,i)"
+            >{{detail.title}}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </section>
 </template>
 
