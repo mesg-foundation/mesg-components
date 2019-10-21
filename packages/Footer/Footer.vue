@@ -8,7 +8,7 @@
             <h2 v-else>{{banner}}</h2>
           </a>
           <p v-if="copyRightText" class="copyright">{{copyRightText}}</p>
-          <a v-if="policyText" :href="policyText.title" class="policy link-secondary" mb2>{{policyText.title}}</a>
+          <a v-if="policyText" :href="policyText.link" class="policy link-secondary" mb1>{{policyText.title}}</a>
           <div v-if="icons.length" flex space-between wrap>
             <a v-for="(icon,i) in icons" :key="i" :href="icon.to" target="_blank" :class="icon">
               <i :class="icon.icon"></i>
@@ -17,21 +17,10 @@
         </div>
         <ul flex row mobile-column class="menu">
           <li flex column quarter v-for="(link, i) in links" :key="i">
-            <a
-              v-for="(detail,j) in link"
-              :key="j"
-              v-if="detail.external"
-              :href="detail.to"
-              :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j) }"
-              :mb1="setMb(link,i)"
-              target="_blank"
-            >{{detail.title}}</a>
-            <nuxt-link
-              v-else
-              :class="{category:detail.category ? true : false, 'link-secondary': detail.category ? false : true, last: setLast(link,j)}"
-              :to="detail.to"
-              :mb1="setMb(link,i)"
-            >{{detail.title}}</nuxt-link>
+            <div v-for="(detail,j) in link" :key="j" :mb1="!isLast(link,i)" :class="{last: isLast(link,j)}">
+              <a v-if="isExternalLink(detail.to)" :href="detail.to" :class="{category:detail.category,'link-secondary': !detail.category}" target="_blank">{{detail.title}}</a>
+              <nuxt-link v-else :to="detail.to" :class="{category:detail.category,'link-secondary': !detail.category }">{{detail.title}}</nuxt-link>
+            </div>
           </li>
         </ul>
       </nav>
@@ -50,11 +39,12 @@ export default {
     icons: { type: Array, default: [] }
   },
   methods: {
-    setMb(link, i) {
-      return link.length - 1 === i
+    isLast(links, i) {
+      const value = links.length - 1 === i
+      return value
     },
-    setLast(links, i) {
-      return links.length - 1 === i
+    isExternalLink(link) {
+      return /http(s)?/i.test(link)
     }
   },
   computed: {
@@ -74,6 +64,15 @@ export default {
   width: 100%;
   background-color: $light-grey;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
 .outline {
   border: solid 1px $primary-light;
   background-color: $primary-very-dark;
@@ -156,6 +155,7 @@ img:hover {
     min-height: auto;
     margin-bottom: 0;
   }
+
   .last {
     padding-bottom: calc(#{$margin} * 2);
   }
