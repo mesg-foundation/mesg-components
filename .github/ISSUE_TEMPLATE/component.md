@@ -28,7 +28,7 @@ Describe how to use the component
 # Properties
 
 List all the properties needed for the component:
-- name: type (required or optional) -> description
+- **name**: _type_ (required or optional) -> description
 
 # Slots
 
