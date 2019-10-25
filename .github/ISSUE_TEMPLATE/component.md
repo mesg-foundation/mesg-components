@@ -2,7 +2,7 @@
 name: Component
 about: New component
 title: New component XXX
-labels: enhancement
+labels: spec
 assignees: ''
 
 ---
