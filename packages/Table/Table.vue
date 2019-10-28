@@ -1,27 +1,29 @@
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">
-          <slot :name="`header_${header.key}`" :header="header">{{header.text}}</slot>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <template v-for="(item,j) in items">
-        <tr :key="`item${j}`" @click="toggleItem(j)" :class="{expandable}">
-          <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
-            <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
-          </td>
+  <div :class="{compact}">
+    <table>
+      <thead v-if="!hideHeader">
+        <tr>
+          <th v-for="(header, i) in headers" :key="i" :style="textAlign(header.align)">
+            <slot :name="`header_${header.key}`" :header="header">{{header.text}}</slot>
+          </th>
         </tr>
-        <tr v-if="expandable && toggle.includes(j)" :key="`expand${j}`">
-          <td :colspan="headers.length">
-            <slot name="expand" :item="item" />
-          </td>
-        </tr>
-      </template>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <template v-for="(item,j) in items">
+          <tr :key="`item${j}`" @click="toggleItem(j)" :class="{expandable}">
+            <td v-for="header in headers" :key="header.key" :style="textAlign(header.align)">
+              <slot :name="`item_${header.key}`" :item="item">{{ item[header.value] }}</slot>
+            </td>
+          </tr>
+          <tr v-if="expandable && toggle.includes(j)" :key="`expand${j}`">
+            <td :colspan="headers.length">
+              <slot name="expand" :item="item" />
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -36,7 +38,15 @@ export default {
       type: Array,
       required: true
     },
+    hideHeader: {
+      type: Boolean,
+      default: false
+    },
     expandable: {
+      type: Boolean,
+      default: false
+    },
+    compact: {
       type: Boolean,
       default: false
     }
@@ -67,6 +77,15 @@ export default {
 <style lang="scss" scoped>
 @import "@mesg-components/theme/_variables";
 
+div {
+  width: calc(100% - #{2 * $margin});
+  margin: $margin;
+  &.compact {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 table {
   width: 100%;
   font-family: $font;
@@ -77,12 +96,12 @@ table {
 
 td {
   padding: $margin;
-}
-td:first-child {
-  padding-left: 0;
-}
-td:last-child {
-  padding-right: 0;
+  &:first-of-type {
+    padding-left: 0;
+  }
+  &:last-of-type {
+    padding-right: 0;
+  }
 }
 
 tr {
@@ -91,12 +110,12 @@ tr {
 
 th {
   padding: $margin;
-}
-th:first-child {
-  padding-left: 0;
-}
-th:last-child {
-  padding-right: 0;
+  &:first-of-type {
+    padding-left: 0;
+  }
+  &:last-of-type {
+    padding-right: 0;
+  }
 }
 
 thead tr {
@@ -112,13 +131,16 @@ tbody tr {
   font-size: 17px;
   color: $dark-grey;
   border-bottom: solid 1px $primary-very-light;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .expandable {
   cursor: pointer;
-}
-
-.expandable:hover {
-  background-color: $light-grey;
+  &:hover {
+    background-color: $light-grey;
+  }
 }
 </style>
