@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <div v-if="icon" :class="{icon}">
-      <span :class="usecase.type" class="label default" :style="{ color: `${usecase.color}`,backgroundColor: usecase.bgColor  }">{{ usecase.title }}</span>
-      <i :class="usecase.icon"></i>
-    </div>
-    <div v-else-if="usecase" class="label-tags">
-      <span class="label default" :class="usecase.type" align-center :style="{ color: `${usecase.color}`,backgroundColor: usecase.bgColor }">{{ usecase.title }}</span>
-    </div>
-    <slot></slot>
+  <div class="taglabel">
+    <span class="tag" :class="{partner,community}">
+      <slot />
+    </span>
   </div>
 </template>
 
@@ -15,8 +10,15 @@
 export default {
   name: 'TagLabel',
   props: {
-    icon: { type: Boolean, default: false },
-    usecase: { type: Object }
+    type: { type: String, default: '' }
+  },
+  computed: {
+    partner() {
+      return this.type.toLowerCase() === 'partner'
+    },
+    community() {
+      return this.type.toLowerCase() === 'community'
+    }
   }
 }
 </script>
@@ -24,40 +26,22 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-.icon {
+.taglabel {
   display: flex;
-  justify-content: space-between;
+}
+
+.tag {
+  display: flex;
   align-items: center;
-  cursor: pointer;
-}
-
-.label-tags {
-  display: flex;
-}
-
-.default {
-  background-color: $primary-very-light;
-}
-
-.label {
-  border-radius: 3px;
   padding: calc(#{$margin} / 2);
+  border-radius: 3px;
 }
+
 .partner {
-  background-color: $light-orange;
+  background-color: $light-orange !important;
 }
+
 .community {
-  background-color: $light-grey;
-}
-
-i {
-  font-size: 1em;
-  font-weight: bold;
-  text-align: right;
-}
-
-.label-icon:hover {
-  opacity: 0.8;
-  transition: 0.5s;
+  background-color: $light-grey !important;
 }
 </style>
