@@ -1,5 +1,5 @@
 <template>
-  <span class="tag" :class="type">
+  <span :class="[`type--${type}`, `size--${size}`]">
     <slot />
   </span>
 </template>
@@ -8,7 +8,14 @@
 export default {
   name: "TagLabel",
   props: {
-    type: { type: String }
+    type: {
+      type: String,
+      default: "default"
+    },
+    size: {
+      type: String,
+      default: "small"
+    }
   }
 };
 </script>
@@ -16,28 +23,36 @@ export default {
 <style lang="scss" scoped>
 @import "@mesg-components/theme/_variables";
 
-.tag {
+span {
   display: inline-block;
+}
+
+// Size
+
+.size--small {
+  border-radius: 3px;
+  padding: 6px calc(#{$margin} / 2);
   font-size: 12px;
   line-height: 12px;
-  border-radius: 3px;
-  align-items: center;
-  padding: 6px calc(#{$margin} / 2);
-  color: #0366d6;
-  background-color: rgba(#0366d6, 0.1);
+
+  > * {
+    font-size: 12px;
+    line-height: 12px;
+  }
 }
 
-i {
-  font-size: 12px;
-  margin-right: calc(#{$margin} / 4);
+// Type
+.type--default {
+  color: $blue-default;
+  background-color: rgba($blue-default, 0.1);
 }
 
-.partner {
+.type--partner {
   color: $primary-dark;
   background-color: $light-orange;
 }
 
-.community {
+.type--community {
   color: $primary-dark;
   background-color: $light-grey;
 }
