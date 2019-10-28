@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'Table',
+  name: "Table",
   props: {
     headers: {
       type: Array,
@@ -44,28 +44,28 @@ export default {
   data() {
     return {
       toggle: []
-    }
+    };
   },
   methods: {
     textAlign(align) {
       return {
-        'text-align': align || 'left'
-      }
+        "text-align": align || "left"
+      };
     },
     toggleItem(id) {
-      const index = this.toggle.indexOf(id)
+      const index = this.toggle.indexOf(id);
       if (index > -1) {
-        this.toggle.splice(index, 1)
+        this.toggle.splice(index, 1);
       } else {
-        this.toggle.push(id)
+        this.toggle.push(id);
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 table {
   width: 100%;
@@ -76,7 +76,13 @@ table {
 }
 
 td {
-  padding: 10px 20px;
+  padding: $margin;
+}
+td:first-child {
+  padding-left: 0;
+}
+td:last-child {
+  padding-right: 0;
 }
 
 tr {
@@ -84,7 +90,13 @@ tr {
 }
 
 th {
-  padding: 20px 20px;
+  padding: $margin;
+}
+th:first-child {
+  padding-left: 0;
+}
+th:last-child {
+  padding-right: 0;
 }
 
 thead tr {
@@ -96,11 +108,9 @@ thead tr {
   color: $primary-dark;
 }
 
-tbody {
-  box-shadow: 0 0 0 1px $primary-very-light;
-}
-
 tbody tr {
+  font-size: 17px;
+  color: $dark-grey;
   border-bottom: solid 1px $primary-very-light;
 }
 
