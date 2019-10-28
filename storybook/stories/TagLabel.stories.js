@@ -3,7 +3,7 @@ import Tag from '@mesg-components/tag-label'
 
 storiesOf('Tag label', module)
   .add('default', () => ({
-    components: { Tag, Card },
+    components: { Tag },
     template: `
     <div class="container">
       <Tag >
