@@ -6,18 +6,14 @@ storiesOf('Tag label', module)
     components: { Tag },
     template: `
     <div class="container">
-      <Tag >
-        <h2>Default</h2>
-      </Tag>
+      <Tag >Default</Tag>
     </div>`
   }))
   .add('With Partner', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag type="partner">
-        <h4>Tag Partner</h4>
-      </Tag>
+      <Tag type="partner">Tag Partner</Tag>
     </div>`
   }))
   .add('With Partner with icon', () => ({
@@ -25,8 +21,8 @@ storiesOf('Tag label', module)
     template: `
     <div class="container">
       <Tag type="partner">
-        <i class="fal fa-table" pr1/>
-        <h4>Tag Partner</h4>
+        <i class="fal fa-table"/>
+        Tag Partner
       </Tag>
     </div>`
   }))
@@ -34,9 +30,7 @@ storiesOf('Tag label', module)
     components: { Tag },
     template: `
   <div class="container">
-    <Tag type="community">
-      <h4>Tag Community</h4>
-    </Tag>
+    <Tag type="community">Tag Community</Tag>
   </div>`
   }))
   .add('With Community with icon', () => ({
@@ -44,8 +38,8 @@ storiesOf('Tag label', module)
     template: `
   <div class="container">
     <Tag type="community">
-      <i class="fal fa-table" pr1/>
-      <h4>Tag Community</h4>
+      <i class="fal fa-table"/>
+      Tag Community
     </Tag>
   </div>`
   }))

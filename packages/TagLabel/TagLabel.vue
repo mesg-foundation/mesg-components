@@ -17,8 +17,7 @@ export default {
 @import '@mesg-components/theme/_variables';
 
 .tag {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   padding: calc(#{$margin} / 2);
   border-radius: 3px;
 }
