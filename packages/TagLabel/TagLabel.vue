@@ -20,13 +20,17 @@ export default {
   display: inline-block;
   padding: calc(#{$margin} / 2);
   border-radius: 3px;
+  color: #0366d6;
+  background-color: rgba(#0366d6, 0.1);
 }
 
 .partner {
+  color: $primary-dark;
   background-color: $light-orange !important;
 }
 
 .community {
+  color: $primary-dark;
   background-color: $light-grey !important;
 }
 </style>
