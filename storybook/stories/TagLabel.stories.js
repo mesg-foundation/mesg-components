@@ -6,40 +6,27 @@ storiesOf('Tag label', module)
     components: { Tag },
     template: `
     <div class="container">
-      <Tag >Default</Tag>
+      <Tag>Default</Tag>
     </div>`
   }))
-  .add('With Partner', () => ({
+  .add('tag with icon', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag type="partner">Tag Partner</Tag>
+      <Tag><i class="fal fa-table"/>Tag with icon</Tag>
     </div>`
   }))
-  .add('With Partner with icon', () => ({
+  .add('MESG Partner', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag type="partner">
-        <i class="fal fa-table"/>
-        Tag Partner
-      </Tag>
+      <Tag type="partner">MESG Partner</Tag>
     </div>`
   }))
-  .add('With Community', () => ({
+  .add('Community', () => ({
     components: { Tag },
     template: `
   <div class="container">
-    <Tag type="community">Tag Community</Tag>
-  </div>`
-  }))
-  .add('With Community with icon', () => ({
-    components: { Tag },
-    template: `
-  <div class="container">
-    <Tag type="community">
-      <i class="fal fa-table"/>
-      Tag Community
-    </Tag>
+    <Tag type="community">Community</Tag>
   </div>`
   }))
