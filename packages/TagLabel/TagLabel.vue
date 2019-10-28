@@ -1,34 +1,20 @@
 <template>
-  <div class="taglabel">
-    <span class="tag" :class="{partner,community}">
-      <slot />
-    </span>
-  </div>
+  <span class="tag" :class="type">
+    <slot />
+  </span>
 </template>
 
 <script>
 export default {
   name: 'TagLabel',
   props: {
-    type: { type: String, default: '' }
-  },
-  computed: {
-    partner() {
-      return this.type.toLowerCase() === 'partner'
-    },
-    community() {
-      return this.type.toLowerCase() === 'community'
-    }
+    type: { type: String }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
-
-.taglabel {
-  display: flex;
-}
 
 .tag {
   display: flex;
