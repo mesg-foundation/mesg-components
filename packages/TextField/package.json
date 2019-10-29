@@ -1,6 +1,6 @@
 {
-  "name": "@mesg-components/table",
-  "version": "1.1.0",
+  "name": "@mesg-components/textfield",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
