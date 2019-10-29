@@ -20,5 +20,8 @@ storiesOf('Card', module)
   }))
   .add('with background ', () => ({
     components: { Card },
-    template: `<div class="container"><Card background no-shadow >TEST</Card></div>`
+    template: `
+    <div class="container">
+      <Card background="#f2f0f7" no-shadow >TEST</Card>
+    </div>`
   }))

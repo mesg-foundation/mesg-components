@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{ bordered, thin, shadow: !noShadow }" :style="{borderBottomColor: borderColor}">
+  <div class="card" :class="{ bordered, thin, shadow: !noShadow }" :style="{borderBottomColor: borderColor,backgroundColor: background }">
     <slot />
   </div>
 </template>
@@ -11,7 +11,8 @@ export default {
     bordered: { type: Boolean, default: false },
     thin: { type: Boolean, default: false },
     noShadow: { type: Boolean, default: false },
-    borderColor: { type: String, default: undefined }
+    borderColor: { type: String, default: undefined },
+    background: { type: String, default: '#fffff' }
   }
 }
 </script>
@@ -28,10 +29,6 @@ export default {
 }
 .card.shadow {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.background {
-  background-color: $light-grey;
 }
 
 .card.bordered {
