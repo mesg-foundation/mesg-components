@@ -28,6 +28,7 @@
     "@mesg-components/snackbar": "file:../packages/Snackbar",
     "@mesg-components/tab": "file:../packages/Tab",
     "@mesg-components/table": "file:../packages/Table",
+    "@mesg-components/textfield": "file:../packages/TextField",
     "@mesg-components/tag-label": "file:../packages/TagLabel",
     "@mesg-components/theme": "file:../packages/Theme",
     "@storybook/cli": "^5.2.4",
