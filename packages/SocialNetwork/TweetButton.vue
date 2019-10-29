@@ -1,12 +1,5 @@
 <template>
-  <a
-    href="https://twitter.com/intent/tweet?button_hashtag=MESGRewards&ref_src=twsrc%5Etfw"
-    class="twitter-hashtag-button"
-    :data-text="text"
-    data-url="https://mesg.com/community"
-    :data-related="recommandedAccount"
-    :data-show-count="counter"
-  >Tweet #MESGRewards</a>
+  <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw" class="twitter-hashtag-button" :data-text="text" :data-related="recommandedAccount" :data-show-count="counter" />
 </template>
 
 <script>
@@ -17,14 +10,15 @@ export default {
     recommandedAccount: { type: String, default: 'mesgfoundation' },
     counter: { type: Boolean, default: false }
   },
-  created() {
-    let ckeditor = document.createElement('script')
-    ckeditor.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-    ckeditor.setAttribute('charset', 'utf-8')
-    document.head.appendChild(ckeditor)
+  mounted() {
+    if (!document.getElementById('twitter')) {
+      let script = document.createElement('script')
+      script.setAttribute('async', true)
+      script.setAttribute('id', 'twitter')
+      script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+      script.setAttribute('charset', 'utf-8')
+      document.head.appendChild(script)
+    }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
