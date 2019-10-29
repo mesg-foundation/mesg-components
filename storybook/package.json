@@ -26,6 +26,7 @@
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
     "@mesg-components/snackbar": "file:../packages/Snackbar",
+    "@mesg-components/social-network": "file:../packages/SocialNetwork",
     "@mesg-components/tab": "file:../packages/Tab",
     "@mesg-components/table": "file:../packages/Table",
     "@mesg-components/tag-label": "file:../packages/TagLabel",
