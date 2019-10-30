@@ -10,6 +10,12 @@ export default {
     recommandedAccount: { type: String, default: 'mesgfoundation' },
     counter: { type: Boolean, default: false }
   },
+  beforeMount() {
+    const twitterElement = document.getElementById('twitter')
+    if (twitterElement) {
+      document.head.removeChild(twitterElement)
+    }
+  },
   mounted() {
     if (!document.getElementById('twitter')) {
       let script = document.createElement('script')
@@ -18,11 +24,6 @@ export default {
       script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
       script.setAttribute('charset', 'utf-8')
       document.head.appendChild(script)
-    }
-  },
-  beforeDestroy() {
-    if (document.getElementById('twitter')) {
-      document.head.removeChild(document.getElementById('twitter'))
     }
   }
 }
