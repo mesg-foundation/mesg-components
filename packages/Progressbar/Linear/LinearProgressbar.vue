@@ -1,6 +1,6 @@
 <template>
-  <div class="progressbar" :style="{ backgroundColor: `${backgroundColor}`}">
-    <div :style="{width: `${validateValue}%`, backgroundColor: `${color}`}" :class="{info,warning,danger,success,animate}" />
+  <div class="progress-bar" :class="{indeterminate}">
+    <div class="progress-block" :style="{width: `${validateValue}%`, backgroundColor: `${color}`}" />
   </div>
 </template>
 
@@ -9,13 +9,11 @@ export default {
   name: 'LinearProgressbar',
   props: {
     value: { type: Number, default: 0 },
-    info: { type: Boolean, default: false },
-    warning: { type: Boolean, default: false },
-    danger: { type: Boolean, default: false },
-    success: { type: Boolean, default: false },
-    animate: { type: Boolean, default: false },
-    color: { type: String },
-    backgroundColor: { type: String }
+    indeterminate: { type: Boolean, default: false },
+    color: { type: String }
+  },
+  mounted() {
+    console.log(document.querySelector('.indeterminate').style.setProperty('--w', '300%'))
   },
   computed: {
     validateValue() {
@@ -28,55 +26,60 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-.progressbar {
+.progress-bar {
   width: 100%;
-  margin-top: 5px;
   border-radius: 5px;
   background-color: rgba(189, 175, 214, 0.5);
+  > .progress-block {
+    -webkit-animation-name: none;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+
+    animation-name: none;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  &.indeterminate {
+    > .progress-block {
+      -webkit-animation-name: bar-movement;
+      -webkit-animation-play-state: running;
+
+      animation-name: bar-movement;
+      animation-play-state: running;
+    }
+  }
 }
-.progressbar div {
+
+.progress-block {
+  position: relative;
+  top: -1px;
+  left: -1px;
   border-radius: 5px;
   height: 6px;
   background-color: $secondary;
 }
 
-.info {
-  background-color: $info !important;
-}
-.success {
-  background-color: $success !important;
-}
-.warning {
-  background-color: $warning !important;
-}
-.danger {
-  background-color: $error !important;
+@-webkit-keyframes bar-movement {
+  from {
+    left: -1px;
+  }
+  to {
+    left: calc(var(--width)-100% + 1px);
+  }
 }
 
-.animate {
-  background-image: repeating-linear-gradient(-45deg, $secondary);
-  animation: move 2s linear infinite;
-}
-
-.animate:after {
-  color: transparent;
-}
-
-@keyframes move {
-  0% {
-    width: 0;
+@keyframes bar-movement {
+  from {
+    left: -1px;
   }
-  15% {
-    width: 15%;
-  }
-  50% {
-    width: 50%;
-  }
-  75% {
-    width: 75%;
-  }
-  100% {
-    width: 100%;
+  to {
+    left: calc(50% + 1px);
   }
 }
 </style>
