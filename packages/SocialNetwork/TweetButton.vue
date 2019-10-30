@@ -11,16 +11,29 @@ export default {
     counter: { type: Boolean, default: false }
   },
   mounted() {
-    const twitterScript = document.getElementById('twitter')
+    const twitterScript = document.getElementById('twitter-wjs')
     if (twitterScript) {
+      console.log('object')
       document.head.removeChild(twitterScript)
     }
-    let script = document.createElement('script')
-    script.setAttribute('async', true)
-    script.setAttribute('id', 'twitter')
-    script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-    script.setAttribute('charset', 'utf-8')
-    document.head.appendChild(script)
+    window.twttr = (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0]
+      var t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      js.async = true
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function(f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
   }
 }
 </script>
