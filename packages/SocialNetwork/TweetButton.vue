@@ -10,21 +10,17 @@ export default {
     recommandedAccount: { type: String, default: 'mesgfoundation' },
     counter: { type: Boolean, default: false }
   },
-  beforeMount() {
-    const twitterElement = document.getElementById('twitter')
-    if (twitterElement) {
-      document.head.removeChild(twitterElement)
-    }
-  },
   mounted() {
-    if (!document.getElementById('twitter')) {
-      let script = document.createElement('script')
-      script.setAttribute('async', true)
-      script.setAttribute('id', 'twitter')
-      script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-      script.setAttribute('charset', 'utf-8')
-      document.head.appendChild(script)
+    const twitterScript = document.getElementById('twitter')
+    if (twitterScript) {
+      document.head.removeChild(twitterScript)
     }
+    let script = document.createElement('script')
+    script.setAttribute('async', true)
+    script.setAttribute('id', 'twitter')
+    script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    script.setAttribute('charset', 'utf-8')
+    document.head.appendChild(script)
   }
 }
 </script>
