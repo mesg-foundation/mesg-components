@@ -1,5 +1,5 @@
 <template>
-  <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw" class="twitter-hashtag-button" :data-text="text" :data-related="recommandedAccount" :data-show-count="counter" />
+  <a href="https://twitter.com/intent/tweet" class="twitter-hashtag-button" :data-text="text" :data-related="recommandedAccount" :data-show-count="counter" />
 </template>
 
 <script>
@@ -18,6 +18,11 @@ export default {
       script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
       script.setAttribute('charset', 'utf-8')
       document.head.appendChild(script)
+    }
+  },
+  beforeDestroy() {
+    if (document.getElementById('twitter')) {
+      document.head.removeChild(document.getElementById('twitter'))
     }
   }
 }
