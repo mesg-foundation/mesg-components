@@ -24,5 +24,5 @@ storiesOf('Linear Progressbar', module)
     <div class="container" mt1>
       <LinearProgressbar :value="value" indeterminate/>
     </div>`,
-    data: () => ({ value: 50 })
+    data: () => ({ value: 30 })
   }))
