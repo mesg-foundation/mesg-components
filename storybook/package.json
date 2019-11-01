@@ -24,6 +24,7 @@
     "@mesg-components/card": "file:../packages/Card",
     "@mesg-components/chart": "file:../packages/Chart",
     "@mesg-components/embed-card": "file:../packages/EmbedCard",
+    "@mesg-components/pagination": "file:../packages/Pagination",
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
     "@mesg-components/snackbar": "file:../packages/Snackbar",
