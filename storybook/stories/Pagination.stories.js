@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import Pagination from '@mesg-components/pagination'
-import Table from '@mesg-components/table'
 
 const headers = [
   { key: 'date', text: 'Date', align: 'left', value: 'date' },
@@ -10,7 +9,7 @@ const headers = [
   { key: 'link', text: 'Link', align: 'center', value: 'link' }
 ]
 
-const items = new Array(101).fill(null).map((x, i) => {
+const items = new Array(90).fill(null).map((x, i) => {
   const percentage = Math.random() * 10
   const volume = Math.random() * 5000000
   return {
@@ -23,31 +22,13 @@ const items = new Array(101).fill(null).map((x, i) => {
   }
 })
 
-storiesOf('Pagination', module)
-  .add('default', () => ({
-    components: { Pagination },
-    template: `
-  <div class="container">
-    <Pagination v-model="perPage" :totalOfItems="itemLength"/>
-    {{perPage}}
-  </div>
-  `,
-    data: () => ({ perPage: 20, itemLength: 201 })
-  }))
-  .add('TEST', () => ({
-    components: { Pagination, Table },
-    template: `
+storiesOf('Pagination', module).add('default', () => ({
+  components: { Pagination },
+  template: `
     <div class="container">
-      <Table :items="items" :headers="headers">  
-        <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
-        <template v-slot:item_trade="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
-        <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
-        <template v-slot:item_percentage="{ item }">{{ parseInt(item.percentage, 10) }}%</template>
-        <template v-slot:item_link="{ item }">
-          <a :href="'https://etherscan.com/tx/'+item.txhash">{{ item.txhash }}</a>
-        </template>
-      </Table>
-      <Pagination :page="page" :per-page="perPage" :total-of-items="itemLength" @nextPage="()=>{}" @prevPage="()=> {}"/>
-    </div>`,
-    data: () => ({ headers, items, perPage: 20, itemLength: items.length, page: 1 })
-  }))
+      <pagination :total-of-items="items.length" v-model="currentPage" />
+      <div>Current page: {{currentPage}}</div>
+    </div>
+  `,
+  data: () => ({ headers, items, perPage: 20, itemLength: items.length, currentPage: 1 })
+}))
