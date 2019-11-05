@@ -8,11 +8,11 @@
 export default {
   name: 'TypeFormPopup',
   props: {
-    id: { type: String, required: true }
+    id: { type: String, required: true },
+    url: { type: String, default: 'https://mesgfoundation.typeform.com/to' }
   },
   data() {
     return {
-      url: 'https://mesgfoundation.typeform.com/to/',
       openPopup: undefined
     }
   },
@@ -40,7 +40,7 @@ export default {
   methods: {
     createTypeFormButton() {
       this.$nextTick(() => {
-        this.openPopup = window.typeformEmbed.makePopup(`${this.url}${this.id}`, {
+        this.openPopup = window.typeformEmbed.makePopup(`${this.url}/${this.id}`, {
           mode: 'popup'
         })
       })
