@@ -1,7 +1,7 @@
 <template>
-  <button @click="onClickedPopup">
+  <a @click="onClickedPopup">
     <slot />
-  </button>
+  </a>
 </template>
 
 <script>
@@ -53,4 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  cursor: pointer;
+}
 </style>
