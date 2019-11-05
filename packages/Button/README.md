@@ -18,53 +18,53 @@
 
 ## Example
 
+**Default Button:**
 ```html
-<!-- Default Button -->
 <template>
   <Button>Default Button</Button>
 </template>
-
-<!-- Primary and submit Button -->
+```
+**Primary and submit Button:**
+```html
 <template>
   <Button primary submit>Primary Button</Button>
 </template>
-
-<!-- Secondary Button with small  -->
+```
+**Secondary Button with small:**
+```html
 <template>
   <Button secondary small>Secondary Button</Button>
 </template>
-
-<!-- White Button -->
+```
+**White Button:**
+```html
 <template>
   <Button white>White Button</Button>
 </template>
-
-<!-- Outline Button -->
+```
+**Outline Button:**
+```html
 <template>
   <Button outline>Outline Button</Button>
 </template>
-
-<!-- External link Button -->
+```
+**External link Button:**
+```html
 <template>
   <Button :href="www.google.com" target="_blank">External Button</Button>
 </template>
-
-<!-- Internal link Button -->
+```
+**Internal link Button:**
+```html
 <template>
   <Button :href="/" >Internal Button</Button>
   <!--  using nuxt-link -->
   <Button :to="/">Internal Button</Button>
 </template>
-
-<!-- Button with icon -->
+```
+**Button with icon:**
+```html
 <template>
   <Button primary :icon="fal fa-table">With icon Button</Button>
 </template>
-
-<script>
-  import Button from '@mesg-components/button'
-  export default {
-    components: { Button }
-  }
-</script>
 ```
