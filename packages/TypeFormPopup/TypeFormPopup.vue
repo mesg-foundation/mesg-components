@@ -41,7 +41,8 @@ export default {
     createTypeFormButton() {
       this.$nextTick(() => {
         this.openPopup = window.typeformEmbed.makePopup(`${this.url}/${this.id}`, {
-          mode: 'popup'
+          mode: 'popup',
+          autoClose: 0
         })
       })
     },
