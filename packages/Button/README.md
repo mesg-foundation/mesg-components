@@ -19,52 +19,67 @@
 ## Example
 
 **Default Button:**
+
 ```html
 <template>
-  <Button>Default Button</Button>
+  <button>Default Button</button>
 </template>
 ```
+
 **Primary and submit Button:**
+
 ```html
 <template>
-  <Button primary submit>Primary Button</Button>
+  <button primary submit>Primary Button</button>
 </template>
 ```
+
 **Secondary Button with small:**
+
 ```html
 <template>
-  <Button secondary small>Secondary Button</Button>
+  <button secondary small>Secondary Button</button>
 </template>
 ```
+
 **White Button:**
+
 ```html
 <template>
-  <Button white>White Button</Button>
+  <button white>White Button</button>
 </template>
 ```
+
 **Outline Button:**
+
 ```html
 <template>
-  <Button outline>Outline Button</Button>
+  <button outline>Outline Button</button>
 </template>
 ```
+
 **External link Button:**
+
 ```html
 <template>
-  <Button :href="www.google.com" target="_blank">External Button</Button>
+  <button :href="www.google.com" target="_blank">External Button</button>
 </template>
 ```
+
 **Internal link Button:**
+
 ```html
 <template>
-  <Button :href="/" >Internal Button</Button>
+  <button :href="/">Internal Button</button>
   <!--  using nuxt-link -->
-  <Button :to="/">Internal Button</Button>
+  <button :to="/">Internal Button</button>
 </template>
 ```
+
 **Button with icon:**
+
 ```html
 <template>
-  <Button primary :icon="fal fa-table">With icon Button</Button>
+  <button primary :icon="fal fa-table">With icon Button</button>
 </template>
 ```
