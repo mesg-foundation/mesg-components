@@ -15,6 +15,7 @@
 ## Example
 
 **Default card:**
+
 ```html
 <template>
   <Card>Default Card</Card>
@@ -22,6 +23,7 @@
 ```
 
 **Bordered card:**
+
 ```html
 <template>
   <Card bordered> Card with bordered</Card>
@@ -29,6 +31,7 @@
 ```
 
 **Thin card:**
+
 ```html
 <template>
   <Card thin>Thin card</Card>
@@ -36,20 +39,23 @@
 ```
 
 **Card without shadow:**
+
 ```html
-<template >
+<template>
   <Card no-shadow>Card without shadow</Card>
 </template>
 ```
 
 **Border bottom color card:**
+
 ```html
-<template >
+<template>
   <Card border-bottom-color="red">Border bottom color custom card</Card>
 </template>
 ```
 
 **Background card:**
+
 ```html
 <template background="red">
   <Card>Card background custom </Card>
