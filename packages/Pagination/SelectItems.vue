@@ -2,7 +2,7 @@
   <div class="“pagination”">
     <span class="“rp”">Rows per page:</span>
     <label>
-      <select class="minimal" v-model="value" @change="$emit('input', parseInt($event.target.value))">
+      <select class="minimal" v-model="selected">
         <option v-for="(item,i) in paginationRows" :value="item" :key="i">{{ item }}</option>
       </select>
     </label>
@@ -17,6 +17,21 @@ export default {
   data() {
     return {
       paginationRows: [10, 20, 30, 50, 100]
+    }
+  },
+  computed: {
+    selected: {
+      get() {
+        return this.value
+      },
+      set(value) {
+        return this.$emit('input', value)
+      }
+    }
+  },
+  methods: {
+    onClickIems(page) {
+      this.$emit('change', page)
     }
   }
 }

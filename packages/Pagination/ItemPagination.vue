@@ -1,9 +1,6 @@
 <template>
   <ul class="pagination">
     <li class="pagination-item">
-      <button class="btn--events" type="button" @click="onClickFirstPage()" :disabled="isInFirstPage">First</button>
-    </li>
-    <li class="pagination-item">
       <button class="btn--events" type="button" @click="onClickPreviousPage" :disabled="isInFirstPage">
         <i class="fas fa-arrow-left"></i>
       </button>
@@ -15,9 +12,6 @@
       <button class="btn--events" type="button" @click="onClickNextPage" :disabled="isInLastPage">
         <i class="fas fa-arrow-right"></i>
       </button>
-    </li>
-    <li class="pagination-item">
-      <button class="btn--events" type="button" @click="onClickLastPage" :disabled="isInLastPage">Last</button>
     </li>
   </ul>
 </template>
@@ -32,7 +26,7 @@ export default {
   data() {
     return {
       btnPagination: undefined,
-      maxVisibleButtons: 5
+      maxVisibleButtons: 4
     }
   },
   computed: {
@@ -51,9 +45,10 @@ export default {
     paginationTriggers() {
       const currentPage = this.value
       const pageCount = this.totalPages
-      const visiblePagesCount = this.maxVisibleButtons
-      const visiblePagesThreshold = (visiblePagesCount - 1) / 2
-      const pagintationTriggersArray = Array(this.maxVisibleButtons - 1).fill(0)
+      const visiblePagesCount = pageCount < this.maxVisibleButtons ? pageCount + 1 : this.maxVisibleButtons
+      const visiblePagesThreshold = visiblePagesCount / 2
+
+      const pagintationTriggersArray = Array(visiblePagesCount - 1).fill(0)
 
       if (currentPage <= visiblePagesThreshold + 1) {
         const pagintationTriggers = pagintationTriggersArray.map((paginationTrigger, index) => {

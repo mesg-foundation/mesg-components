@@ -1,7 +1,7 @@
 <template>
   <div>
-    <SelectItems v-model="value.itemPerPage" />
     <ItemPagination v-model="value.currentPage" :total-of-items="totalOfItems" :per-page="value.itemPerPage" />
+    <SelectItems v-model="value.itemPerPage" />
   </div>
 </template>
 
