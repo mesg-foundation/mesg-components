@@ -6,16 +6,20 @@
 
 ## Properties
 
-- **perPage**: `Number`, **Optional**, The default is `10`.
+- **hideSelect**: `Number`, **Optional**. _The default is `false`_
 - **totalOfItems**: `Number`, **Required**.
-- **v-model**: `Number`, **Required**,The default is `1`.
+- **v-model**: `Object`, **Required**.
+
+## Slot
+
+- none
 
 ## Example
 
 ```html
 <template>
   <div>
-    <table :items="itemsPerPage(items,perPage)" :headers="headers">
+    <table :items="itemsPerPage(items,paginationConfig.itemPerPage)" :headers="headers">
       ...
       <template v-slot:item_id="{ item }">
         {{ item.id }}
@@ -24,7 +28,7 @@
     </table>
 
     <!-- Padgination Component -->
-    <pagination :per-page="perPage" :total-of-items="items.length" v-model="currentPage" />
+    <pagination :total-of-items="items.length" v-model="paginationConfig" />
   </div>
 </template>
 
@@ -35,10 +39,9 @@
     components: { Pagination, Table },
     data() {
       return {
-        items: [{id: 1}, {id: 2},{id: 3},...{id: n}]
-        currentPage: 1
-        perPage: 20,
-        headers: [{key: 'id', value:'id'}]
+        items: [{ id: 1 }, { id: 2 }, { id: 3 }, ...{ id: n }],
+        paginationConfig: { currentPage: 1, itemPerPage: 20 },
+        headers: [{ key: 'id', value: 'id' }]
       }
     },
     methods: {
