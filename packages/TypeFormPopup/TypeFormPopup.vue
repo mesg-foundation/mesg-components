@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      openPopup: undefined
+      openPopup: null
     };
   },
   mounted() {
