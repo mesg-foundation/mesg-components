@@ -1,7 +1,7 @@
 <template>
-  <a @click="onClickedPopup">
-    <slot />
-  </a>
+  <div @click="onClickedPopup">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -54,7 +54,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  cursor: pointer;
-}
 </style>
