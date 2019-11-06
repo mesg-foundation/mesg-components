@@ -25,7 +25,7 @@ storiesOf('TypeFormPopup', module)
     template: `
     <div class="container">
       <TypeFormPopup id="bOJ0qz">
-        <a class="link">Contact us</a>
+        <a class="link">link</a>
       </TypeFormPopup>
     </div>`
   }))

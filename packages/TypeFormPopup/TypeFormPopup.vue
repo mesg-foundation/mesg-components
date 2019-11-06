@@ -1,7 +1,7 @@
 <template>
-  <div @click="onClickedPopup">
+  <span @click="onClickedPopup">
     <slot></slot>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -55,12 +55,3 @@ export default {
   }
 };
 </script>
-
-
-<style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
-
-a:hover {
-  cursor: pointer;
-}
-</style>
