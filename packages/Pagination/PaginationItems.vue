@@ -19,7 +19,7 @@
 <script>
 export default {
   props: {
-    perPage: { type: Number },
+    perPage: { type: Number, default: 10 },
     value: { type: Number, default: 1 },
     totalOfItems: { type: Number }
   },
@@ -160,7 +160,6 @@ button[disabled] {
 
 .btn--items {
   padding: calc(#{$margin}/ 3) calc(#{$margin}/ 2);
-  // margin: 5px;
   max-width: 40px;
   min-width: 40px;
   border-radius: 6px;
