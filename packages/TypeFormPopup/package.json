@@ -1,0 +1,7 @@
+{
+  "name": "@mesg-components/type-form-popup",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
