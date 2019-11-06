@@ -107,6 +107,18 @@ ul li {
   display: inline-block;
 }
 
+li:first-child {
+  margin: 0;
+}
+
+li {
+  margin-left: 5px;
+}
+
+li:last-child {
+  margin-left: 5px;
+}
+
 button {
   cursor: pointer;
   font-size: 12px;
@@ -148,7 +160,7 @@ button[disabled] {
 
 .btn--items {
   padding: calc(#{$margin}/ 3) calc(#{$margin}/ 2);
-  margin: 5px;
+  // margin: 5px;
   max-width: 40px;
   min-width: 40px;
   border-radius: 6px;
