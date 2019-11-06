@@ -22,23 +22,34 @@ const items = new Array(90).fill(null).map((x, i) => {
   }
 })
 
-storiesOf('Pagination', module).add('default', () => ({
-  components: { Pagination },
-  template: `
+storiesOf('Pagination', module)
+  .add('default', () => ({
+    components: { Pagination },
+    template: `
     <div class="container">
       <Pagination v-model="pagination" :total-of-items="items.length" />
-      {{pagination}}
+      <div pt1>{{pagination}}</div>
     </div>
   `,
-  data: () => ({ headers, items, itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 20 } })
-}))
-// .add('pagination', () => ({
-//   components: { Pagination },
-//   template: `
-//   <div class="container">
-//     <pagination :total-of-items="items.length" v-model="currentPage" />
-//     <div>Current page: {{currentPage}}</div>
-//   </div>
-// `,
-//   data: () => ({ headers, items, perPage: 20, itemLength: items.length, currentPage: 1 })
-// }))
+    data: () => ({ headers, items, itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 20 } })
+  }))
+  .add('Hide Selection', () => ({
+    components: { Pagination },
+    template: `
+    <div class="container">
+      <Pagination v-model="pagination" :total-of-items="items.length" hide-selection/>
+      <div pt1>{{pagination}}</div>
+    </div>
+  `,
+    data: () => ({ headers, items, itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 20 } })
+  }))
+  .add('Hide pagination items page', () => ({
+    components: { Pagination },
+    template: `
+    <div class="container">
+      <Pagination v-model="pagination" :total-of-items="items.length" hide-items/>
+      <div pt1>{{pagination}}</div>
+    </div>
+  `,
+    data: () => ({ headers, items, itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 20 } })
+  }))
