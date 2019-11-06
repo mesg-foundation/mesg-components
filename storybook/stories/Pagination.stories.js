@@ -26,9 +26,19 @@ storiesOf('Pagination', module).add('default', () => ({
   components: { Pagination },
   template: `
     <div class="container">
-      <pagination :total-of-items="items.length" v-model="currentPage" />
-      <div>Current page: {{currentPage}}</div>
+      <Pagination v-model="pagination" :total-of-items="items.length" />
+      {{pagination}}
     </div>
   `,
-  data: () => ({ headers, items, perPage: 20, itemLength: items.length, currentPage: 1 })
+  data: () => ({ headers, items, itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 20 } })
 }))
+// .add('pagination', () => ({
+//   components: { Pagination },
+//   template: `
+//   <div class="container">
+//     <pagination :total-of-items="items.length" v-model="currentPage" />
+//     <div>Current page: {{currentPage}}</div>
+//   </div>
+// `,
+//   data: () => ({ headers, items, perPage: 20, itemLength: items.length, currentPage: 1 })
+// }))
