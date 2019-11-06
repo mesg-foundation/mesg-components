@@ -58,6 +58,8 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '@mesg-components/theme/_variables';
+
 a:hover {
   cursor: pointer;
 }
