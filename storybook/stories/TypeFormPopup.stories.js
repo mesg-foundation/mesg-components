@@ -8,7 +8,7 @@ storiesOf('TypeFormPopup', module)
     components: { TypeFormPopup },
     template: `
     <div class="container">
-      <TypeFormPopup id="bOJ0qz">TEST</TypeFormPopup>
+      <TypeFormPopup id="bOJ0qz">Contact us</TypeFormPopup>
     </div>`
   }))
   .add('Button', () => ({
@@ -16,7 +16,7 @@ storiesOf('TypeFormPopup', module)
     template: `
     <div class="container">
       <TypeFormPopup id="bOJ0qz">
-        <Button primary>TEST</Button>
+        <Button primary>Contact us</Button>
       </TypeFormPopup>
     </div>`
   }))
@@ -25,7 +25,7 @@ storiesOf('TypeFormPopup', module)
     template: `
     <div class="container">
       <TypeFormPopup id="bOJ0qz">
-        <a primary>TEST</a>
+        <a class="link">Contact us</a>
       </TypeFormPopup>
     </div>`
   }))
