@@ -43,10 +43,6 @@ storiesOf('Table', module)
     components: { Table },
     template: `<Table :items="items" :headers="headers" expandable>
 
-    <template v-slot:header_link="{ header }">
-      <h4> {{header.text}}</h4>
-    </template>
-
     <template v-slot:item_date="{ item }">{{ new Date(item.date).toString() }}</template>
     <template v-slot:item_volume="{ item }">{{ parseInt(item.tradeVolume, 10) }}</template>
     <template v-slot:item_token="{ item }">{{ parseInt(item.tokenRelease, 10) }}</template>
