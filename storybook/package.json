@@ -23,7 +23,7 @@
     "@mesg-components/button": "file:../packages/Button",
     "@mesg-components/card": "file:../packages/Card",
     "@mesg-components/chart": "file:../packages/Chart",
-    "@mesg-components/group": "file:../packages/Group",
+    "@mesg-components/choice": "file:../packages/Choice",
     "@mesg-components/embed-card": "file:../packages/EmbedCard",
     "@mesg-components/progressbar": "file:../packages/Progressbar",
     "@mesg-components/side-menu": "file:../packages/SideMenu",
