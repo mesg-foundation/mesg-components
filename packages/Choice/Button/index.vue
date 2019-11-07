@@ -1,9 +1,9 @@
 <template>
   <div class="btn-group">
-    <button v-for="(item,i) in items" :key="i" v-on:click="handleClicked(item.method,i)" :class="{actived: actived === i}">
-      <i v-if="item.prefix" :class="item.icon"></i>
-      {{item.title}}
-      <i v-if="item.suffix" :class="item.icon" class="suffix"></i>
+    <button v-for="option in options" :class="option.value === value ? 'btn--actived': ''" :key="option.key" :value="option.value" @click="onClickedValue($event.target.value)">
+      <i v-if="option.preIcon" :class="option.preIcon"></i>
+      {{option.value}}
+      <i v-if="option.postIcon" :class="option.postIcon"></i>
     </button>
   </div>
 </template>
@@ -13,20 +13,11 @@
 <script>
 export default {
   name: 'ButtonGroup',
-  props: {
-    items: { type: Array }
-  },
-  data() {
-    return {
-      actived: 0
-    }
-  },
+  props: ['value', 'options'],
   methods: {
-    handleClicked(func, index) {
-      this.actived = index
-      if (func) {
-        func()
-      }
+    onClickedValue(value) {
+      this.$emit('input', value)
+      this.$emit('click')
     }
   }
 }
@@ -60,6 +51,7 @@ button {
   letter-spacing: normal;
   color: $primary;
   outline: none;
+  max-height: 45px;
 }
 
 .btn-group button:not(:last-child) {
@@ -88,7 +80,7 @@ button {
   color: $white;
 }
 
-.actived {
+.btn--actived {
   background-color: $primary;
   color: $white !important;
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <choice-select v-if="type==='select'" v-model="selectedValue" :options="options" />
-    <choice-button v-if="type=== 'button'" />
+    <choice-button v-if="type=== 'button-group'" v-model="selectedValue" :options="options" />
     <choice-radio v-if="type==='radio'" v-model="selectedValue" :options="options" />
     <choice-tab v-if="type==='tab'" />
   </div>

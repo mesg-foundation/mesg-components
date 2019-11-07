@@ -1,7 +1,7 @@
 <template>
   <div>
     <label v-for="option in options" :key="option.key">
-      <input type="radio" :id="option.key" :value="value" :checked="checkValue(option.value)" @input="$emit('input', option.value)" @change="$emit('change', $event.target.checked)"  />
+      <input type="radio" :id="option.key" :value="option.value" :checked="checkValue(option.value)" @input="$emit('input', option.value)" @change="$emit('change', $event.target.checked)"  />
       {{option.value}}
     </label>
   </div>
