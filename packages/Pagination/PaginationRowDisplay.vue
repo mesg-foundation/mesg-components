@@ -28,11 +28,6 @@ export default {
         return this.$emit('input', value)
       }
     }
-  },
-  methods: {
-    onClickIems(page) {
-      this.$emit('change', page)
-    }
   }
 }
 </script>
