@@ -6,11 +6,11 @@
 
 ## Properties
 
-- **bordered**: `Boolean`, **Optional**, The default is `false`
-- **thin**: `Boolean`, **Optional**, The default is `false`
-- **noShadow**: `Boolean`, **Optional**, The default is `false`
-- **borderBottomColor**: `String`, **Optional**, The default is `undefined`
-- **background**: `String`, **Optional**. The default is `white`
+- **bordered**: `Boolean`, **Optional**, The default is `false` -> _Display border color of card_.
+- **thin**: `Boolean`, **Optional**, The default is `false` -> _Display border color of card as thin size_.
+- **noShadow**: `Boolean`, **Optional**, The default is `false` -> _Not display card shadow_.
+- **borderBottomColor**: `String`, **Optional**, _The default is `undefined` -> Custom border-bottom color of card_.
+- **background**: `String`, **Optional**. The default is `white` -> _Custom background color of card_.
 
 ## Slot
 
