@@ -24,7 +24,7 @@
 ### Area
 
 - **categories**: `Array`
-- **areaType**: `String`, _the value should be `normal | percent`_
+- **areaType**: `String`, _Values of types are `normal | percent`_
 - **yType**: `String`
 - **yTitle**: `String`
 - **noYLabel**: `Boolean`, _the default is `false`_
