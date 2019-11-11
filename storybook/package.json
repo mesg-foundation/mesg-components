@@ -33,6 +33,7 @@
     "@mesg-components/tag-label": "file:../packages/TagLabel",
     "@mesg-components/textfield": "file:../packages/TextField",
     "@mesg-components/theme": "file:../packages/Theme",
+    "@mesg-components/type-form-popup": "file:../packages/TypeFormPopup",
     "@storybook/cli": "^5.2.4",
     "css-loader": "^3.2.0",
     "node-sass": "^4.12.0",
