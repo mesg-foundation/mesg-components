@@ -6,15 +6,15 @@
 
 ## Properties
 
-- **href**: `String`.
-- **to**: `[ Object, String ]`.
-- **submit**: `Boolean`.
-- **primary**: `Boolean`.
-- **small**: `Boolean`.
-- **secondary**: `Boolean`.
-- **white**: `Boolean`.
-- **outline**: `Boolean`.
-- **icon**: `String`.
+- **href**: `String`.**Optional** -> _external link path_
+- **to**: `[ Object, String ]`.**Optional** -> _internal link path_
+- **submit**: `Boolean`.**Optional** -> _determine it's a submit button_
+- **primary**: `Boolean`.**Optional** -> _determine it's a primary button_
+- **small**: `Boolean`.**Optional** -> _Button size_
+- **secondary**: `Boolean`.**Optional** -> _determine it's a secondary button_
+- **white**: `Boolean`.**Optional** -> _determine it's a white button_
+- **outline**: `Boolean`.**Optional** -> _determine it's a outline button_
+- **icon**: `String`.**Optional** -> _icon class name_
 
 ## Slot
 
