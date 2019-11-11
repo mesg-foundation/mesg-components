@@ -8,13 +8,13 @@
 
 ### Circular
 
-- **size**: `String`. _The default is `50px`_
+- **size**: `String`. _The default is `50px`_, _the value of circular size_
 
 ### Linear
 
-- **value**: `String`, **Optional** , _The default is `0`_.
-- **color**: `String`, **Optional**.
-- **indeterminate**: `Boolean`, **Optional**.
+- **value**: `String`, **Optional** , _The default is `0`_, _Width value of linear progressbar_
+- **color**: `String`, **Optional**, _Custom color of of linear progressbar_
+- **indeterminate**: `Boolean`, **Optional**, _Display indeterminate linear progressbar_
 
 ## Slot
 
