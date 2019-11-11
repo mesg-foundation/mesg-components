@@ -25,10 +25,6 @@
 **Circular:**
 
 ```javascript
-// es5
-const Circular = require('@mesg-components/progressbar/Circular')
-
-// es6
 import Circular from '@mesg-components/progressbar/Circular'
 ```
 
@@ -41,10 +37,6 @@ import Circular from '@mesg-components/progressbar/Circular'
 **Linear:**
 
 ```javascript
-// es5
-const Linear = require('@mesg-components/progressbar/Linear')
-
-// es6
 import Linear from '@mesg-components/progressbar/Linear'
 ```
 
