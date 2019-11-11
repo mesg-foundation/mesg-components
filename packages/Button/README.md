@@ -16,6 +16,10 @@
 - **outline**: `Boolean`.
 - **icon**: `String`.
 
+## Slot
+
+- `default`
+
 ## Example
 
 **Default Button:**

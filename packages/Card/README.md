@@ -12,6 +12,10 @@
 - **borderBottomColor**: `String`, **Optional**, The default is `undefined`
 - **background**: `String`, **Optional**. The default is `white`
 
+## Slot
+
+- `default`
+
 ## Example
 
 **Default card:**
