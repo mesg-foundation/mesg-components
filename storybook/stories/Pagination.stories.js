@@ -19,19 +19,31 @@ storiesOf('Pagination', module)
     components: { Pagination },
     template: `
     <div class="container">
-      <Pagination v-model="pagination" :total-of-items="itemLength" />
-      <div pt1>{{pagination}}</div>
+      <Pagination :total="itemLength" :page-size="pageSize" :current-page="currentPage" @render-change="renderChange"/>
+      <span>Page size: {{pageSize}} | Current page: {{currentPage}}</span>
     </div>
   `,
-    data: () => ({ itemLength: 90, pagination: { currentPage: 1, itemPerPage: 20 } })
+    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 }),
+    methods: {
+      renderChange(value) {
+        this.pageSize = value.pageSize
+        this.currentPage = value.currentPage
+      }
+    }
   }))
   .add('Hide Selection', () => ({
     components: { Pagination },
     template: `
     <div class="container">
-      <Pagination v-model="pagination" :total-of-items="itemLength" hide-select/>
-      <div pt1>{{pagination}}</div>
+      <Pagination :total="itemLength" :page-size="pageSize" :current-page="currentPage" @render-change="renderChange" hide-select/>
+      <span>Page size: {{pageSize}} | Current page: {{currentPage}}</span>
     </div>
   `,
-    data: () => ({ itemLength: items.length, pagination: { currentPage: 1, itemPerPage: 50 } })
+    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 }),
+    methods: {
+      renderChange(value) {
+        this.pageSize = value.pageSize
+        this.currentPage = value.currentPage
+      }
+    }
   }))
