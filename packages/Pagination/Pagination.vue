@@ -32,11 +32,11 @@ export default {
     sizeChange(val) {
       this.isPageChange = 1
       this.isSizeChange = parseInt(val)
-      this.$emit('render-change', { currentpage: 1, pageSize: parseInt(val) })
+      this.$emit('render-change', { currentPage: 1, pageSize: parseInt(val) })
     },
     pageChange(val) {
       this.isPageChange = parseInt(val)
-      this.$emit('render-change', { currentpage: parseInt(val), pageSize: this.isSizeChange })
+      this.$emit('render-change', { currentPage: parseInt(val), pageSize: this.isSizeChange })
     }
   }
 }
