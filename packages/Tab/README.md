@@ -10,8 +10,8 @@
 
 ## Slot
 
-- **Tab name** is using `tab-<ITEMS_KEY_VALUE>` to display each tab name
-- **Tab section name** is using `section-<ITEMS_KEY_VALUE>` to attach each section on tab
+- `tab-<ITEMS_KEY_VALUE>` to display each tab name
+- `section-<ITEMS_KEY_VALUE>` to attach each section on tab
 
 ## Example
 
@@ -68,8 +68,7 @@ const customItems = [
       <h3>{{item.text}}</h3>
       <p>{{item.description}}</p>
     </template>
-
-
+    ...
     </Tab>`
 </template>
 ```
