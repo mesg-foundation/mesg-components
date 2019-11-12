@@ -6,15 +6,15 @@
 
 ## Properties
 
-- **headers**: `Array`, **Required**.
-- **items**: `Array`, **Required**.
-- **hideHeader**: `Boolean`, **Optional**, The default is `false`.
-- **expandable**: `Boolean`, **Optional**, The default is `false`.
+- **headers**: `Array of object`, **Required**.
+- **items**: `Array of object`, **Required**.
+- **hideHeader**: `Boolean`, **Optional**, The default is `false`. _determine header is display_
+- **expandable**: `Boolean`, **Optional**, The default is `false`. _determine it's a expandable table_
 - **compact**: `Boolean`, **Optional**, The default is `false`. _set table width 100% without padding or margin_.
 
 ## Slot
 
-- using `key` from items
+- define slot name using `item_<HEADERS_VALUE>`
 
 ## Example
 
@@ -42,8 +42,9 @@ const headers = [
 ]
 ```
 
+**Default:**
+
 ```html
-<!-- Default Table -->
 <template>
   <div>
     <table :items="items" :headers="headers">
@@ -62,8 +63,11 @@ const headers = [
     </table>
   </div>
 </template>
+```
 
-<!-- Expandable Table -->
+**Expandable table:**
+
+```html
 <template>
   <div>
     <table :items="items" :headers="headers" expandable>
@@ -85,15 +89,21 @@ const headers = [
     </table>
   </div>
 </template>
+```
 
-<!-- Hide Header Table -->
+**Disable header table:**
+
+```html
 <template>
   <table :items="items" :headers="headers" hide-header>
     ...
   </table>
 </template>
+```
 
-<!-- Compact Table -->
+**Compact table:**
+
+```html
 <template>
   <Card>
     <table :items="items" :headers="headers" compact>
