@@ -10,8 +10,8 @@
 
 ## Slot
 
-- `tab-<ITEMS_KEY_VALUE>` to display each tab name
-- `section-<ITEMS_KEY_VALUE>` to attach each section on tab
+- define slot name using `tab-<ITEMS_KEY_VALUE>` for tab.
+- define slot name using `section-<ITEMS_KEY_VALUE>` for section to attach at tab
 
 ## Example
 
