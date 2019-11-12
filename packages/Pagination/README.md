@@ -6,15 +6,18 @@
 
 ## Properties
 
-- **hideSelect**: `Number`, **Optional**. _The default is `false`_
-- **totalOfItems**: `Number`, **Required**.
-- **v-model**: `Object`, **Required**.
+- **total**: `Number`, **Required**. -> _length number of items_
+- **pageSize**: `Number`, **Optional**. _The default is `10`_ , -> _Size display items on page_
+- **currentPage**: `Number`, **Optional**. _The default is `1`_, -> _Number of current pagination_
+- **hideSelect**: `Number`, **Optional**. _The default is `false`_, -> _Don't display page-size select_
 
-## Slot
+## Event
 
-- none
+- `render-change` _this event return a current-page value and page-size value as object type_
 
 ## Example
+
+**Default:**
 
 ```html
 <template>
@@ -27,8 +30,7 @@
       ...
     </table>
 
-    <!-- Padgination Component -->
-    <pagination :total-of-items="items.length" v-model="paginationConfig" />
+    <pagination :total="items.length" :current-page="currentPage" :page-size="pageSize" @render-change="renderChange" />
   </div>
 </template>
 
@@ -45,14 +47,29 @@
       }
     },
     methods: {
-      itemsPerPage(array, perPageNumber) {
-        let current = this.currentPage * perPageNumber - perPageNumber
-        const ranges = array.length
-        let end = current + perPageNumber
-        const part = array.slice(current, end)
-        return part
+      renderChange(value) {
+        // values will be object {currentPage: xxx , pageSize: xxx }
+        ...
       }
     }
   }
 </script>
+```
+
+**Hide selection:**
+
+```html
+<template>
+  <div>
+    <table :items="itemsPerPage(items,paginationConfig.itemPerPage)" :headers="headers">
+      ...
+      <template v-slot:item_id="{ item }">
+        {{ item.id }}
+      </template>
+      ...
+    </table>
+
+    <pagination :total="items.length" @render-change="renderChange" hide-select />
+  </div>
+</template>
 ```
