@@ -6,7 +6,7 @@
       </button>
     </li>
     <li v-for="page in paginationTriggers" :key="page" class="pagination-item">
-      <button class="btn--items" type="button" @click="onClickPage(page)" :class="{active: value === page}">{{ page }}</button>
+      <button class="btn--items" type="button" @click="onClickPage(page)" :class="{active: currentPage === page}">{{ page }}</button>
     </li>
     <li class="pagination-item">
       <button class="btn--events" type="button" @click="onClickNextPage" :disabled="isInLastPage">
@@ -19,9 +19,9 @@
 <script>
 export default {
   props: {
-    perPage: { type: Number, default: 10 },
-    value: { type: Number, default: 1 },
-    totalOfItems: { type: Number }
+    perPage: { type: Number, required: true },
+    currentPage: { type: Number, required: true },
+    total: { type: Number, required: true }
   },
   data() {
     return {
@@ -31,19 +31,19 @@ export default {
   },
   computed: {
     totalPages() {
-      const value = this.totalOfItems / this.perPage
-      const validateValue = this.totalOfItems % this.perPage === 0
+      const value = this.total / this.perPage
+      const validateValue = this.total % this.perPage === 0
       const itemPage = validateValue ? value : value + 1
       return parseInt(itemPage)
     },
     isInFirstPage() {
-      return this.value === 1
+      return this.currentPage === 1
     },
     isInLastPage() {
-      return this.value === this.totalPages
+      return this.currentPage === this.totalPages
     },
     paginationTriggers() {
-      const currentPage = this.value
+      const currentPage = this.currentPage
       const pageCount = this.totalPages
       const visiblePagesCount = pageCount < this.maxVisibleButtons ? pageCount + 1 : this.maxVisibleButtons
       const visiblePagesThreshold = visiblePagesCount / 2
@@ -74,19 +74,19 @@ export default {
   },
   methods: {
     onClickFirstPage() {
-      this.$emit('input', 1)
+      this.$emit('current-change', 1)
     },
     onClickPreviousPage() {
-      this.$emit('input', this.value - 1)
+      this.$emit('current-change', this.currentPage - 1)
     },
     onClickPage(page) {
-      this.$emit('input', page)
+      this.$emit('current-change', page)
     },
     onClickNextPage() {
-      this.$emit('input', this.value + 1)
+      this.$emit('current-change', this.currentPage + 1)
     },
     onClickLastPage() {
-      this.$emit('input', this.totalPages)
+      this.$emit('current-change', this.total)
     }
   }
 }

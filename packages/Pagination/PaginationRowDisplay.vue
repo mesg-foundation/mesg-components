@@ -2,7 +2,7 @@
   <div class="“pagination”">
     <span class="“rp”">Rows per page:</span>
     <label>
-      <select class="minimal" v-model="selected">
+      <select class="minimal" :value="pageSize" @change="select($event)">
         <option v-for="(item,i) in paginationRows" :value="item" :key="i">{{ item }}</option>
       </select>
     </label>
@@ -12,21 +12,16 @@
 <script>
 export default {
   props: {
-    value: { type: Number, default: 10 }
+    pageSize: { type: Number, default: 10 }
   },
   data() {
     return {
       paginationRows: [10, 20, 30, 50, 100]
     }
   },
-  computed: {
-    selected: {
-      get() {
-        return this.value
-      },
-      set(value) {
-        return this.$emit('input', value)
-      }
+  methods: {
+    select(e) {
+      return this.$emit('size-change', e.target.value)
     }
   }
 }
