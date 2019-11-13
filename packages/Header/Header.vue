@@ -1,13 +1,13 @@
 <template>
   <div id="header">
     <div class="container header-blog">
-      <div id="title-box" :class="{w50:image,first: !!image}">
+      <div id="title-box" :class="{ w50: !!image, first: !!image }">
         <h1>{{ title }}</h1>
         <slot>
           <p>{{ description }}</p>
         </slot>
       </div>
-      <div v-if="image" :class="{w50:image}">
+      <div v-if="image" :class="{ w50: !!image }">
         <img :src="image" alt="MESG" />
       </div>
     </div>
