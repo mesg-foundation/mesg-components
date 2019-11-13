@@ -6,8 +6,12 @@
 
 ## Properties
 
-- **id**: `String`, **Required**.
-- **url**: `String`, **Optional**. The default is `https://mesgfoundation.typeform.com/to`
+- **id**: `String`, **Required**, _id of the form_
+- **url**: `String`, **Optional**, _The default is `https://mesgfoundation.typeform.com/to`_
+
+## Slot
+
+- `default`
 
 ## Example
 
