@@ -4,17 +4,47 @@ import Card from '@mesg-components/card'
 storiesOf('Card', module)
   .add('default', () => ({
     components: { Card },
-    template: `<Card>TEST</Card>`
+    template: `
+    <div class="container">
+      <Card>TEST</Card>
+    </div>`
   }))
-  .add('without shadow ', () => ({
+  .add('no-shadow', () => ({
     components: { Card },
-    template: `<Card noShadow >TEST</Card>`
+    template: `
+    <div class="container">
+      <Card no-shadow >TEST</Card>
+    </div>
+    `
   }))
-  .add('with bordered ', () => ({
+  .add('bordered', () => ({
     components: { Card },
-    template: `<Card bordered>TEST</Card>`
+    template: `
+    <div class="container">
+      <Card bordered>TEST</Card>
+    </div>
+    `
   }))
-  .add('with bordered thin ', () => ({
+  .add('bordered and thin', () => ({
     components: { Card },
-    template: `<Card bordered thin>TEST</Card>`
+    template: `
+    <div class="container">
+      <Card bordered thin>TEST</Card>
+    </div>
+    `
+  }))
+  .add('border-custom-color', () => ({
+    components: { Card },
+    template: `
+    <div class="container">
+      <Card bordered border-bottom-color="#bdafd6" >TEST</Card>
+    </div>
+    `
+  }))
+  .add('background-color', () => ({
+    components: { Card },
+    template: `
+    <div class="container">
+      <Card background="#f2f0f7" no-shadow >TEST</Card>
+    </div>`
   }))
