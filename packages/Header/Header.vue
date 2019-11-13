@@ -1,22 +1,15 @@
 <template>
-  <div id="header" pt3 pb3 mb3>
-    <div v-if="!noPicture" class="container" flex row mobile-column-reverse align-center space-between wrap>
-      <div half>
-        <h1 mb1>{{title}}</h1>
-        <p mb2>{{description}}</p>
-        <slot v-if="$slots.default" />
+  <div id="header">
+    <div class="container header-blog">
+      <div id="title-box" :class="{w50:image,first: !!image}">
+        <h1>{{ title }}</h1>
+        <slot>
+          <p>{{ description }}</p>
+        </slot>
       </div>
-      <div half>
-        <img v-if="imgUrl" :src="imgUrl" :alt="title" />
-        <slot name="items"></slot>
+      <div v-if="image" :class="{w50:image}">
+        <img :src="image" alt="MESG" />
       </div>
-    </div>
-    <div v-else class="container">
-      <div>
-        <h1 mb1>{{title}}</h1>
-        <p mb2>{{description}}</p>
-      </div>
-      <slot v-if="$slots.default" />
     </div>
   </div>
 </template>
@@ -25,10 +18,9 @@
 export default {
   name: 'Header',
   props: {
-    title: { type: String },
+    title: { type: String, required: true },
     description: { type: String },
-    noPicture: { type: Boolean, default: false },
-    imgUrl: { type: String }
+    image: { type: String }
   }
 }
 </script>
@@ -38,6 +30,8 @@ export default {
 
 #header {
   position: relative;
+  padding: calc(#{$margin} * 4) 0;
+  margin-bottom: calc(#{$margin} * 4);
 }
 #header::before {
   content: '';
@@ -48,6 +42,29 @@ export default {
   transform: translateY(-35%) skewY(-8deg);
   z-index: -1;
 }
+.header-blog {
+  display: flex;
+  flex-wrap: wrap;
+}
+.w50 {
+  width: 50%;
+  max-width: 50%;
+}
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#title-box {
+  h1 {
+    margin-bottom: $margin;
+  }
+  p {
+    margin-bottom: calc(#{$margin} * 2);
+  }
+}
+
 p {
   font-size: 20px;
 }
@@ -59,8 +76,15 @@ img {
   #header::before {
     height: calc(100% + 400px);
   }
+  .header-blog {
+    flex-direction: column-reverse;
+  }
+  .w50 {
+    width: 100%;
+    max-width: 100%;
+  }
   img {
-    margin-bottom: calc(#{$margin} * 2);
+    margin-bottom: calc(#{$margin} * 2) !important;
   }
 }
 </style>
