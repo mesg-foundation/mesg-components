@@ -3,6 +3,8 @@ import Footer from '@mesg-components/footer'
 
 import imageBanner from '../assets/img/base-logo-mesg.svg'
 
+import '../assets/style.scss'
+
 const items = [
   {
     key: 'products',
@@ -46,6 +48,57 @@ const items = [
 
 const categories = ['products', 'develop', 'foundation', 'token']
 
+const mesgCategories = ['technology', 'develop', 'about', 'community']
+
+const mesgItems = [
+  {
+    key: 'technology',
+    text: 'Technology',
+    to: '',
+    child: [
+      { title: 'MESG Orchestrator', to: 'https://docs.mesg.com/guide/quick-start-guide.html' },
+      { title: 'MESG SDK', to: 'https://marketplace.mesg.com/' },
+      { title: 'MESG Marketplace', to: 'https://docs.mesg.com/' },
+      { title: 'Enterprise', to: 'https://forum.mesg.com/' },
+      { title: 'Showcase', to: 'https://forum.mesg.com/' }
+    ]
+  },
+  {
+    key: 'develop',
+    text: 'Developers',
+    to: '',
+    child: [
+      { title: 'MESG Orchestrator', to: 'https://docs.mesg.com/guide/quick-start-guide.html' },
+      { title: 'MESG SDK', to: 'https://marketplace.mesg.com/' },
+      { title: 'MESG Marketplace', to: 'https://docs.mesg.com/' },
+      { title: 'Enterprise', to: 'https://forum.mesg.com/' },
+      { title: 'Showcase', to: 'https://forum.mesg.com/' }
+    ]
+  },
+  {
+    key: 'about',
+    text: 'About us',
+    to: '',
+    child: [
+      { title: 'Foundation', to: '/foundation' },
+      { title: 'Token', to: '/roadmap' },
+      { title: 'Roadmap', to: '/faq' },
+      { title: 'Help Center', to: '/faq' },
+      { title: 'Blog', to: '/faq' },
+      { title: 'Press & Media', to: 'https://medium.com/mesg' }
+    ]
+  },
+  {
+    key: 'community',
+    text: 'Community',
+    child: [
+      { title: 'Contributions Hub', to: '/token' },
+      { title: 'Forum', to: '/token' },
+      { title: 'Discord', to: '/enterprise' }
+    ]
+  }
+]
+
 const icons = [
   { to: 'https://medium.com/mesg', classIcon: 'fab fa-medium' },
   { to: 'https://github.com/mesg-foundation', classIcon: 'fab fa-github' },
@@ -58,16 +111,16 @@ const icons = [
   { to: 'https://www.reddit.com/r/MESG/', classIcon: 'fab fa-reddit-alien' }
 ]
 
-const banner = 'MESG Brand'
 const copyRightText = '© 2019 MESG Foundation'
 const policyText = { text: 'Privacy & Cookie Policy', link: 'https://mesg.com/privacy-cookie-policy' }
 
-storiesOf('Footer', module).add('default', () => ({
-  components: { Footer },
-  template: `
+storiesOf('Footer', module)
+  .add('default', () => ({
+    components: { Footer },
+    template: `
   <Footer :banner="banner" :copyright="copyRightText" :items="items" :policy="policyText" :categories="categories" :icons="icons">
     <template v-slot:products="{ item }">
-      <h1 style="margin: 0">{{item.text}}</h1>
+      <a class="category">{{item.text}}</a>
       <ul>
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
@@ -75,7 +128,7 @@ storiesOf('Footer', module).add('default', () => ({
       </ul>
     </template>
     <template v-slot:develop="{ item }">
-      <h1 style="margin: 0">{{item.text}}</h1>
+      <a class="category">{{item.text}}</a>
       <ul>
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
@@ -83,7 +136,7 @@ storiesOf('Footer', module).add('default', () => ({
       </ul>
     </template>
     <template v-slot:foundation="{ item }">
-      <h1 style="margin: 0">{{item.text}}</h1>
+      <a class="category">{{item.text}}</a>
       <ul>
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
@@ -98,5 +151,44 @@ storiesOf('Footer', module).add('default', () => ({
       </ul>
     </template>
   </Footer>`,
-  data: () => ({ banner: imageBanner, copyRightText, policyText, categories, items, icons })
-}))
+    data: () => ({ banner: imageBanner, copyRightText, policyText, categories, items, icons })
+  }))
+  .add('mesg.com', () => ({
+    components: { Footer },
+    template: `
+  <Footer :banner="banner" :copyright="copyRightText" :items="mesgItems" :policy="policyText" :categories="mesgCategories" :icons="icons">
+    <template v-slot:technology="{ item }">
+      <a class="category">{{item.text}}</a>
+      <ul class="display-child">
+        <li v-for="(child, i) in item.child" :key="i">
+          <a :href="child.to">{{child.title}}</a>
+        </li>
+      </ul>
+    </template>
+    <template v-slot:develop="{ item }">
+    <a class="category" >{{item.text}}</a>
+      <ul class="display-child">
+        <li v-for="(child, i) in item.child" :key="i">
+          <a :href="child.to">{{child.title}}</a>
+        </li>
+      </ul>
+    </template>
+    <template v-slot:about="{ item }">
+    <a class="category" >{{item.text}}</a>
+      <ul class="display-child">
+        <li v-for="(child, i) in item.child" :key="i">
+          <a :href="child.to">{{child.title}}</a>
+        </li>
+      </ul>
+    </template>
+    <template v-slot:community="{ item }">
+    <a class="category" >{{item.text}}</a>
+      <ul class="display-child">
+        <li v-for="(child, i) in item.child" :key="i">
+          <a :href="child.to">{{child.title}}</a>
+        </li>
+      </ul>
+    </template>
+  </Footer>`,
+    data: () => ({ banner: imageBanner, copyRightText, policyText, mesgCategories, mesgItems, icons })
+  }))
