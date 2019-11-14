@@ -51,91 +51,95 @@ export default {
   padding: calc(#{$margin}* 3);
   background-color: $light-grey;
 }
-#list-categories {
-  min-width: 75%;
-  display: flex;
-  justify-content: space-around;
-}
-#list-icon {
-  padding-top: $margin;
-}
-
-#banner-box {
-  display: flex;
-  flex-direction: column;
-}
 
 nav {
   display: flex;
   justify-content: space-around;
   max-width: $width;
   margin: auto;
-}
 
-a {
-  text-decoration: none;
-}
+  #list-categories {
+    min-width: 75%;
+    display: flex;
+    justify-content: space-around;
+  }
+  #list-icon {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  #banner-box {
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    text-decoration: none;
+  }
 
-.copyright {
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: $dark-grey;
-}
+  ul {
+    list-style: none;
+  }
 
-.policy {
-  font-size: 12px !important;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: $dark-grey;
-}
+  .copyright {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-grey;
+    margin-top: $margin;
+    margin-bottom: calc(#{$margin} * 2);
+  }
 
-.icon {
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  color: $dark-grey;
-  &:hover {
+  .policy {
+    font-size: 12px !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-grey;
+    margin-bottom: calc(#{$margin} * 2);
+  }
+
+  .icon {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    color: $dark-grey;
+    &:hover {
+      opacity: 0.7;
+      transition: 0.1s ease;
+    }
+    &:not(:first-child) {
+      padding-left: 10px;
+    }
+  }
+
+  .link-secondary {
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    padding: 0;
+    color: $dark-grey;
+  }
+  img {
+    height: 40px;
+  }
+  img:hover {
     opacity: 0.7;
     transition: 0.1s ease;
   }
-  &:not(:first-child) {
-    padding-left: 10px;
-  }
 }
 
-.link-secondary {
-  font-size: 15px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  padding: 0;
-  color: $dark-grey;
-}
-img {
-  height: 40px;
-}
-img:hover {
-  opacity: 0.7;
-  transition: 0.1s ease;
-}
 @media only screen and (max-width: $tablet-breakpoint) {
   #footer {
     padding: calc(#{$margin} * 2);
