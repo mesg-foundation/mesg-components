@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{ bordered, thin, shadow: !noShadow }" :style="{borderBottomColor: borderColor}">
+  <div class="card" :class="{ bordered, thin, shadow: !noShadow }" :style="{borderBottomColor: borderBottomColor,backgroundColor: background }">
     <slot />
   </div>
 </template>
@@ -11,7 +11,8 @@ export default {
     bordered: { type: Boolean, default: false },
     thin: { type: Boolean, default: false },
     noShadow: { type: Boolean, default: false },
-    borderColor: { type: String, default: undefined }
+    borderBottomColor: { type: String, default: undefined },
+    background: { type: String, default: '#fffff' }
   }
 }
 </script>
@@ -24,6 +25,7 @@ export default {
   border-radius: 6px;
   background-color: $white;
   overflow: hidden;
+  padding: $margin;
 }
 .card.shadow {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
@@ -33,13 +35,13 @@ export default {
   border-bottom-width: 6px;
   border-bottom-color: $primary;
   box-shadow: none;
-}
-.card.bordered:hover {
-  transition: 0.2s ease;
-  border: solid 1px $primary;
-  border-bottom-width: 6px;
-  border-bottom-color: $primary;
-  box-shadow: 0 0 0 1px $primary inset;
+  &:hover {
+    transition: 0.2s ease;
+    border: solid 1px $primary;
+    border-bottom-width: 6px;
+    border-bottom-color: $primary;
+    box-shadow: 0 0 0 1px $primary inset;
+  }
 }
 .card.bordered.thin {
   border: solid 2px transparent;
