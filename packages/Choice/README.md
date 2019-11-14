@@ -6,7 +6,7 @@
 
 ## Properties
 
-- **v-model**: `[ String, Number ]`, **Required** -> _default selected value_
+- **v-model**: `[ String, Number, Array of String ]`, **Optional** -> _default selected value_, **Type `Array of String` use on choice as type `checkbox`**
 - **options**: `Array of object`, **Required** -> _Display value_
 - **type**: `String`.**Required**, _Value of types `button-group | checkbox | radio | select`_ -> _Display choice component by type_.
 
@@ -34,7 +34,7 @@ const options = [
 **Type checkbox:**
 
 ```js
-const selectValue = 30
+const selectValue = [ "30", "100" ]
 const options = [
   { key: "10", value: 10 },
   { key: "20", value: 20 },

@@ -3,7 +3,7 @@
     <li v-for="option in options" :key="option.key">
       <label class="checkbox">
         {{ option.value }}
-        <input type="checkbox" :value="option.value" @input="onChange($event)" />
+        <input type="checkbox" :value="option.value" @input="onChange($event)" :checked="onCheckValue(option.value)" />
         <span class="check"></span>
       </label>
     </li>
@@ -13,18 +13,24 @@
 <script>
 export default {
   name: 'CheckBox',
-  props: ['value', 'options'],
+  props: {
+    value: { type: Array },
+    options: { type: Array, required: true }
+  },
   methods: {
     onChange(e) {
-      const setValue = Array.isArray(this.value) ? [...this.value] : [this.value]
       if (e.target.checked) {
-        this.$emit('input', [...setValue.filter(v => v !== null && v !== undefined && v !== ''), e.target.value])
+        this.$emit('input', [...this.value, e.target.value])
       }
       if (!e.target.checked) {
-        var index = setValue.indexOf(e.target.value)
-        if (index !== -1) setValue.splice(index, 1)
-        this.$emit('input', [...setValue])
+        var index = this.value.indexOf(e.target.value)
+        if (index !== -1) this.value.splice(index, 1)
+        this.$emit('input', [...this.value])
       }
+    },
+    onCheckValue(val) {
+      const found = this.value.filter(v => v == val)
+      return found.length >= 1
     }
   }
 }

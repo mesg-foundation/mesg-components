@@ -11,7 +11,13 @@ storiesOf('Choice', module)
   </div>`,
     data: () => ({
       selected: 30,
-      options: [{ key: 10, value: 10 }, { key: 20, value: 20 }, { key: 30, value: 30 }, { key: 50, value: 50 }, { key: 100, value: 100 }]
+      options: [
+        { key: 10, value: 10 },
+        { key: 20, value: 20 },
+        { key: 30, value: 30 },
+        { key: 50, value: 50 },
+        { key: 100, value: 100 }
+      ]
     })
   }))
   .add('type radio', () => ({
@@ -23,7 +29,13 @@ storiesOf('Choice', module)
   </div>`,
     data: () => ({
       selected: 30,
-      options: [{ key: 10, value: 10 }, { key: 20, value: 20 }, { key: 30, value: 30 }, { key: 50, value: 50 }, { key: 100, value: 100 }]
+      options: [
+        { key: 10, value: 10 },
+        { key: 20, value: 20 },
+        { key: 30, value: 30 },
+        { key: 50, value: 50 },
+        { key: 100, value: 100 }
+      ]
     })
   }))
   .add('type button', () => ({
@@ -52,7 +64,13 @@ storiesOf('Choice', module)
     {{selected}}
   </div>`,
     data: () => ({
-      selected: '',
-      options: [{ key: 10, value: 10 }, { key: 20, value: 20 }, { key: 30, value: 30 }, { key: 50, value: 50 }, { key: 100, value: 100 }]
+      selected: ['30', '100'],
+      options: [
+        { key: 10, value: 10 },
+        { key: 20, value: 20 },
+        { key: 30, value: 30 },
+        { key: 50, value: 50 },
+        { key: 100, value: 100 }
+      ]
     })
   }))
