@@ -1,9 +1,9 @@
 <template>
   <div>
-    <choice-select v-if="type==='select'" v-model="selectedValue" :options="options" />
-    <choice-button v-if="type=== 'button-group'" v-model="selectedValue" :options="options" />
-    <choice-radio v-if="type==='radio'" v-model="selectedValue" :options="options" />
-    <choice-checkbox v-if="type==='checkbox'" v-model="selectedValue" :options="options" />
+    <choice-select v-if="type === 'select'" v-model="selectedValue" :options="options" />
+    <choice-button v-if="type === 'button-group'" v-model="selectedValue" :options="options" />
+    <choice-radio v-if="type === 'radio'" v-model="selectedValue" :options="options" />
+    <choice-checkbox v-if="type === 'checkbox'" v-model="selectedValue" :options="options" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   components: { choiceButton, choiceSelect, choiceRadio, choiceCheckbox },
   props: {
     type: { type: String, required: true },
-    value: { type: [String, Number], required: true },
+    value: { type: [String, Number, Array] },
     options: { type: Array, required: true }
   },
   computed: {
@@ -33,6 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
