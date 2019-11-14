@@ -6,6 +6,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        loader: require.resolve('file-loader')
       }
     ]
   }
