@@ -16,7 +16,11 @@ import choiceCheckbox from './Checkbox'
 export default {
   name: 'Choice',
   components: { choiceButton, choiceSelect, choiceRadio, choiceCheckbox },
-  props: ['type', 'value', 'options'],
+  props: {
+    type: { type: String, required: true },
+    value: { type: [String, Number], required: true },
+    options: { type: Array, required: true }
+  },
   computed: {
     selectedValue: {
       get() {
