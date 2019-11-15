@@ -1,7 +1,7 @@
 <template>
   <div id="header">
-    <div class="container header-blog">
-      <div id="title-box" :class="{ w50: !!image, first: !!image }">
+    <div class="container header-box">
+      <div id="title-box" :class="{ w50: !!image }">
         <h1>{{ title }}</h1>
         <slot>
           <p>{{ description }}</p>
@@ -42,18 +42,15 @@ export default {
   transform: translateY(-35%) skewY(-8deg);
   z-index: -1;
 }
-.header-blog {
+.header-box {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .w50 {
   width: 50%;
   max-width: 50%;
-}
-.first {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 #title-box {
@@ -76,7 +73,7 @@ img {
   #header::before {
     height: calc(100% + 400px);
   }
-  .header-blog {
+  .header-box {
     flex-direction: column-reverse;
   }
   .w50 {
