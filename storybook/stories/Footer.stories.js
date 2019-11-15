@@ -158,7 +158,7 @@ storiesOf('Footer', module)
     template: `
   <Footer :banner="banner" :copyright="copyRightText" :items="mesgItems" :policy="policyText" :categories="mesgCategories" :icons="icons">
     <template v-slot:technology="{ item }">
-      <a class="category">{{item.text}}</a>
+      <a class="category" mb1>{{item.text}}</a>
       <ul class="display-child">
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>

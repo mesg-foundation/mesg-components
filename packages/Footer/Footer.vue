@@ -1,27 +1,31 @@
 <template>
   <section id="footer">
-    <nav>
-      <div id="banner-box">
-        <a href="/">
-          <img v-if="isImage" :src="banner" alt=" " />
-          <h2 v-else>{{ banner }}</h2>
-        </a>
-        <p v-if="copyright" class="copyright">{{ copyright }}</p>
-        <a v-if="policy" :href="policy.link" class="policy link-secondary">{{ policy.text }}</a>
-        <div v-if="icons" id="list-icon">
-          <a v-for="(icon, i) in icons" :key="i" :href="icon.to" target="_blank" :class="{ icon: icon }">
-            <i :class="icon.classIcon"></i>
-          </a>
-        </div>
+    <div>
+      <div class="container">
+        <nav flex row space-between wrap mobile-column-reverse>
+          <div flex column third>
+            <a href="/" mb1>
+              <img v-if="isImage" :src="banner" alt=" " />
+              <h2 v-else>{{ banner }}</h2>
+            </a>
+            <p v-if="copyright" class="copyright" mb2>{{ copyright }}</p>
+            <a v-if="policy" :href="policy.link" class="policy" mb2>{{ policy.text }}</a>
+            <div v-if="icons" flex space-between wrap>
+              <a v-for="(icon, i) in icons" :key="i" :href="icon.to" target="_blank" class="icon">
+                <i :class="icon.classIcon"></i>
+              </a>
+            </div>
+          </div>
+          <ul flex row mobile-column>
+            <li v-for="(category, i) in categories" :key="i">
+              <template v-for="item in items">
+                <slot v-if="item.key === category" :name="item.key" :item="item">{{ item[category] }}</slot>
+              </template>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <ul id="list-categories">
-        <li v-for="(category, i) in categories" :key="i">
-          <template v-for="item in items">
-            <slot v-if="item.key === category" :name="item.key" :item="item">{{ item[category] }}</slot>
-          </template>
-        </li>
-      </ul>
-    </nav>
+    </div>
   </section>
 </template>
 
@@ -46,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
+@import '@mesg-components/theme/_structure';
 
 #footer {
   padding: calc(#{$margin}* 3);
@@ -53,34 +58,16 @@ export default {
 }
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  max-width: $width;
-  margin: auto;
-
-  #list-categories {
-    min-width: 75%;
-    display: flex;
-    justify-content: space-around;
+  div {
+    height: fit-content;
   }
-  #list-icon {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  img {
+    height: 40px;
+    &:hover {
+      opacity: 0.7;
+      transition: 0.1s ease;
+    }
   }
-
-  #banner-box {
-    display: flex;
-    flex-direction: column;
-  }
-  a {
-    text-decoration: none;
-  }
-
-  ul {
-    list-style: none;
-  }
-
   .copyright {
     font-size: 12px;
     font-weight: normal;
@@ -89,21 +76,16 @@ nav {
     line-height: normal;
     letter-spacing: normal;
     color: $dark-grey;
-    margin-top: $margin;
-    margin-bottom: calc(#{$margin} * 2);
   }
-
   .policy {
-    font-size: 12px !important;
+    font-size: 12px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     color: $dark-grey;
-    margin-bottom: calc(#{$margin} * 2);
   }
-
   .icon {
     font-size: 18px;
     font-weight: normal;
@@ -115,28 +97,6 @@ nav {
       opacity: 0.7;
       transition: 0.1s ease;
     }
-    &:not(:first-child) {
-      padding-left: 10px;
-    }
-  }
-
-  .link-secondary {
-    font-size: 15px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    padding: 0;
-    color: $dark-grey;
-  }
-  img {
-    height: 40px;
-  }
-  img:hover {
-    opacity: 0.7;
-    transition: 0.1s ease;
   }
 }
 
@@ -145,27 +105,16 @@ nav {
     padding: calc(#{$margin} * 2);
     padding-top: 0;
   }
+  .container {
+    padding: 0;
+  }
 }
+
 @media only screen and (max-width: $mobile-breakpoint) {
-  nav {
-    flex-direction: column-reverse;
-  }
-
-  #list-categories {
-    flex-direction: column;
-  }
-
-  a.link {
-    min-height: auto;
-    margin-bottom: 0;
-  }
-
-  li > div:last-child {
-    padding-bottom: calc(#{$margin} * 2);
-  }
-
   img {
     margin-top: calc(#{$margin} * 2);
+  }
+  li {
     margin-bottom: $margin;
   }
 }

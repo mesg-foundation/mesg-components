@@ -13,7 +13,10 @@
   cursor: pointer;
 }
 
+
 .display-child {
+  display: flex;
+  flex-direction: column;
   font-size: 17px;
   font-weight: 600;
   font-style: normal;
@@ -24,11 +27,11 @@
   cursor: pointer;
 
   li:first-child {
-    margin: 20px 0;
+    margin: $margin 0;
   }
 
   li:not(:first-child) {
-    margin-bottom: 20px;
+    margin-bottom: $margin;
   }
 
   a {
