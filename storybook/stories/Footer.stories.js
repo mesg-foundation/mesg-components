@@ -121,7 +121,7 @@ storiesOf('Footer', module)
   <Footer :banner="banner" :copyright="copyRightText" :items="items" :policy="policyText" :categories="categories" :icons="icons">
     <template v-slot:products="{ item }">
       <a class="category">{{item.text}}</a>
-      <ul>
+      <ul class="default-child">
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
         </li>
@@ -129,7 +129,7 @@ storiesOf('Footer', module)
     </template>
     <template v-slot:develop="{ item }">
       <a class="category">{{item.text}}</a>
-      <ul>
+      <ul class="default-child">
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
         </li>
@@ -137,7 +137,7 @@ storiesOf('Footer', module)
     </template>
     <template v-slot:foundation="{ item }">
       <a class="category">{{item.text}}</a>
-      <ul>
+      <ul class="default-child">
         <li v-for="(child, i) in item.child" :key="i">
           <a :href="child.to">{{child.title}}</a>
         </li>
