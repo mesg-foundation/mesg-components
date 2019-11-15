@@ -7,9 +7,9 @@
       :value="option.value"
       @click="onClickedValue($event.target.value)"
     >
-      <i v-if="option.preIcon" :class="option.preIcon"></i>
+      <i v-if="option.preIcon" :class="option.preIcon" class="pre-icon"></i>
       {{ option.value }}
-      <i v-if="option.postIcon" :class="option.postIcon"></i>
+      <i v-if="option.postIcon" :class="option.postIcon" class="post-icon"></i>
     </button>
   </div>
 </template>
@@ -37,14 +37,17 @@ export default {
     cursor: pointer;
     float: left;
   }
+  i {
+    font-size: 17px;
+  }
 }
 
-.prefix {
-  padding-right: 10px;
+.pre-icon {
+  padding-right: calc(#{$margin} / 4);
 }
 
-.suffix {
-  padding-left: 10px;
+.post-icon {
+  padding-left: calc(#{$margin} / 4);
 }
 
 button {
@@ -102,6 +105,7 @@ button {
   }
 
   .btn-group button:first-child {
+    border-top: solid 2px $primary;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border-bottom-left-radius: 0;
