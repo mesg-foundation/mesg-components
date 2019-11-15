@@ -1,49 +1,24 @@
 import { storiesOf } from '@storybook/vue'
 import Pagination from '@mesg-components/pagination'
 
-const items = new Array(90).fill(null).map((x, i) => {
-  const percentage = Math.random() * 10
-  const volume = Math.random() * 5000000
-  return {
-    id: i + 1,
-    date: new Date() - i * 24 * 60 * 60 * 1000,
-    tradeVolume: volume,
-    tokenRelease: volume * percentage,
-    percentage: percentage,
-    txhash: '0x'
-  }
-})
-
 storiesOf('Pagination', module)
   .add('default', () => ({
     components: { Pagination },
     template: `
     <div class="container">
-      <Pagination :total="itemLength" :page-size="pageSize" :current-page="currentPage" @render-change="renderChange"/>
+      <Pagination :total="itemLength" :page-size.sync="pageSize" :current-page.sync="currentPage"/>
       <span>Page size: {{pageSize}} | Current page: {{currentPage}}</span>
     </div>
   `,
-    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 }),
-    methods: {
-      renderChange(value) {
-        this.pageSize = value.pageSize
-        this.currentPage = value.currentPage
-      }
-    }
+    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 })
   }))
   .add('Hide Selection', () => ({
     components: { Pagination },
     template: `
     <div class="container">
-      <Pagination :total="itemLength" :page-size="pageSize" :current-page="currentPage" @render-change="renderChange" hide-select/>
+      <Pagination :total="itemLength" :page-size="pageSize" :current-page.sync="currentPage" hide-select/>
       <span>Page size: {{pageSize}} | Current page: {{currentPage}}</span>
     </div>
   `,
-    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 }),
-    methods: {
-      renderChange(value) {
-        this.pageSize = value.pageSize
-        this.currentPage = value.currentPage
-      }
-    }
+    data: () => ({ itemLength: 90, pageSize: 10, currentPage: 1 })
   }))

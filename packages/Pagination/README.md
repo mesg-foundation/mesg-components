@@ -11,10 +11,6 @@
 - **currentPage**: `Number`, **Optional**. _The default is `1`_, -> _Number of current pagination_
 - **hideSelect**: `Number`, **Optional**. _The default is `false`_, -> _Don't display page-size select_
 
-## Event
-
-- `render-change` _this event return a current-page value and page-size value as object type_
-
 ## Example
 
 **Default:**
@@ -30,7 +26,7 @@
       ...
     </table>
 
-    <pagination :total="items.length" :current-page="currentPage" :page-size="pageSize" @render-change="renderChange" />
+    <pagination :total="items.length" :current-page.sync="currentPage" :page-size.sync="pageSize" />
   </div>
 </template>
 
@@ -44,12 +40,6 @@
         items: [{ id: 1 }, { id: 2 }, { id: 3 }, ...{ id: n }],
         paginationConfig: { currentPage: 1, itemPerPage: 20 },
         headers: [{ key: 'id', value: 'id' }]
-      }
-    },
-    methods: {
-      renderChange(value) {
-        // values will be object {currentPage: xxx , pageSize: xxx }
-        ...
       }
     }
   }
@@ -69,7 +59,7 @@
       ...
     </table>
 
-    <pagination :total="items.length" @render-change="renderChange" hide-select />
+    <pagination :total="items.length" :current-page.sync="currentPage" :page-size="pageSize" hide-select />
   </div>
 </template>
 ```
