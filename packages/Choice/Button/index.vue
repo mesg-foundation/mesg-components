@@ -1,14 +1,18 @@
 <template>
   <div class="btn-group">
-    <button v-for="option in options" :class="option.value === value ? 'btn--actived': ''" :key="option.key" :value="option.value" @click="onClickedValue($event.target.value)">
+    <button
+      v-for="option in options"
+      :class="option.value === value ? 'btn--actived' : ''"
+      :key="option.key"
+      :value="option.value"
+      @click="onClickedValue($event.target.value)"
+    >
       <i v-if="option.preIcon" :class="option.preIcon"></i>
-      {{option.value}}
+      {{ option.value }}
       <i v-if="option.postIcon" :class="option.postIcon"></i>
     </button>
   </div>
 </template>
-
-
 
 <script>
 export default {
@@ -26,11 +30,13 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-.btn-group button {
-  border: solid 2px $primary;
-  padding: calc(#{$margin} / 2) $margin;
-  cursor: pointer;
-  float: left;
+.btn-group {
+  button {
+    border: solid 2px $primary;
+    padding: calc(#{$margin} / 2) $margin;
+    cursor: pointer;
+    float: left;
+  }
 }
 
 .prefix {
@@ -84,6 +90,27 @@ button {
   background-color: $primary;
   color: $white !important;
 }
+
+@media only screen and (max-width: $mobile-breakpoint) {
+  button {
+    width: 100%;
+  }
+
+  .btn-group button:not(:last-child) {
+    border-right: solid 2px $primary;
+    border-top: none;
+  }
+
+  .btn-group button:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 0;
+  }
+  .btn-group button:last-child {
+    border-top: none;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 0px;
+  }
+}
 </style>
-
-
