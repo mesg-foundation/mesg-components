@@ -24,6 +24,7 @@
     "@mesg-components/button": "file:../packages/Button",
     "@mesg-components/card": "file:../packages/Card",
     "@mesg-components/chart": "file:../packages/Chart",
+    "@mesg-components/choice": "file:../packages/Choice",
     "@mesg-components/footer": "file:../packages/Footer",
     "@mesg-components/header": "file:../packages/Header",
     "@mesg-components/embed-card": "file:../packages/EmbedCard",
