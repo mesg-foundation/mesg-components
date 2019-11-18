@@ -1,9 +1,9 @@
 <template>
   <label>
-    {{label}}
-    <div class="password">
-      <template v-if="type==='password'">
-        <button @click="showPwd" :class="{actived: showPassword}">
+    {{ label }}
+    <div class="inputTextField">
+      <template v-if="type === 'password'">
+        <button @click="showPwd" :class="{ actived: showPassword }">
           <i v-if="showPassword" class="fas fa-eye"></i>
           <i v-else-if="!showPassword" class="fas fa-eye-slash"></i>
         </button>
@@ -22,12 +22,9 @@ export default {
     placeholder: { type: String, required: true },
     value: { type: String, required: true }
   },
-  mounted() {
-    this.textType = this.type
-  },
   data() {
     return {
-      textType: 'password',
+      textType: this.type,
       showPassword: false
     }
   },
@@ -51,7 +48,7 @@ label {
   line-height: normal;
   letter-spacing: normal;
   color: $primary-dark;
-  .password {
+  .inputTextField {
     position: relative;
     button {
       border: none;
