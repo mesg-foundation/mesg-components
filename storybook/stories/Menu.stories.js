@@ -4,6 +4,8 @@ import Button from '@mesg-components/button'
 
 import logo from '../assets/img/MESG-logo-horizontal-purple.svg'
 
+import '../assets/menu.scss'
+
 const categories = ['technology', 'developers', 'showcase', 'contributions', 'token', 'get-started']
 const items = [
   {
@@ -83,11 +85,11 @@ storiesOf('Menu', module).add('default', () => ({
         {{ item.text }}
       </a>  
     </template>
-
+    
     <template v-slot:get-started="{ item }">
       <Button primary small>{{item.text}}</Button>
     </template>
-    
+
   </Menu>`,
   data: () => ({ banner: logo, items, categories })
 }))
