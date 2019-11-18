@@ -5,7 +5,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@mesg-components/theme": "file:../Theme",
-    "@mesg-components/button": "file:../Button"
+    "@mesg-components/theme": "file:../Theme"
   }
 }

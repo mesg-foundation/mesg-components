@@ -29,18 +29,13 @@
 export default {
   name: 'Menu',
   props: {
-    banner: { type: String },
+    banner: { type: String, required: true },
     categories: { type: Array },
     items: { type: Array }
   },
   data() {
     return {
       open: false
-    }
-  },
-  computed: {
-    isImage() {
-      return /\.(?:svg|jpg|jpeg|gif|png)/i.test(this.banner)
     }
   }
 }
