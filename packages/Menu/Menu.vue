@@ -4,7 +4,7 @@
       <div flex row space-between align-center>
         <div>
           <a to="/">
-            <img :src="banner" alt />
+            <img :src="logo" alt />
           </a>
         </div>
         <a @click="open = !open" class="burger" hidden-desktop>
@@ -13,11 +13,18 @@
         </a>
       </div>
       <div flex row space-between class="actions" :class="{ open }">
-        <ul flex row mobile-column align-center>
-          <li v-for="(category, i) in categories" :key="i" flex column>
-            <template v-for="item in items">
-              <slot v-if="category === item.key" :name="item.key" :item="item" />
-            </template>
+        <ul flex row mobile-column>
+          <li v-for="(item, i) in items" :key="i" flex align-center :column="!!item.subMenu" :class="`${item.subMenu ? 'drop-down' : ''}`">
+            <Button v-if="item.type" primary small :href="item.to">{{ item.text }}</Button>
+            <a v-else :href="item.to" class="top-menu">
+              {{ item.text }}
+              <i v-if="item.subMenu" class="far fa-angle-down"></i>
+            </a>
+            <div v-if="item.subMenu" flex column class="sub-menu" p1 mt1>
+              <a v-for="(link, j) in item.subMenu" :key="j">
+                {{ link.text }}
+              </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -26,11 +33,13 @@
 </template>
 
 <script>
+import Button from '@mesg-components/button'
+
 export default {
   name: 'Menu',
+  components: { Button },
   props: {
-    banner: { type: String, required: true },
-    categories: { type: Array },
+    logo: { type: String, required: true },
     items: { type: Array }
   },
   data() {
@@ -49,9 +58,7 @@ nav {
   height: 80px;
   padding: calc(#{$margin} - 2px) calc(#{$margin} * 2);
   img {
-    min-width: 153px;
     max-width: 153px;
-    min-height: 40px;
     max-height: 40px;
     &:hover {
       opacity: 0.7;
@@ -59,8 +66,27 @@ nav {
     }
   }
   li {
-    margin-right: 0 !important;
+    margin-right: 0;
     font-size: 15px;
+    height: 80px;
+  }
+  li > a:not(.btn--primary) {
+    line-height: 80px;
+    display: block;
+  }
+  .top-menu {
+    color: $primary-dark;
+    &:hover {
+      opacity: 0.7;
+      transition: 0.1s ease;
+    }
+  }
+  .btn--small {
+    padding: 0.45em;
+  }
+  .top-menu i {
+    font-size: 12px;
+    margin-left: calc(#{$margin} / 4);
   }
 }
 
@@ -73,8 +99,66 @@ nav {
   li {
     text-align: center;
   }
+  .sub-menu {
+    position: absolute;
+    display: none;
+    top: 47px;
+    min-width: 200px;
+    opacity: 0;
+    z-index: 1;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    animation: appear-in 0.2s ease-in;
+    border-top: solid 6px $primary;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 100%;
+      left: 45%;
+      border-bottom: 15px solid $primary;
+      border-right: 15px solid transparent;
+      border-left: 15px solid transparent;
+    }
+    a {
+      font-weight: normal;
+      height: 50px;
+      display: block;
+      text-align: left;
+      padding: 0.75em 2em;
+      color: $dark-grey;
+      &:hover {
+        color: $primary;
+        font-weight: 600;
+        transition: 0.1s ease;
+      }
+    }
+  }
+  .drop-down:hover {
+    .sub-menu {
+      opacity: 1;
+      display: block;
+    }
+    .top-menu {
+      opacity: 0.7;
+      transition: 0.1s ease;
+    }
+  }
+  @keyframes appear-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
+//menu responsive//
 @media only screen and (max-width: $tablet-breakpoint) {
   .actions {
     border-radius: 6px;
@@ -84,7 +168,7 @@ nav {
     width: 95%;
     top: 80px;
     z-index: 1;
-    background-color: var(--white);
+    background-color: $white;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
     &.open {
       display: block;
@@ -121,6 +205,37 @@ nav {
     li {
       height: fit-content;
     }
+    li > a:not(.btn--primary) {
+      line-height: 40px !important;
+    }
+  }
+
+  .top-menu {
+    width: 100%;
+    font-weight: bold;
+    color: $primary-dark;
+    i {
+      display: none;
+    }
+  }
+
+  .sub-menu {
+    width: 100%;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    a {
+      color: $dark-grey;
+      font-weight: normal;
+      display: block;
+      padding: calc(#{$margin} / 2);
+      padding-left: 0;
+      padding-right: 0;
+      &:hover {
+        color: $primary;
+        font-weight: 600;
+        transition: 0.1s ease;
+      }
+    }
   }
 
   .appear-enter-active {
@@ -144,11 +259,18 @@ nav {
 //menu mobile//
 @media only screen and (max-width: $mobile-breakpoint) {
   ul {
-    align-items: flex-start !important;
+    align-items: left;
   }
   li {
-    width: 100%;
     margin-bottom: $margin;
+    a:not(.btn--primary) {
+      line-height: 40px !important;
+      padding: 0;
+    }
+  }
+  .btn--primary {
+    line-height: 50px !important;
+    margin-top: calc(#{$margin} * 2);
   }
 }
 </style>
