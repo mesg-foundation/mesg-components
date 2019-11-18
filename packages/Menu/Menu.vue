@@ -3,7 +3,7 @@
     <nav flex space-between align-center>
       <div flex row space-between align-center>
         <div>
-          <a>
+          <a to="/">
             <img :src="banner" alt />
           </a>
         </div>
