@@ -6,20 +6,23 @@
 
 ## Properties
 
-- **banner**: `String`, **Required**, -> _banner to display on the footer_
-- **items**: `Array of object`, **Optional**, -> _items to display on the footer_
+- **logo**: `String`, **Required**, -> _banner to display on the footer_
+- **items**: `Array of object`, **Optional**, -> _items to display on the footer_.
+  - **`Object` inside `items`:**
+    - **text**: `String` , **Required**, _to display menu title_
+    - **to**: `String`, **Required**, _link path_
+    - **type**: `String`, **Optional**, _to display title at type button_
+    - **subMenu**: `Array of object`, **Optional**, Example `[{ text: '',to: '' }, { text: '',to: '' },...]`, _to display dropdown sub-menu_
 
 ## Example
 
 ```js
 import logo from '../assets/img/MESG-logo-horizontal-purple.svg'
 
-const categories = ['technology', 'developers', 'showcase', 'contributions', 'token', 'get-started']
 const items = [
   {
-    key: 'technology',
     text: 'Technology',
-    to:'#'
+    to: '#',
     subMenu: [
       { text: 'Orchestrator', to: '' },
       { text: 'SDK', to: '' },
@@ -28,9 +31,8 @@ const items = [
     ]
   },
   {
-    key: 'developers',
     text: 'Developers',
-    to:'#'
+    to: '#',
     subMenu: [
       { text: 'Orchestrator', to: '' },
       { text: 'SDK', to: '' },
@@ -38,10 +40,10 @@ const items = [
       { text: 'Enterprise', to: '' }
     ]
   },
-  { key: 'showcase', text: 'Showcase', to: "/" },
-  { key: 'contributions', text: 'Contributions', to: '/' },
-  { key: 'token', text: 'Token' },
-  { key: 'get-started', text: 'Get Started', to: '/',type: 'button'}
+  { text: 'Showcase', to: '/' },
+  { text: 'Contributions', to: '/' },
+  { text: 'Token' },
+  { text: 'Get Started', to: '/', type: 'button' }
 ]
 ```
 
