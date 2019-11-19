@@ -1,7 +1,7 @@
 <template>
-  <div id="header">
+  <div class="header">
     <div class="container header-box">
-      <div id="title-box" :class="{ w50: !!image }">
+      <div class="title-box" :class="{ w50: !!image }">
         <h1>{{ title }}</h1>
         <slot>
           <p>{{ description }}</p>
@@ -28,12 +28,12 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-#header {
+.header {
   position: relative;
   padding: calc(#{$margin} * 4) 0;
   margin-bottom: calc(#{$margin} * 4);
 }
-#header::before {
+.header::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -53,7 +53,7 @@ export default {
   max-width: 50%;
 }
 
-#title-box {
+.title-box {
   h1 {
     margin-bottom: $margin;
   }
@@ -70,7 +70,7 @@ img {
   max-height: calc(#{$width} / 2);
 }
 @media only screen and (max-width: $mobile-breakpoint) {
-  #header::before {
+  .header::before {
     height: calc(100% + 400px);
   }
   .header-box {
