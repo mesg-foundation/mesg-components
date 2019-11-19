@@ -4,10 +4,8 @@ import Button from '@mesg-components/button'
 
 import logo from '../assets/img/MESG-logo-horizontal-purple.svg'
 
-const categories = ['technology', 'developers', 'showcase', 'contributions', 'token', 'get-started']
 const items = [
   {
-    key: 'technology',
     text: 'Technology',
     to: '',
     subMenu: [
@@ -18,7 +16,6 @@ const items = [
     ]
   },
   {
-    key: 'developers',
     text: 'Developers',
     to: '',
     subMenu: [
@@ -28,10 +25,10 @@ const items = [
       { text: 'Enterprise', to: '' }
     ]
   },
-  { key: 'showcase', text: 'Showcase' },
-  { key: 'contributions', text: 'Contributions' },
-  { key: 'token', text: 'Token' },
-  { key: 'get-started', text: 'Get Started', type: 'button' }
+  { text: 'Showcase', to: '' },
+  { text: 'Contributions', to: '' },
+  { text: 'Token', to: '' },
+  { text: 'Get Started', to: '', type: 'button' }
 ]
 
 storiesOf('Menu', module).add('default', () => ({
