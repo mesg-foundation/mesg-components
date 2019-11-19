@@ -6,7 +6,8 @@
 
 ## Properties
 
-- **logo**: `String`, **Required**, -> _banner to display on the footer_
+- **logo**: `String`, **Required**, -> _banner to display on the footer_.
+- **isNuxt**: `Boolean`, **Optional**, -> _isNuxt declare for nuxtjs framework to using nuxt-link_.
 - **items**: `Array of object`, **Optional**, -> _items to display on the footer_.
   - **`Object` inside `items`:**
     - **text**: `String` , **Required**, _to display menu title_
@@ -52,5 +53,13 @@ const items = [
 ```html
 <template>
   <menu :banner="banner" :items="items" />
+</template>
+```
+
+**Nuxt Framework:**
+
+```html
+<template>
+  <menu :banner="banner" :items="items" is-nuxt />
 </template>
 ```
