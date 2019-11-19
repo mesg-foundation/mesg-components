@@ -3,7 +3,10 @@
     <nav flex space-between align-center>
       <div flex row space-between align-center>
         <div>
-          <a to="/">
+          <nuxt-link v-if="isNuxt" to="/">
+            <img :src="logo" alt />
+          </nuxt-link>
+          <a v-else href="/">
             <img :src="logo" alt />
           </a>
         </div>
@@ -15,15 +18,17 @@
       <div flex row space-between class="actions" :class="{ open }">
         <ul flex row mobile-column>
           <li v-for="(item, i) in items" :key="i" flex align-center :column="!!item.subMenu" :class="`${item.subMenu ? 'drop-down' : ''}`">
-            <Button v-if="item.type" primary small :href="item.to">{{ item.text }}</Button>
+            <Button v-if="item.type === 'button'" primary small :href="item.to">{{ item.text }}</Button>
+            <nuxt-link v-else-if="isNuxt && !item.subMenu" :to="item.to">{{item.text}}</nuxt-link>
             <a v-else :href="item.to" class="top-menu">
               {{ item.text }}
-              <i v-if="item.subMenu" class="far fa-angle-down"></i>
+              <i v-if="item.subMenu" class="far fa-angle-down" />
             </a>
             <div v-if="item.subMenu" flex column class="sub-menu" p1 mt1>
-              <a v-for="(link, j) in item.subMenu" :key="j">
-                {{ link.text }}
-              </a>
+              <template v-for="(link, j) in item.subMenu">
+                <nuxt-link v-if="isNuxt && !isExternalLink(link.to)" :to="link.to" :key="j">{{ link.text }}</nuxt-link>
+                <a v-else :href="link.to" target="_blank" :key="j">{{ link.text }}</a>
+              </template>
             </div>
           </li>
         </ul>
@@ -40,11 +45,17 @@ export default {
   components: { Button },
   props: {
     logo: { type: String, required: true },
-    items: { type: Array }
+    items: { type: Array },
+    isNuxt: { type: Boolean, default: false }
   },
   data() {
     return {
       open: false
+    }
+  },
+  methods: {
+    isExternalLink(link) {
+      return /^(https?)/im.test(link)
     }
   }
 }
@@ -58,7 +69,9 @@ nav {
   height: 80px;
   padding: calc(#{$margin} - 2px) calc(#{$margin} * 2);
   img {
+    min-width: 153px;
     max-width: 153px;
+    min-height: 40px;
     max-height: 40px;
     &:hover {
       opacity: 0.7;
