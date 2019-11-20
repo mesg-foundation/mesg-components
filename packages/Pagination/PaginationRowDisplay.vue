@@ -1,5 +1,5 @@
 <template>
-  <div class="“pagination”">
+  <div>
     <span class="“rp”">Rows per page:</span>
     <label>
       <select class="minimal" :value="pageSize" @change="select($event)">
