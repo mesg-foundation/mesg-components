@@ -1,5 +1,5 @@
 <template>
-  <ul class="pagination">
+  <ul>
     <li class="pagination-item">
       <button class="btn--events" type="button" @click="onClickPreviousPage" :disabled="isInFirstPage">
         <i class="fas fa-arrow-left"></i>
@@ -95,12 +95,12 @@ export default {
 <style lang="scss" scoped>
 @import '@mesg-components/theme/_variables';
 
-ul li {
-  display: inline;
+ul {
+  list-style-type: none !important;
 }
 
-.pagination {
-  list-style-type: none;
+ul li {
+  display: inline;
 }
 
 .pagination-item {

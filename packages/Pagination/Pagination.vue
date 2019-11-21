@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div>
     <PaginationItems :current-page="isPageChange" :total="total" :per-page="isSizeChange" @current-change="pageChange" />
     <PaginationRowDisplay v-if="!hideSelect" :page-size="isSizeChange" @size-change="sizeChange" />
   </div>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.pagination {
+div {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
