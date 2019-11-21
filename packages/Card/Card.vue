@@ -43,7 +43,6 @@ export default {
     box-shadow: 0 0 0 1px $primary inset;
   }
 }
-
 .card.bordered.thin {
   border: solid 2px transparent;
   box-shadow: 0 0 0 1px $primary-very-light inset;

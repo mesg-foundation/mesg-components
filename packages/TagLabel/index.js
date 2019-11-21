@@ -1,2 +1,2 @@
-import TagLabel from './TagLabel.vue'
+import TagLabel from './TagLabel'
 export default TagLabel
