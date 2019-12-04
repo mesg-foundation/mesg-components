@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: "Button",
   props: {
     href: String,
     to: [Object, String],
@@ -34,40 +34,40 @@ export default {
   computed: {
     classes() {
       return {
-        'btn--primary': this.primary,
-        'btn--small': this.small,
-        'btn--secondary': this.secondary,
-        'btn--white': this.white,
-        'btn--outline': this.outline
-      }
+        "btn--primary": this.primary,
+        "btn--small": this.small,
+        "btn--secondary": this.secondary,
+        "btn--white": this.white,
+        "btn--outline": this.outline
+      };
     },
     isExternalLink() {
-      const link = this.href || this.to || ''
-      return link.startsWith('http')
+      const link = this.href || this.to || "";
+      return link.startsWith("http");
     },
     finalicon() {
       if (this.icon) {
-        return this.icon
+        return this.icon;
       }
       if (!this.secondary) {
-        return null
+        return null;
       }
       if (this.isExternalLink) {
-        return 'far fa-external-link'
+        return "fal fa-external-link";
       }
-      return 'fa fa-arrow-right'
+      return "fal fa-long-arrow-alt-right";
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 a,
 button {
   border-radius: 3px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 17px;
   font-weight: bold;
   font-style: normal;
@@ -83,10 +83,8 @@ button {
 }
 
 i {
-  font-size: 1em;
-  font-weight: bold;
-  text-align: center;
-  padding-right: 0.5em;
+  font-size: 17px;
+  padding-right: calc(#{$margin} / 4);
 }
 
 .btn--primary {
@@ -113,7 +111,7 @@ i {
   padding-right: 0;
 }
 .btn--secondary::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
