@@ -13,20 +13,27 @@ storiesOf('Tag label', module)
     components: { Tag },
     template: `
     <div class="container">
-      <Tag><i class="fal fa-table"/>Tag with icon</Tag>
+      <Tag><i class="fal fa-table" mr1/>Tag with icon</Tag>
     </div>`
   }))
-  .add('MESG Partner', () => ({
+  .add('Tag orange', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag type="partner">MESG Partner</Tag>
+      <Tag type="orange">Tag orange</Tag>
     </div>`
   }))
-  .add('Community', () => ({
+  .add('Tag green', () => ({
     components: { Tag },
     template: `
-  <div class="container">
-    <Tag type="community">Community</Tag>
-  </div>`
+    <div class="container">
+      <Tag type="green">Tag green</Tag>
+    </div>`
+  }))
+  .add('Tag purple', () => ({
+    components: { Tag },
+    template: `
+    <div class="container">
+      <Tag type="purple">Tag purple</Tag>
+    </div>`
   }))

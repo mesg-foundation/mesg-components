@@ -33,6 +33,7 @@ span {
   border-radius: 3px;
   padding: 6px calc(#{$margin} / 2);
   font-size: 12px;
+  font-weight: bold;
   line-height: 12px;
 
   > * {
@@ -44,16 +45,21 @@ span {
 // Type
 .type--default {
   color: $blue;
-  background-color: rgba($blue, 0.1);
+  background-color: $blue-light;
 }
 
-.type--partner {
-  color: $title-color;
+.type--orange {
+  color: $orange;
   background-color: $orange-light;
 }
 
-.type--community {
-  color: $title-color;
-  background-color: $grey-light;
+.type--green {
+  color: $green;
+  background-color: $green-light;
+}
+
+.type--purple {
+  color: $purple;
+  background-color: $purple-light;
 }
 </style>
