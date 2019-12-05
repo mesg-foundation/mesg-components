@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import chart from '../chart.mixin'
-import Hightchart from 'highcharts'
+import chart from "../chart.mixin";
+import Hightchart from "highcharts";
 export default {
-  name: 'AreaChart',
+  name: "AreaChart",
   props: {
     categories: { type: Array },
     areaType: { type: String },
@@ -29,26 +29,38 @@ export default {
   data() {
     return {
       chart: undefined
-    }
+    };
   },
   methods: {
     onResize(e) {
-      const { clientWidth, clientHeight } = this.$el
-      this.chart.setSize(clientWidth, clientHeight, false)
+      const { clientWidth, clientHeight } = this.$el;
+      this.chart.setSize(clientWidth, clientHeight, false);
     }
   },
   mounted() {
     this.chart = new Hightchart.chart({
-      chart: this.chartType('area', this.$el, this.chartStyleOption || { backgroundColor: '#fff' }),
-      title: this.titleOption(this.title, { color: this.titleColor, fontSize: this.titleSize }, this.optionsTitle),
-      subtitle: this.subTitleOption(this.subTitle, { color: this.subColor, fontSize: this.subSize }, this.optionsSub),
+      chart: this.chartType(
+        "area",
+        this.$el,
+        this.chartStyleOption || { backgroundColor: "#fff" }
+      ),
+      title: this.titleOption(
+        this.title,
+        { color: this.titleColor, fontSize: this.titleSize },
+        this.optionsTitle
+      ),
+      subtitle: this.subTitleOption(
+        this.subTitle,
+        { color: this.subColor, fontSize: this.subSize },
+        this.optionsSub
+      ),
       credits: this.creditsOption(this.credit),
       legend: this.legendOption(
         !this.noLegend,
         this.optionLegend || {
-          align: 'right',
-          verticalAlign: 'middle',
-          layout: 'vertical'
+          align: "right",
+          verticalAlign: "middle",
+          layout: "vertical"
         }
       ),
       xAxis: {
@@ -70,7 +82,10 @@ export default {
         },
         ...this.yAxisOptions
       },
-      tooltip: this.tooltipOption(!this.noTooltip, this.optionsTooltip || { split: true }),
+      tooltip: this.tooltipOption(
+        !this.noTooltip,
+        this.optionsTooltip || { split: true }
+      ),
       plotOptions: {
         area: this.areaOption
       },
@@ -83,16 +98,16 @@ export default {
             },
             chartOptions: {
               legend: {
-                align: 'center',
-                verticalAlign: 'bottom',
-                layout: 'horizontal'
+                align: "center",
+                verticalAlign: "bottom",
+                layout: "horizontal"
               }
             }
           }
         ]
       }
-    })
-    window.onresize = this.debounce(this.onResize.bind(this), 30)
+    });
+    window.onresize = this.debounce(this.onResize.bind(this), 30);
   },
   computed: {
     areaOption() {
@@ -105,11 +120,8 @@ export default {
           ...(this.markerOption || {})
         },
         ...(this.areaPlotOptions || {})
-      }
+      };
     }
   }
-}
+};
 </script>
-
-<style  scoped>
-</style>

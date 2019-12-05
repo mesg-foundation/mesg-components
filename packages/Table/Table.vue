@@ -124,13 +124,13 @@ thead tr {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $primary-dark;
+  color: $title-color;
 }
 
 tbody tr {
   font-size: 17px;
-  color: $dark-grey;
-  border-bottom: solid 1px $primary-very-light;
+  color: $text-color;
+  border-bottom: solid 1px $primary-light;
 
   &:last-of-type {
     border-bottom: none;
@@ -140,7 +140,7 @@ tbody tr {
 .expandable {
   cursor: pointer;
   &:hover {
-    background-color: $light-grey;
+    background-color: $grey-light;
   }
 }
 </style>

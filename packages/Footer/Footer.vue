@@ -19,7 +19,11 @@
           <ul flex row mobile-column>
             <li v-for="(category, i) in categories" :key="i">
               <template v-for="item in items">
-                <slot v-if="item.key === category" :name="item.key" :item="item">{{ item[category] }}</slot>
+                <slot
+                  v-if="item.key === category"
+                  :name="item.key"
+                  :item="item"
+                >{{ item[category] }}</slot>
               </template>
             </li>
           </ul>
@@ -31,7 +35,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
   props: {
     banner: { type: String, require: true },
     categories: { type: Array },
@@ -42,19 +46,19 @@ export default {
   },
   computed: {
     isImage() {
-      return /\.(?:svg|jpg|jpeg|gif|png)/i.test(this.banner)
+      return /\.(?:svg|jpg|jpeg|gif|png)/i.test(this.banner);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
-@import '@mesg-components/theme/_structure';
+@import "@mesg-components/theme/_variables";
+@import "@mesg-components/theme/_structure";
 
 #footer {
   padding: calc(#{$margin}* 3);
-  background-color: $light-grey;
+  background-color: $grey-light;
 }
 
 nav {
@@ -75,7 +79,7 @@ nav {
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: $dark-grey;
+    color: $text-color;
   }
   .policy {
     font-size: 12px;
@@ -84,7 +88,7 @@ nav {
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: $dark-grey;
+    color: $text-color;
   }
   .icon {
     font-size: 18px;
@@ -92,7 +96,7 @@ nav {
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
-    color: $dark-grey;
+    color: $text-color;
     &:hover {
       opacity: 0.7;
       transition: 0.1s ease;

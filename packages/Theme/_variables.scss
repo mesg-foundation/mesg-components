@@ -2,23 +2,33 @@ $font: 'Open Sans',
 sans-serif !default;
 
 $primary: #491e8c !default;
-$primary-dark: #0e061c !default;
-$secondary: #3B1873 !default;
-$primary-light: #7e61ae !default;
-$primary-very-light: #bdafd6 !default;
-$primary-very-dark: #210e41 !default;
-$dark-grey: #3c3940 !default;
-$light-grey: #f2f0f7 !default;
-$light-orange: #ffebd1 !default;
+$primary-dark: #290F64 !default;
+$primary-light: #E7D2F9 !default;
+
+$lavender: #7e61ae !default;
+
+$orange: #FFA33A !default;
+$orange-light: #FFF4D7 !default;
+$green: #2CAD52 !default;
+$green-light: #D9FAD5 !default;
+$blue: #388DF5 !default;
+$blue-light: #D7F0FE !default;
+$purple: #8350DB !default;
+$purple-light: #EDDDFD !default;
+
+$title-color: #0e061c !default;
+$text-color: #3c3940 !default;
+$grey-light: #f2f0f7 !default;
+
 $white: #ffffff !default;
 $black: #000000 !default;
 
-$blue-default: #0366d6 !default;
+$gold: #f2c46d;
 
-$error: #f44336 !default;
-$success: #4bb543 !default;
-$warning: #ffc107 !default;
-$info: #1e88e5 !default;
+$error: #9E2316 !default;
+$success: #238218 !default;
+$info: #144DD1 !default;
+$warning: #E08C04 !default;
 
 $margin: 20px !default;
 $width: 1020px !default;
@@ -27,6 +37,8 @@ $small-width: 680px !default;
 $mobile-only: 414px !default;
 $mobile-breakpoint: 768px !default;
 $tablet-breakpoint: 1024px !default;
+$huge-breakpoint: 1700px !default;
+
 
 @function pow($base, $exponent) {
   $result: 1;

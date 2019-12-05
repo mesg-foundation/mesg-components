@@ -9,7 +9,7 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $primary-dark;
+  color: $title-color;
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: $primary-dark;
+  color: $title-color;
   cursor: pointer;
 
   li:first-child {
@@ -43,7 +43,7 @@
     letter-spacing: normal;
     text-align: left;
     padding: 0;
-    color: $dark-grey;
+    color: $text-color;
   }
 }
 
