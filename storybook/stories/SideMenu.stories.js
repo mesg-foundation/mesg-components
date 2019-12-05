@@ -26,14 +26,14 @@ storiesOf('SideMenu', module)
       <Sider :items="items">
         <template v-slot:general="{ item }">
           <a :href="item.href" class="link-secondary">        
-              <i class="chevron right"></i>
-              <span>Custome-general</span>
+              <i class="far fa-chevron-right"></i>
+              <span>Custom general</span>
             </a>  
           </template>
 
           <template v-slot:businesss="{ item }">
             <a :href="item.href" class="link-secondary">        
-              <i class="chevron right"></i>
+              <i class="far fa-chevron-right"></i>
               <span>Custom Business</span>
             </a>  
           </template>
