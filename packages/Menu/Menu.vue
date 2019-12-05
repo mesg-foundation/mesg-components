@@ -17,7 +17,14 @@
       </div>
       <div flex row space-between class="actions" :class="{ open }">
         <ul flex row mobile-column>
-          <li v-for="(item, i) in items" :key="i" flex align-center :column="!!item.subMenu" :class="`${item.subMenu ? 'drop-down' : ''}`">
+          <li
+            v-for="(item, i) in items"
+            :key="i"
+            flex
+            align-center
+            :column="!!item.subMenu"
+            :class="`${item.subMenu ? 'drop-down' : ''}`"
+          >
             <Button v-if="item.type === 'button'" primary small :href="item.to">{{ item.text }}</Button>
             <nuxt-link v-else-if="isNuxt && !item.subMenu" :to="item.to">{{item.text}}</nuxt-link>
             <a v-else :href="item.to" class="top-menu">
@@ -26,7 +33,11 @@
             </a>
             <div v-if="item.subMenu" flex column class="sub-menu" p1 mt1>
               <template v-for="(link, j) in item.subMenu">
-                <nuxt-link v-if="isNuxt && !isExternalLink(link.to)" :to="link.to" :key="j">{{ link.text }}</nuxt-link>
+                <nuxt-link
+                  v-if="isNuxt && !isExternalLink(link.to)"
+                  :to="link.to"
+                  :key="j"
+                >{{ link.text }}</nuxt-link>
                 <a v-else :href="link.to" target="_blank" :key="j">{{ link.text }}</a>
               </template>
             </div>
@@ -38,10 +49,10 @@
 </template>
 
 <script>
-import Button from '@mesg-components/button'
+import Button from "@mesg-components/button";
 
 export default {
-  name: 'Menu',
+  name: "Menu",
   components: { Button },
   props: {
     logo: { type: String, required: true },
@@ -51,19 +62,19 @@ export default {
   data() {
     return {
       open: false
-    }
+    };
   },
   methods: {
     isExternalLink(link) {
-      return /^(https?)/im.test(link)
+      return /^(https?)/im.test(link);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
-@import '@mesg-components/theme/_structure';
+@import "@mesg-components/theme/_variables";
+@import "@mesg-components/theme/_structure";
 
 nav {
   height: 80px;
@@ -88,7 +99,7 @@ nav {
     display: block;
   }
   .top-menu {
-    color: $primary-dark;
+    color: $title-color;
     &:hover {
       opacity: 0.7;
       transition: 0.1s ease;
@@ -125,7 +136,7 @@ nav {
     animation: appear-in 0.2s ease-in;
     border-top: solid 6px $primary;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 0;
       height: 0;
@@ -141,7 +152,7 @@ nav {
       display: block;
       text-align: left;
       padding: 0.75em 2em;
-      color: $dark-grey;
+      color: $text-color;
       &:hover {
         color: $primary;
         font-weight: 600;
@@ -205,7 +216,7 @@ nav {
     border-top: solid 6px $primary;
     border-radius: 6px;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 0;
       height: 0;
@@ -226,7 +237,7 @@ nav {
   .top-menu {
     width: 100%;
     font-weight: bold;
-    color: $primary-dark;
+    color: $title-color;
     i {
       display: none;
     }
@@ -237,7 +248,7 @@ nav {
     padding: 0 !important;
     margin-top: 0 !important;
     a {
-      color: $dark-grey;
+      color: $text-color;
       font-weight: normal;
       display: block;
       padding: calc(#{$margin} / 2);

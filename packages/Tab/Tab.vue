@@ -14,18 +14,18 @@
 
 <script>
 export default {
-  name: 'Tab',
+  name: "Tab",
   props: {
     items: {
       type: Array,
       require: true
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 .tabs {
   display: flex;
@@ -41,13 +41,13 @@ export default {
 }
 
 .tabs label:hover {
-  background: $primary-very-light;
+  background: $primary-light;
 }
 
 input:checked + label {
   color: $primary;
   border: 1px solid #abc;
-  border: 1px solid $primary-light;
+  border: 1px solid $lavender;
   border-top: 2px solid $primary;
   margin: 0 0 -1px;
   display: inline-block;
@@ -60,15 +60,15 @@ input:checked + label {
   width: 100%;
   display: none;
   padding: 1rem;
-  border-top: 1px solid $primary-light;
+  border-top: 1px solid $lavender;
 }
-.tabs input[type='radio'] {
+.tabs input[type="radio"] {
   display: none;
 }
-.tabs input[type='radio']:checked + label {
+.tabs input[type="radio"]:checked + label {
   background: $white;
 }
-.tabs input[type='radio']:checked + label + .tab {
+.tabs input[type="radio"]:checked + label + .tab {
   display: block;
 }
 </style>

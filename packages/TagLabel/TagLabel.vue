@@ -43,17 +43,17 @@ span {
 
 // Type
 .type--default {
-  color: $blue-default;
-  background-color: rgba($blue-default, 0.1);
+  color: $blue;
+  background-color: rgba($blue, 0.1);
 }
 
 .type--partner {
-  color: $primary-dark;
-  background-color: $light-orange;
+  color: $title-color;
+  background-color: $orange-light;
 }
 
 .type--community {
-  color: $primary-dark;
-  background-color: $light-grey;
+  color: $title-color;
+  background-color: $grey-light;
 }
 </style>
