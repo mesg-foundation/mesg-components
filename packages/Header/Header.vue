@@ -16,17 +16,17 @@
 
 <script>
 export default {
-  name: 'Header',
+  name: "Header",
   props: {
     title: { type: String, required: true },
     description: { type: String },
     image: { type: String }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 .header {
   position: relative;
@@ -34,11 +34,11 @@ export default {
   margin-bottom: calc(#{$margin} * 4);
 }
 .header::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: calc(100% + 200px);
-  background-image: linear-gradient(to top, $light-grey, $white);
+  background-image: linear-gradient(to top, $grey-light, $white);
   transform: translateY(-35%) skewY(-8deg);
   z-index: -1;
 }
