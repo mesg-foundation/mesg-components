@@ -92,7 +92,7 @@ i {
   background-color: $primary;
 }
 .btn--primary:hover {
-  background-color: $secondary;
+  background-color: $primary-dark;
   transition: 0.2s ease;
 }
 
@@ -133,7 +133,7 @@ i {
 }
 .btn--white:hover {
   transition: 0.2s ease;
-  background-color: $light-grey;
+  background-color: $grey-light;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 }
 

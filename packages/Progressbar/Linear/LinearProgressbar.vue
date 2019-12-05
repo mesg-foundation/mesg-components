@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LinearProgressbar',
+  name: "LinearProgressbar",
   props: {
     value: { type: Number, default: 0 },
     indeterminate: { type: Boolean, default: false },
@@ -14,14 +14,14 @@ export default {
   },
   computed: {
     validateValue() {
-      return this.value > 100 ? 100 : this.value
+      return this.value > 100 ? 100 : this.value;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 .progress-bar {
   width: 100%;
@@ -59,7 +59,7 @@ export default {
   left: -1px;
   border-radius: 5px;
   height: 6px;
-  background-color: $secondary;
+  background-color: $primary-dark;
   z-index: -1;
 }
 </style>

@@ -3,7 +3,12 @@
     <li v-for="option in options" :key="option.key">
       <label class="checkbox">
         {{ option.value }}
-        <input type="checkbox" :value="option.value" @input="onChange($event)" :checked="onCheckValue(option.value)" />
+        <input
+          type="checkbox"
+          :value="option.value"
+          @input="onChange($event)"
+          :checked="onCheckValue(option.value)"
+        />
         <span class="check"></span>
       </label>
     </li>
@@ -12,7 +17,7 @@
 
 <script>
 export default {
-  name: 'CheckBox',
+  name: "CheckBox",
   props: {
     value: { type: Array },
     options: { type: Array, required: true }
@@ -20,24 +25,24 @@ export default {
   methods: {
     onChange(e) {
       if (e.target.checked) {
-        this.$emit('input', [...this.value, e.target.value])
+        this.$emit("input", [...this.value, e.target.value]);
       }
       if (!e.target.checked) {
-        var index = this.value.indexOf(e.target.value)
-        if (index !== -1) this.value.splice(index, 1)
-        this.$emit('input', [...this.value])
+        var index = this.value.indexOf(e.target.value);
+        if (index !== -1) this.value.splice(index, 1);
+        this.$emit("input", [...this.value]);
       }
     },
     onCheckValue(val) {
-      const found = this.value.filter(v => v == val)
-      return found.length >= 1
+      const found = this.value.filter(v => v == val);
+      return found.length >= 1;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 .checkbox {
   font-family: $font;
@@ -47,7 +52,7 @@ export default {
   margin-bottom: calc(#{$margin}/ 2);
   cursor: pointer;
   font-size: 16px;
-  color: $primary-very-dark;
+  color: $title-color;
 
   input {
     position: absolute;
@@ -67,18 +72,18 @@ export default {
     left: 0;
     height: 100%;
     width: 24px;
-    border: 2px solid $primary-very-light;
+    border: 2px solid $primary-light;
     border-radius: 3px;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       display: none;
       left: 7px;
       top: 1px;
       width: 6px;
       height: 15px;
-      border: solid $primary-light;
+      border: solid $lavender;
       border-width: 0 1.5px 1.5px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);

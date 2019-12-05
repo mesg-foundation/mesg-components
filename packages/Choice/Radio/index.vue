@@ -20,30 +20,30 @@
 
 <script>
 export default {
-  name: 'Radio',
-  props: ['value', 'options'],
+  name: "Radio",
+  props: ["value", "options"],
   methods: {
     checkValue(value) {
-      return this.value === value
+      return this.value === value;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@mesg-components/theme/_variables';
+@import "@mesg-components/theme/_variables";
 
 .radio {
   margin: 0.5rem;
-  input[type='radio'] {
+  input[type="radio"] {
     position: absolute;
     opacity: 0;
     + .radio-label {
       &:before {
-        content: '';
-        background: $light-grey;
+        content: "";
+        background: $grey-light;
         border-radius: 100%;
-        border: 1px solid darken($light-grey, 25%);
+        border: 1px solid darken($grey-light, 25%);
         display: inline-block;
         width: 1.4em;
         height: 1.4em;
@@ -59,8 +59,8 @@ export default {
     &:checked {
       + .radio-label {
         &:before {
-          background-color: $primary-very-light;
-          box-shadow: inset 0 0 0 4px $light-grey;
+          background-color: $primary-light;
+          box-shadow: inset 0 0 0 4px $grey-light;
         }
       }
     }
@@ -68,16 +68,16 @@ export default {
       + .radio-label {
         &:before {
           outline: none;
-          border-color: $primary-very-light;
+          border-color: $primary-light;
         }
       }
     }
     &:disabled {
       + .radio-label {
         &:before {
-          box-shadow: inset 0 0 0 4px $light-grey;
-          border-color: darken($light-grey, 25%);
-          background: darken($light-grey, 25%);
+          box-shadow: inset 0 0 0 4px $grey-light;
+          border-color: darken($grey-light, 25%);
+          background: darken($grey-light, 25%);
         }
       }
     }
