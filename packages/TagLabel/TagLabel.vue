@@ -1,5 +1,5 @@
 <template>
-  <span :class="[`type--${type}`, `size--${size}`]">
+  <span :class="[`color--${color}`, `size--${size}`]">
     <slot />
   </span>
 </template>
@@ -8,7 +8,7 @@
 export default {
   name: "TagLabel",
   props: {
-    type: {
+    color: {
       type: String,
       default: "default"
     },
@@ -43,22 +43,22 @@ span {
 }
 
 // Type
-.type--default {
+.color--default {
   color: $blue;
   background-color: $blue-light;
 }
 
-.type--orange {
+.color--orange {
   color: $orange;
   background-color: $orange-light;
 }
 
-.type--green {
+.color--green {
   color: $green;
   background-color: $green-light;
 }
 
-.type--purple {
+.color--purple {
   color: $purple;
   background-color: $purple-light;
 }
