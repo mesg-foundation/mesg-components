@@ -1,6 +1,6 @@
 {
   "name": "@mesg-components/tag-label",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },

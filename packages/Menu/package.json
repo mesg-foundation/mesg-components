@@ -1,11 +1,11 @@
 {
   "name": "@mesg-components/menu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@mesg-components/theme": "file:../Theme",
-    "@mesg-components/button": "file:../Button"
+    "@mesg-components/button": "file:../Button",
+    "@mesg-components/theme": "file:../Theme"
   }
 }
