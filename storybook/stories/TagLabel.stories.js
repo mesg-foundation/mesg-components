@@ -20,20 +20,20 @@ storiesOf('Tag label', module)
     components: { Tag },
     template: `
     <div class="container">
-      <Tag color="orange">Tag orange</Tag>
+      <Tag type="orange">Tag orange</Tag>
     </div>`
   }))
   .add('Tag green', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag color="green">Tag green</Tag>
+      <Tag type="green">Tag green</Tag>
     </div>`
   }))
   .add('Tag purple', () => ({
     components: { Tag },
     template: `
     <div class="container">
-      <Tag color="purple">Tag purple</Tag>
+      <Tag type="purple">Tag purple</Tag>
     </div>`
   }))
