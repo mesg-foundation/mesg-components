@@ -53,9 +53,9 @@ export default {
         return null;
       }
       if (this.isExternalLink) {
-        return "far fa-external-link";
+        return "fal fa-external-link";
       }
-      return "fa fa-arrow-right";
+      return "fal fa-long-arrow-alt-right";
     }
   }
 };
@@ -83,10 +83,8 @@ button {
 }
 
 i {
-  font-size: 1em;
-  font-weight: bold;
-  text-align: center;
-  padding-right: 0.5em;
+  font-size: 17px;
+  padding-right: calc(#{$margin} / 4);
 }
 
 .btn--primary {
