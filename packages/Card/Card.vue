@@ -35,25 +35,22 @@ export default {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .card.bordered {
-  border: solid 1px $primary-light;
+  border: solid 1px $lavender-light;
   border-bottom-width: 6px;
   border-bottom-color: $primary;
   box-shadow: none;
+  transition: 0.1s ease-in;
   &:hover {
-    transition: 0.2s ease;
-    border: solid 1px $primary;
-    border-bottom-width: 6px;
-    border-bottom-color: $primary;
-    box-shadow: 0 0 0 1px $primary inset;
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
   }
 }
 .card.bordered.thin {
-  border: solid 2px transparent;
-  box-shadow: 0 0 0 1px $primary-light inset;
-}
-.card.bordered.thin:hover {
-  transition: 0.2s ease;
-  border-color: $primary;
-  box-shadow: none;
+  border: solid 1px $lavender-light;
+  transition: 0.1s ease-in;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  }
 }
 </style>
