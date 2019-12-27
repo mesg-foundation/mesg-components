@@ -25,16 +25,16 @@ storiesOf('SideMenu', module)
     <div style="min-height: 5000px;background: linear-gradient(0deg, rgba(0,0,0, .5), transparent);">      
       <Sider :items="items">
         <template v-slot:general="{ item }">
-          <a :href="item.href" class="link-secondary">        
-              <i class="far fa-chevron-right"></i>
-              <span>Custom general</span>
+          <a :href="item.href">        
+              <i class="fal fa-chevron-right"></i>
+              Custom general
             </a>  
           </template>
 
           <template v-slot:businesss="{ item }">
-            <a :href="item.href" class="link-secondary">        
-              <i class="far fa-chevron-right"></i>
-              <span>Custom Business</span>
+            <a :href="item.href">        
+              <i class="fal fa-chevron-right"></i>
+              Custom Business
             </a>  
           </template>
       </Sider>           
