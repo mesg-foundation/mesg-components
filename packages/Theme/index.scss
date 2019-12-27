@@ -98,14 +98,18 @@ a {
   text-decoration: none;
 }
 
+.link {
+  transition: 0.1s ease-in;
+}
 .link:hover {
   text-decoration: underline;
-  transition: 0.1s ease;
 }
 
+.link-secondary {
+  transition: 0.1s ease-in;
+}
 .link-secondary:hover {
   opacity: 0.7;
-  transition: 0.1s ease;
 }
 
 .text-center {
