@@ -140,7 +140,6 @@ a:hover {
 @media only screen and (max-width: $tablet-breakpoint) {
   #footer {
     padding: calc(#{$margin} * 2);
-    padding-top: 0;
   }
   .container {
     padding: 0;
@@ -149,10 +148,13 @@ a:hover {
 
 @media only screen and (max-width: $mobile-breakpoint) {
   img {
-    margin-top: calc(#{$margin} * 2);
+    margin-top: $margin;
   }
   li {
     margin-bottom: $margin !important;
+    &:last-child {
+      margin-bottom: $margin !important;
+    }
   }
 }
 </style>
