@@ -73,13 +73,13 @@ label {
       font-size: 15px;
       padding: 15px $margin;
       border-radius: 3px;
-      border: solid 1px $primary-light;
+      border: solid 1px $lavender-light;
       background-color: $white;
       width: 100%;
       margin-top: $margin;
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 1px $primary-light inset;
+        box-shadow: 0 0 0 1px $lavender-light inset;
       }
     }
   }

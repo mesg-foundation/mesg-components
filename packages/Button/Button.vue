@@ -80,20 +80,18 @@ button {
   padding-right: 2em;
   text-decoration: none;
   display: inline-block;
+  i {
+    font-size: 17px;
+    padding-right: calc(#{$margin} / 4);
+  }
 }
-
-i {
-  font-size: 17px;
-  padding-right: calc(#{$margin} / 4);
-}
-
 .btn--primary {
   color: $white;
   background-color: $primary;
-}
-.btn--primary:hover {
-  background-color: $primary-dark;
-  transition: 0.2s ease;
+  transition: 0.1s ease-in;
+  &:hover {
+    background-color: $primary-dark;
+  }
 }
 
 .btn--small {
@@ -109,41 +107,41 @@ i {
   border-radius: 0;
   padding-left: 0;
   padding-right: 0;
-}
-.btn--secondary::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: $primary;
-  transform-origin: bottom right;
-  transform: scaleX(0);
-  transition: transform 0.5s ease;
-}
-.btn--secondary:hover::before {
-  transform-origin: bottom left;
-  transform: scaleX(1);
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: $primary;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  &:hover:before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
 }
 
 .btn--white {
   color: $primary;
   background-color: $white;
-}
-.btn--white:hover {
-  transition: 0.2s ease;
-  background-color: $grey-light;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease-in;
+  &:hover {
+    background-color: $grey-light;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+  }
 }
 
 .btn--outline {
   color: $primary;
   border: solid 1px $primary;
-}
-.btn--outline:hover {
-  transition: 0.2s ease;
-  box-shadow: 0 0 0 1px $primary inset;
+  transition: 0.1s ease-in;
+  &:hover {
+    box-shadow: 0 0 0 1px $primary inset;
+  }
 }
 
 @media only screen and (max-width: $mobile-breakpoint) {
