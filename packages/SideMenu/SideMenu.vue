@@ -43,8 +43,12 @@ nav {
     color: $text-color;
     transition: 0.1s ease-in;
     &:hover {
-      color: $primary;
-      font-weight: bold;
+      color: $title-color;
+      i {
+        color: $primary;
+        font-weight: bold;
+        left: 2px;
+      }
     }
     i {
       position: relative;
