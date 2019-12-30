@@ -8,7 +8,7 @@
               <img v-if="isImage" :src="banner" alt=" " />
               <h2 v-else>{{ banner }}</h2>
             </a>
-            <p v-if="copyright" class="copyright" mb2>{{ copyright }}</p>
+            <span v-if="copyright" class="copyright" mb2>{{ copyright }}</span>
             <a v-if="policy" :href="policy.link" class="policy" mb2>{{ policy.text }}</a>
             <div v-if="icons" flex space-between wrap>
               <a v-for="(icon, i) in icons" :key="i" :href="icon.to" target="_blank" class="icon">
@@ -57,7 +57,7 @@ export default {
 @import "@mesg-components/theme/_structure";
 
 #footer {
-  padding: calc(#{$margin}* 3);
+  padding: calc(#{$margin}* 2);
   background-color: $grey-light;
 }
 
@@ -67,10 +67,6 @@ nav {
   }
   img {
     height: 40px;
-    &:hover {
-      opacity: 0.7;
-      transition: 0.1s ease;
-    }
   }
   .copyright {
     font-size: 12px;
@@ -91,23 +87,59 @@ nav {
     color: $text-color;
   }
   .icon {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     color: $text-color;
+    transition: 0.1s ease-in;
     &:hover {
-      opacity: 0.7;
-      transition: 0.1s ease;
+      color: $title-color;
+      font-weight: normal;
     }
   }
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  li {
+    height: fit-content;
+    margin-bottom: calc(#{$margin} / 2) !important;
+    .category {
+      font-size: 17px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $title-color;
+      display: inline;
+    }
+    a {
+      font-size: 15px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      padding: 0;
+      color: $text-color;
+      transition: 0.1s ease-in;
+    }
+  }
+}
+
+a:hover {
+  color: $title-color;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: $tablet-breakpoint) {
   #footer {
     padding: calc(#{$margin} * 2);
-    padding-top: 0;
   }
   .container {
     padding: 0;
@@ -116,10 +148,13 @@ nav {
 
 @media only screen and (max-width: $mobile-breakpoint) {
   img {
-    margin-top: calc(#{$margin} * 2);
+    margin-top: $margin;
   }
   li {
-    margin-bottom: $margin;
+    margin-bottom: $margin !important;
+    &:last-child {
+      margin-bottom: $margin !important;
+    }
   }
 }
 </style>
