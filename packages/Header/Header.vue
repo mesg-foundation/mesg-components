@@ -1,14 +1,23 @@
 <template>
-  <div class="header">
-    <div class="container header-box">
-      <div class="title-box" :class="{ w50: !!image }">
-        <h1>{{ title }}</h1>
-        <slot>
-          <p>{{ description }}</p>
+  <div id="header">
+    <div v-if="image || $slots.image" class="container header-box">
+      <div class="title-box-image" half>
+        <slot name="top" />
+        <h1 v-html="title"></h1>
+        <p v-html="description"></p>
+        <slot v-if="$slots.default" />
+      </div>
+      <div half>
+        <slot name="image">
+          <img :src="image" :alt="title" />
         </slot>
       </div>
-      <div v-if="image" :class="{ w50: !!image }">
-        <img :src="image" alt="MESG" />
+    </div>
+    <div v-else class="container header-box">
+      <div>
+        <h1 v-html="title"></h1>
+        <p v-html="description"></p>
+        <slot v-if="$slots.default" />
       </div>
     </div>
   </div>
@@ -19,7 +28,7 @@ export default {
   name: "Header",
   props: {
     title: { type: String, required: true },
-    description: { type: String },
+    description: { type: String, required: true },
     image: { type: String }
   }
 };
@@ -28,60 +37,48 @@ export default {
 <style lang="scss" scoped>
 @import "@mesg-components/theme/_variables";
 
-.header {
+#header {
   position: relative;
   padding: calc(#{$margin} * 4) 0;
   margin-bottom: calc(#{$margin} * 4);
-}
-.header::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: calc(100% + 200px);
-  background-image: linear-gradient(to top, $grey-light, $white);
-  transform: translateY(-35%) skewY(-8deg);
-  z-index: -1;
-}
-.header-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-.w50 {
-  width: 50%;
-  max-width: 50%;
-}
-
-.title-box {
-  h1 {
-    margin-bottom: $margin;
-  }
-  p {
-    margin-bottom: calc(#{$margin} * 2);
-  }
-}
-
-p {
-  font-size: 20px;
-}
-img {
-  height: auto;
-  max-height: calc(#{$width} / 2);
-}
-@media only screen and (max-width: $mobile-breakpoint) {
-  .header::before {
-    height: calc(100% + 400px);
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 200px);
+    background-image: linear-gradient(to top, $grey-light, $white);
+    transform: translateY(-35%) skewY(-8deg);
+    z-index: -1;
   }
   .header-box {
-    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      margin-bottom: $margin;
+    }
+    p {
+      font-size: 20px;
+    }
+    img {
+      height: auto;
+      max-height: calc(#{$width} / 2);
+    }
   }
-  .w50 {
-    width: 100%;
-    max-width: 100%;
-  }
-  img {
-    margin-bottom: calc(#{$margin} * 2) !important;
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+  #header {
+    &:before {
+      height: calc(100% + 400px);
+    }
+    .header-box {
+      flex-direction: column-reverse;
+      img {
+        margin-bottom: calc(#{$margin} * 2);
+      }
+    }
   }
 }
 </style>
