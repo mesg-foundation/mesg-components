@@ -4,10 +4,10 @@
       <div flex row space-between align-center>
         <div>
           <nuxt-link v-if="isNuxt" to="/">
-            <img :src="logo" alt />
+            <img :src="logo" alt="MESG" />
           </nuxt-link>
           <a v-else href="/">
-            <img :src="logo" alt />
+            <img :src="logo" alt="MESG" />
           </a>
         </div>
         <a @click="open = !open" class="burger" hidden-desktop>
@@ -88,6 +88,9 @@ nav {
       opacity: 0.7;
       transition: 0.1s ease;
     }
+  }
+  ul {
+    margin-left: 0;
   }
   li {
     margin-right: 0;
