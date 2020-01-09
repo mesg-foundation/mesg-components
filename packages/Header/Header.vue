@@ -3,7 +3,7 @@
     <div v-if="image || $slots.image" class="container header-box">
       <div class="title-box-image" half>
         <slot name="top" />
-        <h1 v-html="title"></h1>
+        <h1>{{ title }}</h1>
         <p v-html="description"></p>
         <slot v-if="$slots.default" />
       </div>
@@ -15,7 +15,7 @@
     </div>
     <div v-else class="container header-box">
       <div>
-        <h1 v-html="title"></h1>
+        <h1>{{ title}}</h1>
         <p v-html="description"></p>
         <slot v-if="$slots.default" />
       </div>
