@@ -26,7 +26,11 @@
             :class="`${item.subMenu ? 'drop-down' : ''}`"
           >
             <Button v-if="item.type === 'button'" primary small :href="item.to">{{ item.text }}</Button>
-            <nuxt-link v-else-if="isNuxt && !item.subMenu" :to="item.to">{{item.text}}</nuxt-link>
+            <nuxt-link
+              v-else-if="isNuxt && !item.subMenu"
+              :to="item.to"
+              class="top-menu"
+            >{{item.text}}</nuxt-link>
             <a v-else :href="item.to" class="top-menu">
               {{ item.text }}
               <i v-if="item.subMenu" class="far fa-angle-down" />
