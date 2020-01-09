@@ -14,12 +14,11 @@ storiesOf('Header', module)
       image
     })
   }))
-  .add('Header with a slot to describe', () => ({
+  .add('Header with a slot', () => ({
     components: { Header, Button },
     template: `
-    <Header :title="title" :image="image">
-      <p>{{description}}</p>
-      <Button primary>xxx</Button>
+    <Header :title="title" :description="description" :image="image">
+      <Button primary mt2>xxx</Button>
     </Header>`,
     data: () => ({
       title: 'The builders’ open economy',
@@ -30,9 +29,8 @@ storiesOf('Header', module)
   .add('No picture, header in full width', () => ({
     components: { Header, Button },
     template: `
-    <Header :title="title">
-      <p>{{description}}</p>
-      <Button primary>xxx</Button>
+    <Header :title="title" :description="description">
+      <Button primary mt2>xxx</Button>
     </Header>`,
     data: () => ({
       title: 'The builders’ open economy',
