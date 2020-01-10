@@ -6,6 +6,8 @@
 #### Improvements
 #### Bug fixes
 
+- [#103](https://github.com/mesg-foundation/mesg-components/pull/103) Fixed margin/padding responsive issue.
+
 ## v2.0.0
 
 #### Breaking Changes

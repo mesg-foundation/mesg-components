@@ -68,10 +68,19 @@ export default {
     }
   }
 }
+
+@media only screen and (max-width: $tablet-breakpoint) {
+  #header {
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+
 @media only screen and (max-width: $mobile-breakpoint) {
   #header {
+    margin-bottom: calc(#{$margin} * 2);
     &:before {
-      height: calc(100% + 400px);
+      height: calc(100% + 450px);
     }
     .header-box {
       flex-direction: column-reverse;
