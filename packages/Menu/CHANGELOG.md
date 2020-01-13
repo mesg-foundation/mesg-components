@@ -6,6 +6,8 @@
 #### Improvements
 #### Bug fixes
 
+- [#104](https://github.com/mesg-foundation/mesg-components/pull/104) Switch BTN CTA to nuxt-link.
+
 ## v1.0.5
 
 #### Bug fixes
