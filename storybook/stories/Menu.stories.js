@@ -28,7 +28,7 @@ const items = [
   { text: 'Showcase', to: '/showcase' },
   { text: 'Contributions', to: '/contributions' },
   { text: 'Token', to: '/token' },
-  { text: 'Get Started', to: 'https://docs.mesg.com/guide/quick-start-guide.html', type: 'button' }
+  { text: 'Get Started', to: '/get-started', type: 'button' }
 ]
 
 storiesOf('Menu', module)
