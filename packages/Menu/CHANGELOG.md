@@ -6,6 +6,11 @@
 #### Improvements
 #### Bug fixes
 
+## v1.0.7
+
+#### Bug fixes
+
+- [#105](https://github.com/mesg-foundation/mesg-components/pull/105) Fix button with external links
 
 ## v1.0.6
 

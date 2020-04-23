@@ -25,7 +25,13 @@
             :column="!!item.subMenu"
             :class="`${item.subMenu ? 'drop-down' : ''}`"
           >
-            <Button v-if="item.type === 'button'" primary small :to="item.to">{{ item.text }}</Button>
+            <Button
+              v-if="item.type === 'button'"
+              primary
+              small
+              :to="isExternalLink(item.to) ? null : item.to"
+              :href="isExternalLink(item.to) ? item.to : null"
+            >{{ item.text }}</Button>
             <nuxt-link
               v-else-if="isNuxt && !item.subMenu"
               :to="item.to"
