@@ -33,7 +33,7 @@
               :href="isExternalLink(item.to) ? item.to : null"
             >{{ item.text }}</Button>
             <nuxt-link
-              v-else-if="isNuxt && !item.subMenu"
+              v-else-if="isNuxt && !item.subMenu && !isExternalLink(item.to)"
               :to="item.to"
               class="top-menu"
             >{{item.text}}</nuxt-link>
