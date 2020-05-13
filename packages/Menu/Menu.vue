@@ -37,7 +37,7 @@
               :to="item.to"
               class="top-menu"
             >{{item.text}}</nuxt-link>
-            <a v-else :href="item.to" class="top-menu">
+            <a v-else :href="item.to" target="_blank" class="top-menu">
               {{ item.text }}
               <i v-if="item.subMenu" class="far fa-angle-down" />
             </a>

@@ -6,6 +6,12 @@
 #### Improvements
 #### Bug fixes
 
+## v1.0.9
+
+#### Bug fixes
+
+- [#107](https://github.com/mesg-foundation/mesg-components/pull/107) Add target blank for external links
+
 ## v1.0.8
 
 #### Bug fixes
